@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { FileText } from "@phosphor-icons/react"
+import { FileTextIcon, InfoIcon } from "@phosphor-icons/react"
 
 import { getCatalogNavGroups } from "@/features/catalog/constants/components"
 import { getCatalogNavIcon } from "@/features/catalog/constants/nav-icons"
@@ -77,6 +77,8 @@ function CatalogSidebarNav() {
 }
 
 export function CatalogSidebar() {
+  const pathname = usePathname()
+
   return (
     <Sidebar
       collapsible="icon"
@@ -113,11 +115,23 @@ export function CatalogSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
+              tooltip="Inspiration"
+              isActive={pathname === "/inspiration"}
+              render={<Link href="/inspiration" />}
+              className="font-medium"
+            >
+              <InfoIcon weight={iconWeight} />
+              <span>Inspiration</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
               tooltip="AGENTS.md"
+              isActive={pathname === "/agents"}
               render={<Link href="/agents" />}
               className="font-medium"
             >
-              <FileText weight={iconWeight} />
+              <FileTextIcon weight={iconWeight} />
               <span>AGENTS.md</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

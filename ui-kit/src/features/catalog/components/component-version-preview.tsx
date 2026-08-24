@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUpRight } from "@phosphor-icons/react"
+import { ArrowUpRightIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import {
@@ -37,7 +37,7 @@ export function VersionPreview({ slug, versionId }: VersionPreviewProps) {
     if (versionId === "squircle") {
       return (
         <Button size="sm" shape="squircle">
-          <ArrowUpRight weight={iconWeight} />
+          <ArrowUpRightIcon weight={iconWeight} />
           Get started
         </Button>
       )
@@ -46,7 +46,7 @@ export function VersionPreview({ slug, versionId }: VersionPreviewProps) {
     if (versionId === "accent") {
       return (
         <Button size="sm" shape="squircle" className={accentButtonClass}>
-          <ArrowUpRight weight={iconWeight} />
+          <ArrowUpRightIcon weight={iconWeight} />
           Get started
         </Button>
       )

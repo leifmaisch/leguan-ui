@@ -1,10 +1,10 @@
 "use client"
 
 import {
-  ArrowUpRight,
-  Check,
-  Circle,
-  WarningCircle,
+  ArrowUpRightIcon,
+  CheckIcon,
+  CircleIcon,
+  WarningCircleIcon,
 } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
@@ -53,9 +53,11 @@ function NormalCard() {
 function BlogStyleCard({
   featured = false,
   compact = false,
+  stretch = false,
 }: {
   featured?: boolean
   compact?: boolean
+  stretch?: boolean
 }) {
   const badge = featured ? "Product" : "Guide"
   const title = featured
@@ -67,11 +69,11 @@ function BlogStyleCard({
   const author = featured ? "Maya Chen" : "Jordan Lee"
 
   return (
-    <Card className="flex h-full w-full flex-col gap-0 bg-muted/50 p-2">
-      <div className="flex flex-1 flex-col">
+    <Card className="flex h-full w-full min-h-0 flex-col gap-0 bg-muted/50 p-2">
+      <div className="flex min-h-0 flex-1 flex-col">
         <div
           className={cn(
-            "relative flex flex-1 flex-col overflow-hidden rounded-squircle-lg border",
+            "relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-squircle-lg border",
             compact ? "p-4" : "p-6",
             featured
               ? "border-primary/35 bg-primary/5"
@@ -108,7 +110,7 @@ function BlogStyleCard({
         <p
           className={cn(
             "relative mt-2 text-sm leading-relaxed text-muted-foreground",
-            compact ? "line-clamp-2" : "line-clamp-3"
+            compact ? "line-clamp-2" : stretch ? "" : "line-clamp-3"
           )}
         >
           {description}
@@ -116,16 +118,28 @@ function BlogStyleCard({
         </div>
       </div>
       {compact ? null : (
-      <div className="flex items-center justify-between gap-3 px-3 pb-1 pt-3">
+      <div
+        className={cn(
+          "flex shrink-0 items-center justify-between gap-3 px-3 pb-1 pt-3",
+          stretch && "mt-auto"
+        )}
+      >
         <div className="min-w-0">
-          <p className="truncate text-sm font-medium">{author}</p>
+          <p
+            className={cn(
+              "text-sm font-medium",
+              !stretch && "truncate"
+            )}
+          >
+            {author}
+          </p>
           {featured ? (
             <p className="truncate text-xs text-muted-foreground">
               Aug 12, 2026 · 6 min read
             </p>
           ) : null}
         </div>
-        <ArrowUpRight
+        <ArrowUpRightIcon
           weight={iconWeight}
           className="size-5 shrink-0 text-primary"
         />
@@ -192,7 +206,7 @@ function CreateWorkspaceCard({ compact = false }: { compact?: boolean }) {
       {compact ? null : (
       <FrameFooter>
         <div className="flex gap-1.5 text-xs text-muted-foreground">
-          <WarningCircle weight={iconWeight} className="size-3.5 shrink-0" />
+          <WarningCircleIcon weight={iconWeight} className="size-3.5 shrink-0" />
           <p>Verify your email to finish setup.</p>
         </div>
       </FrameFooter>
@@ -249,12 +263,12 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
             )}
           >
             {step.done ? (
-              <Check
+              <CheckIcon
                 weight={iconWeight}
                 className="mt-0.5 size-4 shrink-0 text-primary"
               />
             ) : (
-              <Circle
+              <CircleIcon
                 weight={iconWeight}
                 className="mt-0.5 size-4 shrink-0 text-muted-foreground/60"
               />
@@ -296,7 +310,7 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
         <p className="text-xs text-muted-foreground">About 10 minutes</p>
         <Button variant="outline" size="sm">
           Browse catalog
-          <ArrowUpRight weight={iconWeight} />
+          <ArrowUpRightIcon weight={iconWeight} />
         </Button>
       </CardFooter>
       )}

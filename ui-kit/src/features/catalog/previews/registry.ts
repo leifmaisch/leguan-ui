@@ -6,6 +6,7 @@ import { AvatarsPreview } from "./avatars-preview"
 import { BadgesPreview } from "./badges-preview"
 import { ButtonsPreview } from "./buttons-preview"
 import { CardsPreview } from "./cards-preview"
+import { CodePreview } from "./code-preview"
 import { DialogPreview } from "./dialog-preview"
 import { DropdownMenuPreview } from "./dropdown-menu-preview"
 import { EmptyStatePreview } from "./empty-state-preview"
@@ -37,6 +38,7 @@ export const componentPreviewRegistry: Record<
   inputs: InputsPreview,
   "form-controls": FormControlsPreview,
   cards: CardsPreview,
+  code: CodePreview,
   alerts: AlertsPreview,
   tabs: TabsPreview,
   avatars: AvatarsPreview,

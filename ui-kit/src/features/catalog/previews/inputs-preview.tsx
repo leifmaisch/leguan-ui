@@ -1,4 +1,4 @@
-import { MagnifyingGlass } from "@phosphor-icons/react"
+import { MagnifyingGlassIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Input } from "@/components/ui/input"
@@ -15,7 +15,7 @@ export function InputsPreview() {
       <div className="space-y-2">
         <Label htmlFor="search">Search</Label>
         <div className="relative">
-          <MagnifyingGlass
+          <MagnifyingGlassIcon
             weight={iconWeight}
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"

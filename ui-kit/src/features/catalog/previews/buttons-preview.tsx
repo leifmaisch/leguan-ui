@@ -1,12 +1,12 @@
 import {
-  ArrowUpRight,
-  CircleNotch,
-  DownloadSimple,
-  EnvelopeSimple,
-  MagnifyingGlass,
-  Plus,
-  Sparkle,
-  Star,
+  ArrowUpRightIcon,
+  CircleNotchIcon,
+  DownloadSimpleIcon,
+  EnvelopeSimpleIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+  SparkleIcon,
+  StarIcon,
 } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
@@ -110,13 +110,13 @@ export function ButtonsPreview() {
           Destructive
         </Button>
         <Button shape="squircle" size="icon" aria-label="Search">
-          <MagnifyingGlass weight={iconWeight} />
+          <MagnifyingGlassIcon weight={iconWeight} />
         </Button>
         <Button shape="squircle" size="icon-sm" aria-label="Add">
-          <Plus weight={iconWeight} />
+          <PlusIcon weight={iconWeight} />
         </Button>
         <Button shape="squircle" size="icon-lg" aria-label="Star">
-          <Star weight={iconWeight} />
+          <StarIcon weight={iconWeight} />
         </Button>
       </div>
       <Separator className="my-6" />
@@ -126,34 +126,34 @@ export function ButtonsPreview() {
         <Button size="default">Default</Button>
         <Button size="lg">Large</Button>
         <Button size="icon-xs" aria-label="Search">
-          <MagnifyingGlass weight={iconWeight} />
+          <MagnifyingGlassIcon weight={iconWeight} />
         </Button>
         <Button size="icon" aria-label="Search">
-          <MagnifyingGlass weight={iconWeight} />
+          <MagnifyingGlassIcon weight={iconWeight} />
         </Button>
         <Button size="icon-sm" aria-label="Add">
-          <Plus weight={iconWeight} />
+          <PlusIcon weight={iconWeight} />
         </Button>
         <Button size="icon-lg" aria-label="Star">
-          <Star weight={iconWeight} />
+          <StarIcon weight={iconWeight} />
         </Button>
       </div>
       <Separator className="my-6" />
       <div className="flex flex-wrap items-center gap-3">
         <Button>
-          <EnvelopeSimple weight={iconWeight} />
+          <EnvelopeSimpleIcon weight={iconWeight} />
           Login with Email
         </Button>
         <Button shape="squircle">
-          <ArrowUpRight weight={iconWeight} />
+          <ArrowUpRightIcon weight={iconWeight} />
           Launch
         </Button>
         <Button variant="outline">
-          <Sparkle weight={iconWeight} />
+          <SparkleIcon weight={iconWeight} />
           Upgrade
         </Button>
         <Button disabled>
-          <CircleNotch weight={iconWeight} className="animate-spin" />
+          <CircleNotchIcon weight={iconWeight} className="animate-spin" />
           Loading
         </Button>
         <Button variant="secondary" disabled>
@@ -163,7 +163,7 @@ export function ButtonsPreview() {
       <Separator className="my-6" />
       <div className="flex flex-wrap items-center gap-3">
         <Button shape="squircle" className={accentFilled.yellow}>
-          <ArrowUpRight weight={iconWeight} />
+          <ArrowUpRightIcon weight={iconWeight} />
           Get started
         </Button>
         <Button shape="squircle" className={accentFilled.blue}>
@@ -173,7 +173,7 @@ export function ButtonsPreview() {
           Ocean
         </Button>
         <Button shape="squircle" className={accentFilled.green}>
-          <DownloadSimple weight={iconWeight} />
+          <DownloadSimpleIcon weight={iconWeight} />
           Export
         </Button>
         <Button shape="squircle" className={accentFilled.purple}>
@@ -206,10 +206,10 @@ export function ButtonsPreview() {
           aria-label="Add"
           className={accentFilled.yellow}
         >
-          <Plus weight={iconWeight} />
+          <PlusIcon weight={iconWeight} />
         </Button>
         <Button shape="squircle" size="icon" aria-label="Search" className={accentFilled.blue}>
-          <MagnifyingGlass weight={iconWeight} />
+          <MagnifyingGlassIcon weight={iconWeight} />
         </Button>
       </div>
     </>

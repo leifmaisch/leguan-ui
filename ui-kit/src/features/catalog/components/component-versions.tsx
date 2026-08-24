@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, Copy } from "@phosphor-icons/react"
+import { CheckIcon, CopyIcon } from "@phosphor-icons/react"
 import { useState } from "react"
 
 import { iconWeight } from "@/components/shared"
@@ -42,9 +42,9 @@ function CompactCode({ usage, code }: { usage: string; code: string }) {
         aria-label="Copy code"
       >
         {copied ? (
-          <Check weight={iconWeight} />
+          <CheckIcon weight={iconWeight} />
         ) : (
-          <Copy weight={iconWeight} />
+          <CopyIcon weight={iconWeight} />
         )}
       </Button>
     </div>

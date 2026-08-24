@@ -36,7 +36,7 @@ export function SummaryCard() {
     description:
       "Highlighted editorial card with a featured badge, gradient surface, and author metadata.",
     filename: "featured-blog-card.tsx",
-    code: `import { ArrowUpRight } from "@phosphor-icons/react"
+    code: `import { ArrowUpRightIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Badge } from "@/components/ui/badge"
@@ -74,7 +74,7 @@ export function FeaturedBlogCard() {
             Aug 12, 2026 · 6 min read
           </p>
         </div>
-        <ArrowUpRight weight={iconWeight} className="size-5 shrink-0 text-primary" />
+        <ArrowUpRightIcon weight={iconWeight} className="size-5 shrink-0 text-primary" />
       </div>
     </Card>
   )
@@ -85,7 +85,7 @@ export function FeaturedBlogCard() {
     label: "Blog card",
     description: "Compact editorial card for guides and secondary posts.",
     filename: "blog-card.tsx",
-    code: `import { ArrowUpRight } from "@phosphor-icons/react"
+    code: `import { ArrowUpRightIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Badge } from "@/components/ui/badge"
@@ -113,7 +113,7 @@ export function BlogCard() {
         <div className="min-w-0">
           <p className="truncate text-sm font-medium">Jordan Lee</p>
         </div>
-        <ArrowUpRight weight={iconWeight} className="size-5 shrink-0 text-primary" />
+        <ArrowUpRightIcon weight={iconWeight} className="size-5 shrink-0 text-primary" />
       </div>
     </Card>
   )
@@ -124,7 +124,7 @@ export function BlogCard() {
     label: "Workspace form",
     description: "Sign-up card wrapped in a frame with a footer note.",
     filename: "workspace-signup-card.tsx",
-    code: `import { WarningCircle } from "@phosphor-icons/react"
+    code: `import { WarningCircleIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Button } from "@/components/ui/button"
@@ -166,7 +166,7 @@ export function WorkspaceSignupCard() {
       </Card>
       <FrameFooter>
         <div className="flex gap-1.5 text-xs text-muted-foreground">
-          <WarningCircle weight={iconWeight} className="size-3.5 shrink-0" />
+          <WarningCircleIcon weight={iconWeight} className="size-3.5 shrink-0" />
           <p>Verify your email to finish setup.</p>
         </div>
       </FrameFooter>
@@ -179,7 +179,7 @@ export function WorkspaceSignupCard() {
     label: "Quick start",
     description: "Progress checklist with steps, a callout, and footer actions.",
     filename: "quick-start-card.tsx",
-    code: `import { ArrowUpRight, Check, Circle } from "@phosphor-icons/react"
+    code: `import { ArrowUpRightIcon, CheckIcon, CircleIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Badge } from "@/components/ui/badge"
@@ -237,9 +237,9 @@ export function QuickStartCard() {
             )}
           >
             {step.done ? (
-              <Check weight={iconWeight} className="mt-0.5 size-4 shrink-0 text-primary" />
+              <CheckIcon weight={iconWeight} className="mt-0.5 size-4 shrink-0 text-primary" />
             ) : (
-              <Circle weight={iconWeight} className="mt-0.5 size-4 shrink-0 text-muted-foreground/60" />
+              <CircleIcon weight={iconWeight} className="mt-0.5 size-4 shrink-0 text-muted-foreground/60" />
             )}
             <div className="min-w-0">
               <p className="text-sm font-medium">{step.title}</p>
@@ -273,7 +273,7 @@ export function QuickStartCard() {
         <p className="text-xs text-muted-foreground">About 10 minutes</p>
         <Button variant="outline" size="sm">
           Browse catalog
-          <ArrowUpRight weight={iconWeight} />
+          <ArrowUpRightIcon weight={iconWeight} />
         </Button>
       </CardFooter>
     </Card>

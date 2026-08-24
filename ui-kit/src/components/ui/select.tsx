@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Select as SelectPrimitive } from "@base-ui/react/select"
 
-import { CaretDown, CaretUp, Check } from "@phosphor-icons/react"
+import { CaretDownIcon, CaretUpIcon, CheckIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { surfaceDepthInput } from "@/lib/surface-depth"
@@ -53,7 +53,7 @@ function SelectTrigger({
       {children}
       <SelectPrimitive.Icon
         render={
-          <CaretDown weight={iconWeight} className="pointer-events-none size-4 text-muted-foreground" />
+          <CaretDownIcon weight={iconWeight} className="pointer-events-none size-4 text-muted-foreground" />
         }
       />
     </SelectPrimitive.Trigger>
@@ -136,7 +136,7 @@ function SelectItem({
           <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />
         }
       >
-        <Check weight={iconWeight} className="pointer-events-none" />
+        <CheckIcon weight={iconWeight} className="pointer-events-none" />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   )
@@ -168,7 +168,7 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
-      <CaretUp weight={iconWeight} />
+      <CaretUpIcon weight={iconWeight} />
     </SelectPrimitive.ScrollUpArrow>
   )
 }
@@ -186,7 +186,7 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <CaretDown weight={iconWeight} />
+      <CaretDownIcon weight={iconWeight} />
     </SelectPrimitive.ScrollDownArrow>
   )
 }

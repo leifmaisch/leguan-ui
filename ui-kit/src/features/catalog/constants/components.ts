@@ -7,7 +7,6 @@ export type CatalogComponentGroup =
   | "Charts"
   | "Overlay"
   | "Feedback"
-  | "Leguan"
 
 export type CatalogComponentKind = "shadcn" | "custom"
 
@@ -101,6 +100,30 @@ export const catalogComponents: CatalogComponentMeta[] = [
     dependencies: ["input", "select", "button", "label"],
   },
   {
+    slug: "glow-card",
+    label: "Glow Card",
+    description: "Featured containers with subtle accent borders.",
+    group: "Display",
+    kind: "custom",
+    files: ["src/components/leguan/glow-card.tsx"],
+  },
+  {
+    slug: "stat-card",
+    label: "Stat Card",
+    description: "Display dashboard metrics with nested panels and deltas.",
+    group: "Display",
+    kind: "custom",
+    files: ["src/components/leguan/stat-card.tsx"],
+  },
+  {
+    slug: "empty-state",
+    label: "Empty State",
+    description: "Guide users when there is no content yet.",
+    group: "Display",
+    kind: "custom",
+    files: ["src/components/leguan/empty-state.tsx"],
+  },
+  {
     slug: "alerts",
     label: "Alert",
     description: "Display important messages and feedback.",
@@ -141,6 +164,18 @@ export const catalogComponents: CatalogComponentMeta[] = [
     files: ["src/components/ui/separator.tsx"],
   },
   {
+    slug: "code",
+    label: "Code",
+    description: "Syntax-highlighted blocks with copy, scroll, and file headers.",
+    group: "Display",
+    kind: "custom",
+    files: [
+      "src/components/leguan/code.tsx",
+      "src/components/ui/scroll-area.tsx",
+    ],
+    dependencies: ["button"],
+  },
+  {
     slug: "dialog",
     label: "Dialog",
     description: "Modal overlays for focused interactions.",
@@ -174,34 +209,10 @@ export const catalogComponents: CatalogComponentMeta[] = [
     files: ["src/components/ui/progress.tsx"],
   },
   {
-    slug: "stat-card",
-    label: "Stat Card",
-    description: "Display dashboard metrics with nested panels and deltas.",
-    group: "Leguan",
-    kind: "custom",
-    files: ["src/components/leguan/stat-card.tsx"],
-  },
-  {
-    slug: "empty-state",
-    label: "Empty State",
-    description: "Guide users when there is no content yet.",
-    group: "Leguan",
-    kind: "custom",
-    files: ["src/components/leguan/empty-state.tsx"],
-  },
-  {
-    slug: "glow-card",
-    label: "Glow Card",
-    description: "Featured containers with subtle accent borders.",
-    group: "Leguan",
-    kind: "custom",
-    files: ["src/components/leguan/glow-card.tsx"],
-  },
-  {
     slug: "status-indicator",
     label: "Status Indicator",
     description: "Compact presence and availability signals.",
-    group: "Leguan",
+    group: "Feedback",
     kind: "custom",
     files: ["src/components/leguan/status-indicator.tsx"],
   },

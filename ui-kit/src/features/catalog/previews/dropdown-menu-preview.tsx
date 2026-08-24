@@ -1,6 +1,6 @@
 "use client"
 
-import { CaretDown, Gear, SignOut, User } from "@phosphor-icons/react"
+import { CaretDownIcon, GearIcon, SignOutIcon, UserIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Button } from "@/components/ui/button"
@@ -19,22 +19,22 @@ export function DropdownMenuPreview() {
       <DropdownMenu>
         <DropdownMenuTrigger render={<Button variant="outline" />}>
           Open Menu
-          <CaretDown weight={iconWeight} />
+          <CaretDownIcon weight={iconWeight} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-48">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <User weight={iconWeight} />
+            <UserIcon weight={iconWeight} />
             Profile
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Gear weight={iconWeight} />
+            <GearIcon weight={iconWeight} />
             Settings
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem variant="destructive">
-            <SignOut weight={iconWeight} />
+            <SignOutIcon weight={iconWeight} />
             Sign out
           </DropdownMenuItem>
         </DropdownMenuContent>

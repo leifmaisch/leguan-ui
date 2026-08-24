@@ -2,7 +2,7 @@ import * as React from "react"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
 
-import { CaretRight, DotsThree } from "@phosphor-icons/react"
+import { CaretRightIcon, DotsThreeIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { cn } from "@/lib/utils"
@@ -87,7 +87,7 @@ function BreadcrumbSeparator({
       className={cn("[&>svg]:size-3.5", className)}
       {...props}
     >
-      {children ?? <CaretRight weight={iconWeight} />}
+      {children ?? <CaretRightIcon weight={iconWeight} />}
     </li>
   )
 }
@@ -107,7 +107,7 @@ function BreadcrumbEllipsis({
       )}
       {...props}
     >
-      <DotsThree weight={iconWeight} />
+      <DotsThreeIcon weight={iconWeight} />
       <span className="sr-only">More</span>
     </span>
   )

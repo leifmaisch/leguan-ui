@@ -23,7 +23,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Sidebar as SidebarIcon } from "@phosphor-icons/react"
+import { SidebarIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 

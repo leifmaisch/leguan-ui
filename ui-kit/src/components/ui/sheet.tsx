@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Dialog as SheetPrimitive } from "@base-ui/react/dialog"
 
-import { X } from "@phosphor-icons/react"
+import { XIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
 import { Button } from "@/components/ui/button"
@@ -72,7 +72,7 @@ function SheetContent({
               />
             }
           >
-            <X weight={iconWeight} />
+            <XIcon weight={iconWeight} />
             <span className="sr-only">Close</span>
           </SheetPrimitive.Close>
         )}

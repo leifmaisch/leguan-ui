@@ -1,6 +1,6 @@
 "use client"
 
-import { Palette } from "@phosphor-icons/react"
+import { PaletteIcon } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 
 import { iconWeight } from "@/components/shared/icon"
@@ -66,7 +66,7 @@ export function PrimaryColorSelect() {
       <PopoverContent className="w-56" align="end">
         <PopoverHeader>
           <PopoverTitle className="flex items-center gap-2">
-            <Palette weight={iconWeight} className="size-4" />
+            <PaletteIcon weight={iconWeight} className="size-4" />
             Primary color
           </PopoverTitle>
         </PopoverHeader>

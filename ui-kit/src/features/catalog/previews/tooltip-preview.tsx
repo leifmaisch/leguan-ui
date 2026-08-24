@@ -1,10 +1,10 @@
 "use client"
 
 import {
-  Info,
-  MagnifyingGlass,
-  Plus,
-  Question,
+  InfoIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+  QuestionIcon,
 } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
@@ -36,7 +36,7 @@ export function TooltipPreview() {
           <TooltipTrigger
             render={<Button shape="squircle" size="icon" aria-label="Search" />}
           >
-            <MagnifyingGlass weight={iconWeight} />
+            <MagnifyingGlassIcon weight={iconWeight} />
           </TooltipTrigger>
           <TooltipContent>Search</TooltipContent>
         </Tooltip>
@@ -51,7 +51,7 @@ export function TooltipPreview() {
               />
             }
           >
-            <Question weight={iconWeight} />
+            <QuestionIcon weight={iconWeight} />
           </TooltipTrigger>
           <TooltipContent side="right">
             Keyboard shortcuts are available in settings.
@@ -91,7 +91,7 @@ export function TooltipPreview() {
           <TooltipTrigger
             render={<Button size="icon-sm" variant="ghost" aria-label="Info" />}
           >
-            <Info weight={iconWeight} />
+            <InfoIcon weight={iconWeight} />
           </TooltipTrigger>
           <TooltipContent>
             Leguan tooltips use squircle corners, popover surfaces, and depth.
@@ -99,7 +99,7 @@ export function TooltipPreview() {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger render={<Button size="sm" variant="outline" />}>
-            <Plus weight={iconWeight} />
+            <PlusIcon weight={iconWeight} />
             New item
           </TooltipTrigger>
           <TooltipContent>Create a new catalog entry</TooltipContent>

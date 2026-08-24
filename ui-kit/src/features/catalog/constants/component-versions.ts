@@ -63,6 +63,11 @@ const versionsBySlug: Record<
     { id: "dotted", label: "Dotted", status: "available" },
     { id: "shimmer", label: "Shimmer", status: "available" },
   ],
+  code: [
+    { id: "tsx", label: "TypeScript", status: "available" },
+    { id: "bash", label: "Terminal", status: "available" },
+    { id: "filepath", label: "With path", status: "available" },
+  ],
 }
 
 const versionDetailsBySlug: Record<
@@ -134,6 +139,23 @@ const versionDetailsBySlug: Record<
     shimmer: {
       usage: '<Skeleton variant="shimmer" className="h-4 w-3/5" />',
       code: `import { Skeleton } from "@/components/ui/skeleton"\n\n<Skeleton variant="shimmer" className="h-4 w-3/5" />`,
+    },
+  },
+  code: {
+    tsx: {
+      usage:
+        '<Code code={code} language="tsx" filename="button.tsx" />',
+      code: `import { Code } from "@/components/leguan/code"\n\n<Code code={code} language="tsx" filename="button.tsx" />`,
+    },
+    bash: {
+      usage:
+        '<Code code="pnpm dlx shadcn@latest add button" language="bash" filename="Terminal" />',
+      code: `import { Code } from "@/components/leguan/code"\n\n<Code\n  code="pnpm dlx shadcn@latest add button"\n  language="bash"\n  filename="Terminal"\n/>`,
+    },
+    filepath: {
+      usage:
+        '<Code code={source} language="tsx" filepath="src/components/ui/button.tsx" expandable />',
+      code: `import { Code } from "@/components/leguan/code"\n\n<Code\n  code={source}\n  language="tsx"\n  filepath="src/components/ui/button.tsx"\n  expandable\n/>`,
     },
   },
 }

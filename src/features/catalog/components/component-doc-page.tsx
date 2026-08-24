@@ -24,6 +24,7 @@ export function ComponentDocPage({ component, sources }: ComponentDocPageProps) 
 
   return (
     <CatalogPageContent>
+      <p className="text-description max-w-2xl">{component.description}</p>
       {component.attribution ? (
         <ComponentAttribution
           name={component.attribution.name}

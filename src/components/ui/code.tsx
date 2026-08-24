@@ -85,7 +85,7 @@ export function Code({
     <div
       data-slot="code"
       className={cn(
-        "overflow-hidden rounded-squircle-lg border bg-muted/40",
+        "min-w-0 w-full max-w-full overflow-hidden rounded-squircle-lg border bg-muted/40",
         surfaceDepth("lg"),
         className
       )}

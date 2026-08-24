@@ -297,9 +297,9 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
         )}
       </CardPanel>
       {compact ? null : (
-      <CardFooter className="justify-between px-4 sm:px-6">
+      <CardFooter className="flex-col items-stretch gap-3 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p className="text-caption">About 10 minutes</p>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" className="w-full sm:w-auto">
           Browse catalog
           <ArrowUpRightIcon weight={iconWeight} />
         </Button>

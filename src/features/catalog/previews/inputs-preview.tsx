@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 
 export function InputsPreview() {
   return (
-    <div className="grid max-w-lg gap-6">
+    <div className="grid w-full min-w-0 gap-6">
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input id="email" type="email" placeholder="you@example.com" />

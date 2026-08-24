@@ -8,7 +8,7 @@ export function CatalogHeader() {
   return (
     <header
       className={cn(
-        "flex shrink-0 items-center gap-3 border-b bg-background px-4 md:px-6",
+        "flex shrink-0 items-center gap-2 border-b bg-background px-3 md:px-6",
         catalogLayout.headerHeight
       )}
     >
@@ -16,8 +16,10 @@ export function CatalogHeader() {
       <div className="flex min-w-0 flex-1 items-center">
         <CatalogBreadcrumbs />
       </div>
-      <div className="flex items-center gap-2">
-        <PrimaryColorSelect />
+      <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+        <div className="hidden sm:block">
+          <PrimaryColorSelect />
+        </div>
         <ThemeToggle />
       </div>
     </header>

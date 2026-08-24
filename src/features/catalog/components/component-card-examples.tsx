@@ -8,14 +8,16 @@ import { CatalogDocSection } from "@/features/catalog/components/layout/catalog-
 export function ComponentCardExamples() {
   return (
     <CatalogDocSection title="Code">
-      <Tabs defaultValue={cardExamples[0].id}>
-        <TabsList>
-          {cardExamples.map((example) => (
-            <TabsTrigger key={example.id} value={example.id} className="flex-none">
-              {example.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+      <Tabs defaultValue={cardExamples[0].id} className="min-w-0 w-full">
+        <div className="max-w-full overflow-x-auto pb-1">
+          <TabsList className="inline-flex w-max">
+            {cardExamples.map((example) => (
+              <TabsTrigger key={example.id} value={example.id} className="flex-none">
+                {example.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
 
         {cardExamples.map((example) => (
           <TabsContent key={example.id} value={example.id} className="mt-4">

@@ -32,7 +32,7 @@ function PricingCard({
       data-featured={featured || undefined}
       style={squircle}
       className={cn(
-        "relative flex flex-col rounded-squircle-lg border p-6 sm:p-8",
+        "relative flex flex-col rounded-squircle-lg border p-5 sm:p-8",
         surfaceDepth(featured ? "lg" : "md"),
         featured
           ? "border-primary/35 bg-primary/5"
@@ -111,7 +111,7 @@ function PricingPrice({
   return (
     <span
       data-slot="pricing-price"
-      className={cn("text-heading text-4xl", className)}
+      className={cn("text-heading text-3xl sm:text-4xl", className)}
       {...props}
     />
   )
@@ -218,7 +218,7 @@ function Pricing({
           ) : null}
         </SectionHeader>
       ) : null}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">{children}</div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">{children}</div>
     </Section>
   )
 }

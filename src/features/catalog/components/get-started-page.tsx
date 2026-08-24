@@ -58,11 +58,11 @@ export function GetStartedPage() {
             />
             <p className="text-description">
               Namespace:{" "}
-              <span className="font-mono text-foreground">
+              <span className="break-all font-mono text-foreground">
                 {LEGUAN_REGISTRY_NAMESPACE}
               </span>
               . URL template:{" "}
-              <span className="font-mono text-foreground">{registryTemplate}</span>
+              <span className="break-all font-mono text-foreground">{registryTemplate}</span>
             </p>
           </div>
 

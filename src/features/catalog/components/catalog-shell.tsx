@@ -12,15 +12,20 @@ import { CatalogSidebar } from "./catalog-sidebar"
 
 export function CatalogShell({ children }: { children: React.ReactNode }) {
   return (
-    <SidebarProvider className="h-svh overflow-hidden bg-sidebar">
+    <SidebarProvider className="h-svh min-w-0 overflow-hidden bg-sidebar">
       <CatalogScrollProvider>
         <CatalogSidebar />
-        <SidebarInset className="h-svh min-h-0 overflow-hidden bg-transparent shadow-none md:m-0 md:rounded-none">
-          <div className={cn("box-border h-full", catalogLayout.canvasPadding)}>
+        <SidebarInset className="h-svh min-h-0 min-w-0 overflow-hidden bg-transparent shadow-none md:m-0 md:rounded-none">
+          <div
+            className={cn(
+              "box-border h-full min-w-0 max-w-full",
+              catalogLayout.canvasPadding
+            )}
+          >
             <div
               style={squircle}
               className={cn(
-                "flex h-full min-h-0 flex-col overflow-hidden border bg-background",
+                "flex h-full min-h-0 min-w-0 max-w-full flex-col overflow-hidden border bg-background",
                 catalogLayout.panelRadius,
                 surfaceDepth("xl")
               )}

@@ -43,7 +43,7 @@ function Navbar({
         data-slot="navbar"
         data-sticky={sticky || undefined}
         className={cn(
-          "w-full px-5 py-4 sm:px-6",
+          "w-full px-4 py-3 sm:px-6 sm:py-4",
           sticky && "sticky top-0 z-50",
           className
         )}
@@ -94,10 +94,10 @@ function NavbarBrand({
   ...props
 }: NavbarBrandProps) {
   return (
-    <div data-slot="navbar-brand" className={cn("shrink-0", className)} {...props}>
-      <Link href={href} className="flex items-center gap-2.5 py-1.5">
+    <div data-slot="navbar-brand" className={cn("min-w-0 shrink-0", className)} {...props}>
+      <Link href={href} className="flex min-w-0 items-center gap-2.5 py-1.5">
         {logo}
-        {name ? <span className="text-title">{name}</span> : null}
+        {name ? <span className="text-title truncate">{name}</span> : null}
       </Link>
     </div>
   )

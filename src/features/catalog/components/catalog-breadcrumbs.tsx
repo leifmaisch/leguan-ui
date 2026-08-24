@@ -30,7 +30,7 @@ export function CatalogBreadcrumbs() {
       <BreadcrumbList>
         <BreadcrumbItem>
           {isComponentsIndex ? (
-            <BreadcrumbPage className="text-body font-medium">
+            <BreadcrumbPage className="text-body truncate font-medium">
               Components
             </BreadcrumbPage>
           ) : (
@@ -43,7 +43,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-body font-medium">
+              <BreadcrumbPage className="text-body max-w-[9rem] truncate font-medium sm:max-w-none">
                 {component.label}
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -53,7 +53,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-body font-medium">
+              <BreadcrumbPage className="text-body truncate font-medium">
                 AGENTS.md
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -63,7 +63,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-body font-medium">
+              <BreadcrumbPage className="text-body truncate font-medium">
                 Get Started
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -73,7 +73,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-body font-medium">
+              <BreadcrumbPage className="text-body truncate font-medium">
                 Landing
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -83,7 +83,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-body font-medium">
+              <BreadcrumbPage className="text-body truncate font-medium">
                 Inspiration
               </BreadcrumbPage>
             </BreadcrumbItem>

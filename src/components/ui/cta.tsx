@@ -18,7 +18,7 @@ function Cta({
       data-slot="cta"
       style={squircle}
       className={cn(
-        "relative flex flex-col items-center gap-6 overflow-hidden rounded-squircle-xl border border-border bg-muted/40 px-6 py-16 text-center sm:gap-8 sm:px-12 sm:py-20",
+        "relative flex flex-col items-center gap-5 overflow-hidden rounded-squircle-xl border border-border bg-muted/40 px-4 py-12 text-center sm:gap-8 sm:px-8 sm:py-16 md:px-12 md:py-20",
         surfaceDepth("lg"),
         className
       )}
@@ -35,7 +35,7 @@ function Cta({
   )
 
   if (asSection) {
-    return <Section className="py-0 pb-24 md:pb-32">{content}</Section>
+    return <Section className="py-0 pb-16 md:pb-24">{content}</Section>
   }
 
   return content
@@ -66,7 +66,7 @@ function CtaTitle({
     <h2
       data-slot="cta-title"
       className={cn(
-        "max-w-2xl text-balance text-heading text-3xl sm:text-4xl md:text-5xl",
+        "max-w-2xl text-balance text-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl",
         className
       )}
       {...props}

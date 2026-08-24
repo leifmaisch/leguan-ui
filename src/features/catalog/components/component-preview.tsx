@@ -18,7 +18,7 @@ export function ComponentPreview({
         variant={framed ? "card" : "inline"}
         className={className}
       >
-        {children}
+        <div className="min-w-0 max-w-full">{children}</div>
       </PreviewSurface>
     </CatalogDocSection>
   )

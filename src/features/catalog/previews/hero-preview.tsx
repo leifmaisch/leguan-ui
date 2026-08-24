@@ -38,11 +38,11 @@ export function HeroPreview() {
         </HeroIntro>
         <HeroShowcase>
           <div className="flex h-full flex-col">
-            <div className="flex items-center gap-2 border-b border-border/70 px-5 py-3">
-              <span className="size-2 rounded-full bg-muted-foreground/25" />
-              <span className="size-2 rounded-full bg-muted-foreground/25" />
-              <span className="size-2 rounded-full bg-primary/50" />
-              <span className="ml-2 text-label">leguan-ui.pages.dev</span>
+            <div className="flex min-w-0 items-center gap-2 overflow-hidden border-b border-border/70 px-4 py-3 sm:px-5">
+              <span className="size-2 shrink-0 rounded-full bg-muted-foreground/25" />
+              <span className="size-2 shrink-0 rounded-full bg-muted-foreground/25" />
+              <span className="size-2 shrink-0 rounded-full bg-primary/50" />
+              <span className="ml-2 min-w-0 truncate text-label">leguan-ui.pages.dev</span>
             </div>
             <div className="flex flex-1 items-center justify-center p-5 sm:p-6">
               <p className="text-label">dashboard preview</p>

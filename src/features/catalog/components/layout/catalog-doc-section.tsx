@@ -13,7 +13,7 @@ export function CatalogDocSection({
   className,
 }: CatalogDocSectionProps) {
   return (
-    <section className={cn("space-y-4", className)}>
+    <section className={cn("min-w-0 space-y-4", className)}>
       <CatalogSectionHeading>{title}</CatalogSectionHeading>
       {children}
     </section>

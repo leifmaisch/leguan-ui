@@ -13,31 +13,39 @@ import { Switch } from "@/components/ui/switch"
 
 export function FormControlsPreview() {
   return (
-    <div className="grid gap-8 sm:grid-cols-2">
-      <div className="space-y-4">
-        <div className="flex items-center gap-3">
-          <Switch id="notifications" defaultChecked />
-          <Label htmlFor="notifications">Enable notifications</Label>
+    <div className="grid w-full min-w-0 gap-8 sm:grid-cols-2">
+      <div className="min-w-0 space-y-4">
+        <div className="flex items-start gap-3 sm:items-center">
+          <Switch id="notifications" defaultChecked className="shrink-0" />
+          <Label htmlFor="notifications" className="min-w-0 leading-snug">
+            Enable notifications
+          </Label>
         </div>
-        <div className="flex items-center gap-3">
-          <Switch id="marketing" />
-          <Label htmlFor="marketing">Marketing emails</Label>
-        </div>
-      </div>
-      <div className="space-y-4">
-        <div className="flex items-center gap-3">
-          <Checkbox id="terms" defaultChecked />
-          <Label htmlFor="terms">Accept terms and conditions</Label>
-        </div>
-        <div className="flex items-center gap-3">
-          <Checkbox id="newsletter" />
-          <Label htmlFor="newsletter">Subscribe to newsletter</Label>
+        <div className="flex items-start gap-3 sm:items-center">
+          <Switch id="marketing" className="shrink-0" />
+          <Label htmlFor="marketing" className="min-w-0 leading-snug">
+            Marketing emails
+          </Label>
         </div>
       </div>
-      <div className="sm:col-span-2">
+      <div className="min-w-0 space-y-4">
+        <div className="flex items-start gap-3 sm:items-center">
+          <Checkbox id="terms" defaultChecked className="shrink-0" />
+          <Label htmlFor="terms" className="min-w-0 leading-snug">
+            Accept terms and conditions
+          </Label>
+        </div>
+        <div className="flex items-start gap-3 sm:items-center">
+          <Checkbox id="newsletter" className="shrink-0" />
+          <Label htmlFor="newsletter" className="min-w-0 leading-snug">
+            Subscribe to newsletter
+          </Label>
+        </div>
+      </div>
+      <div className="min-w-0 sm:col-span-2">
         <Label className="mb-2 block">Framework</Label>
         <Select defaultValue="next">
-          <SelectTrigger className="w-full max-w-xs">
+          <SelectTrigger className="w-full">
             <SelectValue placeholder="Select a framework" />
           </SelectTrigger>
           <SelectContent>

@@ -24,7 +24,7 @@ export function SeparatorPreview() {
       </PreviewGroup>
 
       <PreviewGroup title="Vertical">
-        <div className="flex h-8 items-center gap-4 text-sm">
+        <div className="flex h-8 flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <span>Components</span>
           <Separator orientation="vertical" />
           <span>Blocks</span>

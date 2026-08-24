@@ -101,7 +101,7 @@ function Testimonials({
           ) : null}
         </SectionHeader>
       ) : null}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">{children}</div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">{children}</div>
     </Section>
   )
 }

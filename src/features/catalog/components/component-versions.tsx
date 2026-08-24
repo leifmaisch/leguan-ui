@@ -25,8 +25,8 @@ function CompactCode({ usage, code }: { usage: string; code: string }) {
   const { copied, copy } = useCopyToClipboard()
 
   return (
-    <div className="flex items-start gap-2 rounded-lg bg-muted/50 px-2.5 py-2">
-      <code className="min-w-0 flex-1 truncate font-mono text-[11px] leading-5 text-muted-foreground">
+    <div className="flex min-w-0 items-start gap-2 rounded-lg bg-muted/50 px-2.5 py-2">
+      <code className="min-w-0 flex-1 break-all font-mono text-[11px] leading-5 text-muted-foreground">
         {usage}
       </code>
       <Button
@@ -55,15 +55,15 @@ export function ComponentVersions({ component }: ComponentVersionsProps) {
     <CatalogDocSection title="Versions">
       <div
         className={cn(
-          "grid gap-3",
-          versions.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : "max-w-sm"
+          "grid min-w-0 gap-3",
+          versions.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : "w-full"
         )}
       >
         {versions.map((version) => (
           <article
             key={version.id}
             className={cn(
-              "flex flex-col gap-2.5 rounded-xl border bg-card p-3",
+              "flex min-w-0 flex-col gap-2.5 rounded-xl border bg-card p-3",
               surfaceDepth("md")
             )}
           >

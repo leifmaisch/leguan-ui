@@ -45,7 +45,7 @@ function FeatureCard({
           className={cn(
             "relative flex w-full overflow-hidden rounded-squircle-md border border-border bg-card",
             surfaceDepth("md"),
-            large ? "min-h-[220px] flex-1 lg:min-h-0" : "aspect-4/3"
+            large ? "min-h-[160px] flex-1 sm:min-h-[200px] lg:min-h-0" : "aspect-4/3"
           )}
         >
           <div
@@ -98,7 +98,7 @@ function FeatureCtaCard({
       {...props}
     >
       <ArrowUpRightIcon className="relative size-8 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none" />
-      <span className="relative text-heading text-2xl">{children ?? label}</span>
+      <span className="relative text-heading text-xl sm:text-2xl">{children ?? label}</span>
     </a>
   )
 }

@@ -129,6 +129,13 @@ function CatalogSidebarNav() {
 
 export function CatalogSidebar() {
   const pathname = usePathname()
+  const { isMobile, setOpenMobile } = useSidebar()
+
+  function handleNavigate() {
+    if (isMobile) {
+      setOpenMobile(false)
+    }
+  }
 
   return (
     <Sidebar
@@ -168,7 +175,7 @@ export function CatalogSidebar() {
             <SidebarMenuButton
               tooltip="AGENTS.md"
               isActive={pathname === "/agents"}
-              render={<Link href="/agents" />}
+              render={<Link href="/agents" onClick={handleNavigate} />}
               className="font-medium"
             >
               <FileTextIcon weight={iconWeight} />

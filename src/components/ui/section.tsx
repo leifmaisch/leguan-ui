@@ -8,7 +8,7 @@ function Section({
     <section
       data-slot="section"
       className={cn(
-        "mx-auto w-full max-w-6xl scroll-mt-24 px-5 py-20 sm:px-6 md:py-28 lg:py-32",
+        "mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-12 sm:px-6 md:py-20 lg:py-28",
         className
       )}
       {...props}
@@ -24,7 +24,7 @@ function SectionHeader({
     <header
       data-slot="section-header"
       className={cn(
-        "mb-12 flex flex-col items-center gap-4 text-center md:mb-14",
+        "mb-8 flex flex-col items-center gap-4 text-center md:mb-14",
         className
       )}
       {...props}

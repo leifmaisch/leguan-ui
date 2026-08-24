@@ -4,6 +4,10 @@ import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardPanel, CardTitle } from "@/components/ui/card"
+import { CatalogPageContent } from "@/features/catalog/components/layout/catalog-page-content"
+import { CatalogSectionHeading } from "@/features/catalog/components/layout/catalog-section-heading"
+import { InspirationShowcase } from "@/features/catalog/components/layout/inspiration-showcase"
+import { PreviewSurface } from "@/features/catalog/components/layout/preview-surface"
 import { BlogStyleCard } from "@/features/catalog/previews/cards-preview"
 
 const inspirationLinks = [
@@ -46,7 +50,7 @@ const inspirationLinks = [
 
 export function InspirationPage() {
   return (
-    <div className="space-y-10">
+    <CatalogPageContent>
       <section className="space-y-4">
         <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
           <p>
@@ -106,10 +110,10 @@ export function InspirationPage() {
           </p>
         </div>
 
-        <div className="space-y-3 rounded-squircle-lg border bg-muted/20 p-4">
-          <div className="space-y-1">
-            <p className="text-label">Rare UI</p>
-            <p className="text-sm text-muted-foreground">
+        <InspirationShowcase
+          label="Rare UI"
+          description={
+            <>
               Guide card from the{" "}
               <Link
                 href="/components/cards"
@@ -127,17 +131,18 @@ export function InspirationPage() {
                 rareui.com
               </a>
               .
-            </p>
-          </div>
+            </>
+          }
+        >
           <div className="grid min-h-72 w-full [&>*]:h-full">
             <BlogStyleCard stretch />
           </div>
-        </div>
+        </InspirationShowcase>
 
-        <div className="space-y-3 rounded-squircle-lg border bg-muted/20 p-4">
-          <div className="space-y-1">
-            <p className="text-label">coss ui</p>
-            <p className="text-sm text-muted-foreground">
+        <InspirationShowcase
+          label="coss ui"
+          description={
+            <>
               Surface depth on cards and buttons. Weight and layering inspired by{" "}
               <a
                 href="https://coss.com/ui"
@@ -148,8 +153,9 @@ export function InspirationPage() {
                 coss.com/ui
               </a>
               .
-            </p>
-          </div>
+            </>
+          }
+        >
           <div className="flex max-w-md flex-col gap-3">
             <Card>
               <CardHeader>
@@ -166,11 +172,11 @@ export function InspirationPage() {
               <Button shape="squircle" variant="secondary">Secondary</Button>
             </div>
           </div>
-        </div>
+        </InspirationShowcase>
 
-        <ul className="divide-y divide-border/60 rounded-squircle-lg border bg-muted/20">
+        <PreviewSurface variant="muted" className="divide-y divide-border/60 p-0">
           {inspirationLinks.map((item) => (
-            <li
+            <div
               key={item.name}
               className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
             >
@@ -183,13 +189,13 @@ export function InspirationPage() {
                 {item.name}
               </a>
               <p className="text-sm text-muted-foreground">{item.note}</p>
-            </li>
+            </div>
           ))}
-        </ul>
+        </PreviewSurface>
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-label">Disclaimer</h2>
+        <CatalogSectionHeading variant="label">Disclaimer</CatalogSectionHeading>
         <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
           <p>
             Leguan UI is provided as a reference catalog and component registry.
@@ -218,6 +224,6 @@ export function InspirationPage() {
           </p>
         </div>
       </section>
-    </div>
+    </CatalogPageContent>
   )
 }

@@ -1,11 +1,16 @@
 import { Skeleton } from "@/components/ui/skeleton"
+import { PreviewGroup } from "@/features/catalog/components/layout/preview-group"
 
-function SkeletonLayout({ variant }: { variant?: "solid" | "dotted" | "shimmer" }) {
+function SkeletonLayout({
+  variant,
+}: {
+  variant?: "solid" | "dotted" | "shimmer"
+}) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <Skeleton variant={variant} className="size-12 rounded-full" />
-        <div className="flex-1 space-y-2">
+        <Skeleton variant={variant} className="size-12 shrink-0 rounded-full" />
+        <div className="min-w-0 flex-1 space-y-2">
           <Skeleton variant={variant} className="h-4 w-3/5" />
           <Skeleton variant={variant} className="h-3 w-2/5" />
         </div>
@@ -19,31 +24,40 @@ function SkeletonLayout({ variant }: { variant?: "solid" | "dotted" | "shimmer" 
   )
 }
 
+const skeletonVariants: Array<{
+  label: string
+  variant?: "solid" | "dotted" | "shimmer"
+}> = [
+  { label: "Solid" },
+  { label: "Dotted", variant: "dotted" },
+  { label: "Shimmer", variant: "shimmer" },
+]
+
 export function SkeletonPreview() {
   return (
-    <div className="mx-auto w-full max-w-md space-y-8">
-      <div className="space-y-4">
-        <p className="text-sm font-medium">Default</p>
-        <SkeletonLayout />
-      </div>
-
-      <div className="space-y-4">
-        <p className="text-sm font-medium">Variants</p>
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Solid</p>
-            <SkeletonLayout variant="solid" />
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Dotted</p>
-            <SkeletonLayout variant="dotted" />
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Shimmer</p>
-            <SkeletonLayout variant="shimmer" />
-          </div>
+    <div className="space-y-8">
+      <PreviewGroup title="Shapes">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <Skeleton className="h-3 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="size-10 rounded-full" />
+          <Skeleton className="h-10 w-full rounded-lg" />
         </div>
-      </div>
+      </PreviewGroup>
+
+      <PreviewGroup title="Variants">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {skeletonVariants.map((item) => (
+            <div
+              key={item.label}
+              className="space-y-3 rounded-lg border border-border/60 bg-muted/20 p-4"
+            >
+              <p className="text-sm font-medium">{item.label}</p>
+              <SkeletonLayout variant={item.variant} />
+            </div>
+          ))}
+        </div>
+      </PreviewGroup>
     </div>
   )
 }

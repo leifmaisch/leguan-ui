@@ -1,7 +1,7 @@
 import { FolderOpenIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
-import { EmptyState } from "@/components/leguan/empty-state"
+import { EmptyState } from "@/components/ui/empty-state"
 import { Button } from "@/components/ui/button"
 
 export function EmptyStatePreview() {

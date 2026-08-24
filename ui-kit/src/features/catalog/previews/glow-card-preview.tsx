@@ -4,7 +4,7 @@ import {
   GlowCardDescription,
   GlowCardLabel,
   GlowCardTitle,
-} from "@/components/leguan/glow-card"
+} from "@/components/ui/glow-card"
 import { Button } from "@/components/ui/button"
 
 export function GlowCardPreview() {

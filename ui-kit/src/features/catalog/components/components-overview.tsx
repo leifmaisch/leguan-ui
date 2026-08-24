@@ -6,15 +6,17 @@ import { getCatalogNavGroups } from "@/features/catalog/constants/components"
 import { getCatalogNavIcon } from "@/features/catalog/constants/nav-icons"
 import { iconWeight } from "@/components/shared"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"
+import { CatalogPageContent } from "@/features/catalog/components/layout/catalog-page-content"
+import { CatalogSectionHeading } from "@/features/catalog/components/layout/catalog-section-heading"
 
 const catalogNavGroups = getCatalogNavGroups()
 
 export function ComponentsOverview() {
   return (
-    <div className="space-y-10">
+    <CatalogPageContent>
       {catalogNavGroups.map((group) => (
         <section key={group.title} className="space-y-4">
-          <h2 className="text-label">{group.title}</h2>
+          <CatalogSectionHeading variant="label">{group.title}</CatalogSectionHeading>
           <div className="grid items-start gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {group.items.map((component) => {
               const Icon = getCatalogNavIcon(component.slug)
@@ -47,6 +49,6 @@ export function ComponentsOverview() {
           </div>
         </section>
       ))}
-    </div>
+    </CatalogPageContent>
   )
 }

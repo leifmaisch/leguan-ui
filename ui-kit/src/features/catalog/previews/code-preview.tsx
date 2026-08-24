@@ -1,6 +1,6 @@
 "use client"
 
-import { Code } from "@/components/leguan/code"
+import { Code } from "@/components/ui/code"
 
 const sampleCode = `import { Button } from "@/components/ui/button"
 

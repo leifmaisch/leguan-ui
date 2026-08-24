@@ -1,6 +1,6 @@
 import { CatalogShell } from "@/features/catalog/components/catalog-shell"
 
-export default function ComponentsLayout({
+export default function CatalogLayout({
   children,
 }: {
   children: React.ReactNode

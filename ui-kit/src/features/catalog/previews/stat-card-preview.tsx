@@ -1,4 +1,4 @@
-import { StatCard } from "@/components/leguan/stat-card"
+import { StatCard } from "@/components/ui/stat-card"
 
 export function StatCardPreview() {
   return (

@@ -145,17 +145,17 @@ const versionDetailsBySlug: Record<
     tsx: {
       usage:
         '<Code code={code} language="tsx" filename="button.tsx" />',
-      code: `import { Code } from "@/components/leguan/code"\n\n<Code code={code} language="tsx" filename="button.tsx" />`,
+      code: `import { Code } from "@/components/ui/code"\n\n<Code code={code} language="tsx" filename="button.tsx" />`,
     },
     bash: {
       usage:
         '<Code code="pnpm dlx shadcn@latest add button" language="bash" filename="Terminal" />',
-      code: `import { Code } from "@/components/leguan/code"\n\n<Code\n  code="pnpm dlx shadcn@latest add button"\n  language="bash"\n  filename="Terminal"\n/>`,
+      code: `import { Code } from "@/components/ui/code"\n\n<Code\n  code="pnpm dlx shadcn@latest add button"\n  language="bash"\n  filename="Terminal"\n/>`,
     },
     filepath: {
       usage:
         '<Code code={source} language="tsx" filepath="src/components/ui/button.tsx" expandable />',
-      code: `import { Code } from "@/components/leguan/code"\n\n<Code\n  code={source}\n  language="tsx"\n  filepath="src/components/ui/button.tsx"\n  expandable\n/>`,
+      code: `import { Code } from "@/components/ui/code"\n\n<Code\n  code={source}\n  language="tsx"\n  filepath="src/components/ui/button.tsx"\n  expandable\n/>`,
     },
   },
 }

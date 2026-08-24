@@ -1,4 +1,3 @@
-import { CatalogShell } from "@/features/catalog/components/catalog-shell"
 import { InspirationPage } from "@/features/catalog/components/inspiration-page"
 
 export const metadata = {
@@ -8,9 +7,5 @@ export const metadata = {
 }
 
 export default function InspirationRoute() {
-  return (
-    <CatalogShell>
-      <InspirationPage />
-    </CatalogShell>
-  )
+  return <InspirationPage />
 }

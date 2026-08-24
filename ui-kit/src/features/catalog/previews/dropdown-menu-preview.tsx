@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -22,21 +23,24 @@ export function DropdownMenuPreview() {
           <CaretDownIcon weight={iconWeight} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-48">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuItem>
+              <UserIcon weight={iconWeight} />
+              Profile
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <GearIcon weight={iconWeight} />
+              Settings
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <UserIcon weight={iconWeight} />
-            Profile
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <GearIcon weight={iconWeight} />
-            Settings
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">
-            <SignOutIcon weight={iconWeight} />
-            Sign out
-          </DropdownMenuItem>
+          <DropdownMenuGroup>
+            <DropdownMenuItem variant="destructive">
+              <SignOutIcon weight={iconWeight} />
+              Sign out
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

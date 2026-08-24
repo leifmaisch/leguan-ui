@@ -1,5 +1,5 @@
-import { surfaceDepth } from "@/lib/surface-depth"
-import { cn } from "@/lib/utils"
+import { CatalogDocSection } from "@/features/catalog/components/layout/catalog-doc-section"
+import { PreviewSurface } from "@/features/catalog/components/layout/preview-surface"
 
 type ComponentPreviewProps = {
   children: React.ReactNode
@@ -13,21 +13,13 @@ export function ComponentPreview({
   framed = true,
 }: ComponentPreviewProps) {
   return (
-    <section className="space-y-3">
-      <h2 className="font-runde text-lg font-semibold tracking-tight">Preview</h2>
-      {framed ? (
-        <div
-          className={cn(
-            "rounded-squircle-lg border bg-card p-6",
-            surfaceDepth("lg"),
-            className
-          )}
-        >
-          {children}
-        </div>
-      ) : (
-        <div className={className}>{children}</div>
-      )}
-    </section>
+    <CatalogDocSection title="Preview">
+      <PreviewSurface
+        variant={framed ? "card" : "inline"}
+        className={className}
+      >
+        {children}
+      </PreviewSurface>
+    </CatalogDocSection>
   )
 }

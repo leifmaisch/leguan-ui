@@ -14,10 +14,16 @@ const PROJECT_ROOT = process.cwd()
 
 type RegistryFileType = "registry:ui" | "registry:component"
 
-function getRegistryFileType(filePath: string): RegistryFileType {
-  return filePath.includes("/leguan/")
-    ? "registry:component"
-    : "registry:ui"
+function getRegistryFileType(
+  filePath: string,
+  component: CatalogComponentMeta
+): RegistryFileType {
+  if (!isCustomComponent(component)) {
+    return "registry:ui"
+  }
+
+  const basename = path.basename(filePath, ".tsx")
+  return basename === component.slug ? "registry:component" : "registry:ui"
 }
 
 function getRegistryDependencies(component: CatalogComponentMeta) {
@@ -68,7 +74,7 @@ export function buildRegistryItem(component: CatalogComponentMeta) {
     files: component.files.map((filePath) => ({
       path: filePath,
       content: readComponentFile(filePath),
-      type: getRegistryFileType(filePath),
+      type: getRegistryFileType(filePath, component),
     })),
     meta: {
       links: {

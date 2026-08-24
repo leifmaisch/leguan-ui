@@ -8,10 +8,11 @@ import {
   getRegistryInstallCommand,
   getRegistryItemUrl,
   getRegistryUrlTemplate,
-  LEGUAN_REGISTRY_NAMESPACE,
 } from "@/features/catalog/constants/registry"
 import { CodeSnippet } from "@/components/shared/code-snippet"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { CatalogDocSection } from "@/features/catalog/components/layout/catalog-doc-section"
+import { CatalogSubheading } from "@/features/catalog/components/layout/catalog-subheading"
 
 type ComponentInstallGuideProps = {
   component: CatalogComponentMeta
@@ -30,11 +31,7 @@ export function ComponentInstallGuide({
   const externalInstall = component.install
 
   return (
-    <section className="space-y-4">
-      <h2 className="font-runde text-lg font-semibold tracking-tight">
-        Installation
-      </h2>
-
+    <CatalogDocSection title="Installation">
       <Tabs defaultValue="install">
         <TabsList>
           <TabsTrigger value="install">Install</TabsTrigger>
@@ -51,9 +48,9 @@ export function ComponentInstallGuide({
         <TabsContent value="install" className="mt-4 space-y-6">
           {externalInstall ? (
             <div className="space-y-3">
-              <p className="text-sm font-medium text-foreground">
+              <CatalogSubheading>
                 Install with {component.attribution?.name ?? "the provider CLI"}
-              </p>
+              </CatalogSubheading>
               <CodeSnippet
                 code={externalInstall.command}
                 language="bash"
@@ -75,9 +72,7 @@ export function ComponentInstallGuide({
             </div>
           ) : (
             <div className="space-y-3">
-              <p className="text-sm font-medium text-foreground">
-                Install by URL
-              </p>
+              <CatalogSubheading>Install by URL</CatalogSubheading>
               <CodeSnippet
                 code={directInstallCommand}
                 language="bash"
@@ -89,43 +84,37 @@ export function ComponentInstallGuide({
 
         {!externalInstall ? (
           <TabsContent value="registry" className="mt-4 space-y-6">
-          <div className="space-y-3">
-            <p className="text-sm font-medium text-foreground">
-              1. Add the Leguan registry
-            </p>
-            <CodeSnippet
-              code={registryAddCommand}
-              language="bash"
-              filename="Terminal"
-            />
-            <p className="text-xs text-muted-foreground">
-              Registry URL template:{" "}
-              <span className="font-mono">{registryTemplate}</span>
-            </p>
-          </div>
+            <div className="space-y-3">
+              <CatalogSubheading>1. Add the Leguan registry</CatalogSubheading>
+              <CodeSnippet
+                code={registryAddCommand}
+                language="bash"
+                filename="Terminal"
+              />
+              <p className="text-xs text-muted-foreground">
+                Registry URL template:{" "}
+                <span className="font-mono">{registryTemplate}</span>
+              </p>
+            </div>
 
-          <div className="space-y-3">
-            <p className="text-sm font-medium text-foreground">
-              2. Install from the registry
-            </p>
-            <CodeSnippet
-              code={registryInstallCommand}
-              language="bash"
-              filename="Terminal"
-            />
-          </div>
+            <div className="space-y-3">
+              <CatalogSubheading>2. Install from the registry</CatalogSubheading>
+              <CodeSnippet
+                code={registryInstallCommand}
+                language="bash"
+                filename="Terminal"
+              />
+            </div>
 
-          <div className="space-y-3">
-            <p className="text-sm font-medium text-foreground">
-              Component registry item
-            </p>
-            <CodeSnippet
-              code={registryItemUrl}
-              language="bash"
-              filename="registry-item.json"
-            />
-          </div>
-        </TabsContent>
+            <div className="space-y-3">
+              <CatalogSubheading>Component registry item</CatalogSubheading>
+              <CodeSnippet
+                code={registryItemUrl}
+                language="bash"
+                filename="registry-item.json"
+              />
+            </div>
+          </TabsContent>
         ) : null}
 
         <TabsContent value="manual" className="mt-4 space-y-6">
@@ -147,6 +136,6 @@ export function ComponentInstallGuide({
           </div>
         </TabsContent>
       </Tabs>
-    </section>
+    </CatalogDocSection>
   )
 }

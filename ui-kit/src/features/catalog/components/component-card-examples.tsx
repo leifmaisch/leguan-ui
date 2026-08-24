@@ -3,12 +3,11 @@
 import { CodeSnippet } from "@/components/shared/code-snippet"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cardExamples } from "@/features/catalog/constants/card-examples"
+import { CatalogDocSection } from "@/features/catalog/components/layout/catalog-doc-section"
 
 export function ComponentCardExamples() {
   return (
-    <section className="space-y-4">
-      <h2 className="font-runde text-lg font-semibold tracking-tight">Code</h2>
-
+    <CatalogDocSection title="Code">
       <Tabs defaultValue={cardExamples[0].id}>
         <TabsList>
           {cardExamples.map((example) => (
@@ -28,6 +27,6 @@ export function ComponentCardExamples() {
           </TabsContent>
         ))}
       </Tabs>
-    </section>
+    </CatalogDocSection>
   )
 }

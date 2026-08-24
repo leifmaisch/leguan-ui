@@ -12,7 +12,7 @@ export function CatalogMainScroll({ children }: CatalogMainScrollProps) {
 
   return (
     <ScrollArea viewportRef={setViewport} className="min-h-0 flex-1">
-      <div className="mx-auto flex w-full max-w-4xl flex-col gap-12 px-4 py-8 md:px-6 md:py-10">
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 px-4 py-8 md:px-6 md:py-10">
         {children}
       </div>
     </ScrollArea>

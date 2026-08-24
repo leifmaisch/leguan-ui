@@ -31,6 +31,8 @@ export type CatalogComponentMeta = {
   dependencies?: string[]
   attribution?: CatalogComponentAttribution
   install?: CatalogComponentInstall
+  previewFramed?: boolean
+  codeExamples?: boolean
 }
 
 export const catalogComponents: CatalogComponentMeta[] = [
@@ -98,6 +100,8 @@ export const catalogComponents: CatalogComponentMeta[] = [
       "src/components/ui/form.tsx",
     ],
     dependencies: ["input", "select", "button", "label"],
+    previewFramed: false,
+    codeExamples: true,
   },
   {
     slug: "glow-card",
@@ -105,7 +109,8 @@ export const catalogComponents: CatalogComponentMeta[] = [
     description: "Featured containers with subtle accent borders.",
     group: "Display",
     kind: "custom",
-    files: ["src/components/leguan/glow-card.tsx"],
+    files: ["src/components/ui/glow-card.tsx"],
+    previewFramed: false,
   },
   {
     slug: "stat-card",
@@ -113,7 +118,8 @@ export const catalogComponents: CatalogComponentMeta[] = [
     description: "Display dashboard metrics with nested panels and deltas.",
     group: "Display",
     kind: "custom",
-    files: ["src/components/leguan/stat-card.tsx"],
+    files: ["src/components/ui/stat-card.tsx"],
+    previewFramed: false,
   },
   {
     slug: "empty-state",
@@ -121,7 +127,7 @@ export const catalogComponents: CatalogComponentMeta[] = [
     description: "Guide users when there is no content yet.",
     group: "Display",
     kind: "custom",
-    files: ["src/components/leguan/empty-state.tsx"],
+    files: ["src/components/ui/empty-state.tsx"],
   },
   {
     slug: "alerts",
@@ -170,7 +176,7 @@ export const catalogComponents: CatalogComponentMeta[] = [
     group: "Display",
     kind: "custom",
     files: [
-      "src/components/leguan/code.tsx",
+      "src/components/ui/code.tsx",
       "src/components/ui/scroll-area.tsx",
     ],
     dependencies: ["button"],
@@ -214,7 +220,7 @@ export const catalogComponents: CatalogComponentMeta[] = [
     description: "Compact presence and availability signals.",
     group: "Feedback",
     kind: "custom",
-    files: ["src/components/leguan/status-indicator.tsx"],
+    files: ["src/components/ui/status-indicator.tsx"],
   },
   createChartComponentMeta(
     "area-chart",

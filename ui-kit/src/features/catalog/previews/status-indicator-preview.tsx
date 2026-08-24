@@ -1,4 +1,4 @@
-import { StatusIndicator } from "@/components/leguan/status-indicator"
+import { StatusIndicator } from "@/components/ui/status-indicator"
 
 export function StatusIndicatorPreview() {
   return (

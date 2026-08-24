@@ -7,6 +7,7 @@ import { ComponentCardExamples } from "@/features/catalog/components/component-c
 import { ComponentInstallGuide } from "@/features/catalog/components/component-install-guide"
 import { ComponentPreview } from "@/features/catalog/components/component-preview"
 import { ComponentVersions } from "@/features/catalog/components/component-versions"
+import { CatalogPageContent } from "@/features/catalog/components/layout/catalog-page-content"
 import { getComponentPreview } from "@/features/catalog/previews/registry"
 
 type ComponentDocPageProps = {
@@ -22,22 +23,22 @@ export function ComponentDocPage({ component, sources }: ComponentDocPageProps) 
   }
 
   return (
-    <div className="space-y-10">
+    <CatalogPageContent>
       {component.attribution ? (
         <ComponentAttribution
           name={component.attribution.name}
           href={component.attribution.href}
         />
       ) : null}
-      <ComponentPreview framed={component.slug !== "cards"}>
+      <ComponentPreview framed={component.previewFramed ?? true}>
         <Preview />
       </ComponentPreview>
-      {component.slug === "cards" ? (
+      {component.codeExamples ? (
         <ComponentCardExamples />
       ) : (
         <ComponentVersions component={component} />
       )}
       <ComponentInstallGuide component={component} sources={sources} />
-    </div>
+    </CatalogPageContent>
   )
 }

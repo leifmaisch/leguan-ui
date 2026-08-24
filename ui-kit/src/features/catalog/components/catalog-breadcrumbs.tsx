@@ -17,6 +17,7 @@ export function CatalogBreadcrumbs() {
   const pathname = usePathname()
   const isComponentsIndex = pathname === "/components"
   const isAgentsPage = pathname === "/agents"
+  const isInspirationPage = pathname === "/inspiration"
   const slug = pathname.startsWith("/components/")
     ? pathname.replace("/components/", "")
     : null
@@ -52,6 +53,16 @@ export function CatalogBreadcrumbs() {
             <BreadcrumbItem>
               <BreadcrumbPage className="font-runde font-medium">
                 AGENTS.md
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </>
+        ) : null}
+        {isInspirationPage ? (
+          <>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="font-runde font-medium">
+                Inspiration
               </BreadcrumbPage>
             </BreadcrumbItem>
           </>

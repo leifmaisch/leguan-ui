@@ -1,28 +1,29 @@
 import { Separator } from "@/components/ui/separator"
+import {
+  PreviewGroup,
+  PreviewLabel,
+} from "@/features/catalog/components/layout/preview-group"
+import { PreviewLayout } from "@/features/catalog/components/layout/preview-layout"
 
 export function SeparatorPreview() {
   return (
-    <div className="space-y-8">
-      <div className="space-y-4">
-        <p className="text-sm font-medium">Horizontal</p>
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Solid</p>
-            <Separator />
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Dashed</p>
-            <Separator variant="dashed" />
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Dotted</p>
-            <Separator variant="dotted" />
-          </div>
+    <PreviewLayout narrow={false}>
+      <PreviewGroup title="Horizontal" contentClassName="space-y-4">
+        <div className="space-y-2">
+          <PreviewLabel>Solid</PreviewLabel>
+          <Separator />
         </div>
-      </div>
+        <div className="space-y-2">
+          <PreviewLabel>Dashed</PreviewLabel>
+          <Separator variant="dashed" />
+        </div>
+        <div className="space-y-2">
+          <PreviewLabel>Dotted</PreviewLabel>
+          <Separator variant="dotted" />
+        </div>
+      </PreviewGroup>
 
-      <div className="space-y-4">
-        <p className="text-sm font-medium">Vertical</p>
+      <PreviewGroup title="Vertical">
         <div className="flex h-8 items-center gap-4 text-sm">
           <span>Components</span>
           <Separator orientation="vertical" />
@@ -32,7 +33,7 @@ export function SeparatorPreview() {
           <Separator orientation="vertical" variant="dotted" />
           <span>Docs</span>
         </div>
-      </div>
-    </div>
+      </PreviewGroup>
+    </PreviewLayout>
   )
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import { CheckIcon, CopyIcon } from "@phosphor-icons/react"
-import { useState } from "react"
 
 import { iconWeight } from "@/components/shared"
 import { Button } from "@/components/ui/button"
@@ -12,6 +11,9 @@ import {
   hasVersionPreview,
   versionPreviewClassName,
 } from "@/features/catalog/components/component-version-preview"
+import { CatalogDocSection } from "@/features/catalog/components/layout/catalog-doc-section"
+import { PreviewSurface } from "@/features/catalog/components/layout/preview-surface"
+import { useCopyToClipboard } from "@/features/catalog/hooks/use-copy-to-clipboard"
 import { surfaceDepth } from "@/lib/surface-depth"
 import { cn } from "@/lib/utils"
 
@@ -20,13 +22,7 @@ type ComponentVersionsProps = {
 }
 
 function CompactCode({ usage, code }: { usage: string; code: string }) {
-  const [copied, setCopied] = useState(false)
-
-  async function handleCopy() {
-    await navigator.clipboard.writeText(code)
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 2000)
-  }
+  const { copied, copy } = useCopyToClipboard()
 
   return (
     <div className="flex items-start gap-2 rounded-lg bg-muted/50 px-2.5 py-2">
@@ -37,7 +33,7 @@ function CompactCode({ usage, code }: { usage: string; code: string }) {
         type="button"
         variant="ghost"
         size="icon-xs"
-        onClick={handleCopy}
+        onClick={() => copy(code)}
         className="shrink-0 text-muted-foreground hover:text-foreground"
         aria-label="Copy code"
       >
@@ -56,9 +52,7 @@ export function ComponentVersions({ component }: ComponentVersionsProps) {
   const hasPreview = hasVersionPreview(component.slug)
 
   return (
-    <section className="space-y-3">
-      <h2 className="font-runde text-lg font-semibold tracking-tight">Versions</h2>
-
+    <CatalogDocSection title="Versions">
       <div
         className={cn(
           "grid gap-3",
@@ -74,23 +68,23 @@ export function ComponentVersions({ component }: ComponentVersionsProps) {
             )}
           >
             {hasPreview ? (
-              <div
-                className={cn(
-                  "rounded-lg border border-border/60 bg-muted/20 px-3 py-3",
-                  versionPreviewClassName(component.slug)
-                )}
+              <PreviewSurface
+                variant="version"
+                className={versionPreviewClassName(component.slug)}
               >
                 <VersionPreview slug={component.slug} versionId={version.id} />
-              </div>
+              </PreviewSurface>
             ) : null}
 
             <div className="space-y-2">
-              <p className="text-sm font-medium text-foreground">{version.label}</p>
+              <p className="text-sm font-medium text-foreground">
+                {version.label}
+              </p>
               <CompactCode usage={version.usage} code={version.code} />
             </div>
           </article>
         ))}
       </div>
-    </section>
+    </CatalogDocSection>
   )
 }

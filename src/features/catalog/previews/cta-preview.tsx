@@ -1,6 +1,4 @@
-import { SparkleIcon } from "@phosphor-icons/react"
-
-import { iconWeight } from "@/components/shared"
+import { LeguanLogo } from "@/components/shared"
 import { Button } from "@/components/ui/button"
 import {
   Cta,
@@ -14,7 +12,7 @@ export function CtaPreview() {
   return (
     <Cta>
       <CtaEyebrow>
-        <SparkleIcon weight={iconWeight} className="size-6 text-primary" />
+        <LeguanLogo size="sm" />
         <span className="text-title">Leguan UI</span>
       </CtaEyebrow>
       <div className="flex max-w-2xl flex-col gap-3">

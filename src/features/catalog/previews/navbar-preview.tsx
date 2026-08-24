@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { SparkleIcon } from "@phosphor-icons/react"
 
-import { iconWeight } from "@/components/shared"
+import { LeguanLogo } from "@/components/shared"
 import { Button } from "@/components/ui/button"
 import {
   Navbar,
@@ -30,9 +29,7 @@ export function NavbarPreview({ sticky = false }: { sticky?: boolean }) {
         <NavbarBrand
           name="Leguan"
           href="/components"
-          logo={
-            <SparkleIcon weight={iconWeight} className="size-6 text-primary" />
-          }
+          logo={<LeguanLogo size="sm" />}
         />
         <NavbarLinks>
           {navLinks.map((link, index) => (

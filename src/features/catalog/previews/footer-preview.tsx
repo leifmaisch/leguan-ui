@@ -1,6 +1,4 @@
-import { SparkleIcon } from "@phosphor-icons/react"
-
-import { iconWeight } from "@/components/shared"
+import { LeguanLogo } from "@/components/shared"
 import {
   Footer,
   FooterBar,
@@ -22,12 +20,7 @@ export function FooterPreview() {
         <FooterMain>
           <FooterBrand
             name="Leguan"
-            logo={
-              <SparkleIcon
-                weight={iconWeight}
-                className="size-7 text-primary"
-              />
-            }
+            logo={<LeguanLogo size="md" />}
           >
             Composable sections and primitives for polished marketing pages.
           </FooterBrand>

@@ -1,6 +1,4 @@
-import { SparkleIcon } from "@phosphor-icons/react"
-
-import { iconWeight } from "@/components/shared"
+import { LeguanLogo } from "@/components/shared"
 import { Button } from "@/components/ui/button"
 import {
   Hero,
@@ -19,7 +17,7 @@ export function HeroPreview() {
       <HeroFrame>
         <HeroIntro>
           <HeroLabel>
-            <SparkleIcon weight={iconWeight} className="size-4 text-primary" />
+            <LeguanLogo size="sm" />
             Leguan UI
           </HeroLabel>
           <HeroTitle>Build with components that feel finished</HeroTitle>

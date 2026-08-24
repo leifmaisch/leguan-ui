@@ -16,11 +16,13 @@ Component catalog for agents and tooling.
 pnpm dlx shadcn@latest registry add @leguan=https://leguan-ui.pages.dev/r/{name}.json
 ```
 
-Install foundation first for shared utilities, squircle tokens, and surface depth:
+Install foundation first using the direct registry URL:
 
 ```bash
-pnpm dlx shadcn@latest add @leguan/foundation
+pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/foundation.json
 ```
+
+For other components, prefer direct URL installs. The `@leguan/*` shorthand can fail when resolving foundation dependencies unless the registry is configured:
 
 ## Components
 

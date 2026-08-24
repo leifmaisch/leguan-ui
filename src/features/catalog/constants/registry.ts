@@ -1,4 +1,9 @@
 export const LEGUAN_REGISTRY_NAMESPACE = "@leguan"
+export const LEGUAN_SITE_URL = "https://leguan-ui.pages.dev"
+
+export function getRegistryPublishUrl() {
+  return LEGUAN_SITE_URL
+}
 
 export function getSiteUrl() {
   const fromEnv =
@@ -12,18 +17,18 @@ export function getSiteUrl() {
     return window.location.origin
   }
 
-  return "http://localhost:3000"
+  return LEGUAN_SITE_URL
 }
 
-export function getRegistryUrlTemplate(origin = getSiteUrl()) {
+export function getRegistryUrlTemplate(origin = getRegistryPublishUrl()) {
   return `${origin}/r/{name}.json`
 }
 
-export function getRegistryItemUrl(slug: string, origin = getSiteUrl()) {
+export function getRegistryItemUrl(slug: string, origin = getRegistryPublishUrl()) {
   return `${origin}/r/${slug}.json`
 }
 
-export function getRegistryAddCommand(origin = getSiteUrl()) {
+export function getRegistryAddCommand(origin = getRegistryPublishUrl()) {
   return `pnpm dlx shadcn@latest registry add ${LEGUAN_REGISTRY_NAMESPACE}=${getRegistryUrlTemplate(origin)}`
 }
 
@@ -31,6 +36,6 @@ export function getRegistryInstallCommand(slug: string) {
   return `pnpm dlx shadcn@latest add ${LEGUAN_REGISTRY_NAMESPACE}/${slug}`
 }
 
-export function getDirectInstallCommand(slug: string, origin = getSiteUrl()) {
+export function getDirectInstallCommand(slug: string, origin = getRegistryPublishUrl()) {
   return `pnpm dlx shadcn@latest add ${getRegistryItemUrl(slug, origin)}`
 }

@@ -17,6 +17,6 @@
     }
   },
   "registryDependencies": [
-    "foundation"
+    "https://leguan-ui.pages.dev/r/foundation.json"
   ]
 }

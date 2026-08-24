@@ -32,10 +32,10 @@
     }
   },
   "registryDependencies": [
-    "buttons",
-    "form-controls",
-    "foundation",
-    "inputs"
+    "https://leguan-ui.pages.dev/r/buttons.json",
+    "https://leguan-ui.pages.dev/r/form-controls.json",
+    "https://leguan-ui.pages.dev/r/foundation.json",
+    "https://leguan-ui.pages.dev/r/inputs.json"
   ],
   "dependencies": [
     "@base-ui/react@^1.7.0",

@@ -17,7 +17,8 @@ import {
   resolveRegistryDependencies,
 } from "@/features/catalog/lib/resolve-registry-deps"
 import {
-  getSiteUrl,
+  getRegistryItemUrl,
+  getRegistryPublishUrl,
 } from "@/features/catalog/constants/registry"
 
 const PROJECT_ROOT = process.cwd()
@@ -58,13 +59,15 @@ export function buildRegistryItem(component: CatalogComponentMeta) {
     })),
     meta: {
       links: {
-        docs: `${getSiteUrl()}/components/${component.slug}`,
+        docs: `${getRegistryPublishUrl()}/components/${component.slug}`,
       },
     },
   }
 
   if (registryDependencies.length) {
-    item.registryDependencies = registryDependencies
+    item.registryDependencies = registryDependencies.map((slug) =>
+      getRegistryItemUrl(slug)
+    )
   }
 
   if (dependencies.length) {
@@ -80,7 +83,7 @@ export function buildRegistryItem(component: CatalogComponentMeta) {
     item.css = LEGUAN_FOUNDATION_CSS
     item.meta = {
       links: {
-        docs: `${getSiteUrl()}/AGENTS.md`,
+        docs: `${getRegistryPublishUrl()}/AGENTS.md`,
       },
     }
   }
@@ -92,7 +95,7 @@ export function buildRegistryIndex() {
   return {
     $schema: "https://ui.shadcn.com/schema/registry.json",
     name: "leguan",
-    homepage: getSiteUrl(),
+    homepage: getRegistryPublishUrl(),
     items: catalogComponents.map((component) => ({
       name: component.slug,
       type:

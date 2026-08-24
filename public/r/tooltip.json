@@ -17,7 +17,7 @@
     }
   },
   "registryDependencies": [
-    "foundation"
+    "https://leguan-ui.pages.dev/r/foundation.json"
   ],
   "dependencies": [
     "@base-ui/react@^1.7.0"

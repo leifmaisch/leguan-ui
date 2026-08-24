@@ -1,0 +1,123 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "foundation",
+  "type": "registry:lib",
+  "title": "Foundation",
+  "description": "Shared utilities, squircle helpers, surface depth, dot patterns, and theme tokens.",
+  "files": [
+    {
+      "path": "src/lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "src/lib/squircle.ts",
+      "content": "import type { CSSProperties } from \"react\"\n\nexport const squircle = {\n  cornerShape: \"squircle\",\n} as CSSProperties\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "src/lib/surface-depth.ts",
+      "content": "import { cn } from \"@/lib/utils\"\n\nexport type SurfaceRadius = \"sm\" | \"md\" | \"lg\" | \"xl\" | \"pill\"\n\nconst radiusClasses: Record<SurfaceRadius, string> = {\n  sm: \"before:rounded-[calc(var(--radius-squircle-sm)-1px)] before:[corner-shape:squircle]\",\n  md: \"before:rounded-[calc(var(--radius-squircle-md)-1px)] before:[corner-shape:squircle]\",\n  lg: \"before:rounded-[calc(var(--radius-squircle-lg)-1px)] before:[corner-shape:squircle]\",\n  xl: \"before:rounded-[calc(var(--radius-squircle-xl)-1px)] before:[corner-shape:squircle]\",\n  pill: \"before:rounded-full\",\n}\n\nconst depthBefore =\n  \"before:pointer-events-none before:absolute before:inset-0\"\n\nconst depthBase =\n  \"relative shadow-[0_1px_2px_rgb(0_0_0/0.04)] not-dark:bg-clip-padding dark:shadow-[0_1px_2px_rgb(0_0_0/0.24)]\"\n\nconst depthHighlight =\n  \"before:shadow-[0_1px_0_rgb(0_0_0/0.04)] dark:before:shadow-[0_-1px_0_rgb(255_255_255/0.06)]\"\n\nconst depthPressed =\n  \"active:shadow-none active:before:shadow-[inset_0_1px_0_rgb(0_0_0/0.08)] dark:active:before:shadow-[inset_0_1px_0_rgb(0_0_0/0.24)]\"\n\nconst depthPrimaryHighlight =\n  \"before:shadow-[inset_0_1px_0_rgb(255_255_255/0.14)] active:before:shadow-[inset_0_1px_0_rgb(0_0_0/0.1)]\"\n\nconst depthInput =\n  \"relative shadow-[0_1px_2px_rgb(0_0_0/0.03)] not-dark:bg-clip-padding dark:bg-card before:shadow-[0_1px_0_rgb(0_0_0/0.04)] dark:before:shadow-[0_-1px_0_rgb(255_255_255/0.05)]\"\n\nconst squircleClip = \"overflow-hidden\"\n\nexport function surfaceDepth(radius: SurfaceRadius = \"lg\") {\n  return cn(depthBase, depthBefore, depthHighlight, radiusClasses[radius])\n}\n\nexport function surfaceDepthInteractive(radius: SurfaceRadius = \"lg\") {\n  return cn(surfaceDepth(radius), depthPressed)\n}\n\nexport function surfaceDepthPrimary(radius: SurfaceRadius = \"md\") {\n  return cn(\n    \"relative shadow-[0_1px_2px_rgb(0_0_0/0.08)]\",\n    depthBefore,\n    depthPrimaryHighlight,\n    radiusClasses[radius],\n    \"active:shadow-none\"\n  )\n}\n\nexport function surfaceDepthPrimarySquircle() {\n  return cn(\n    squircleClip,\n    \"relative\",\n    depthBefore,\n    depthPrimaryHighlight,\n    radiusClasses.md\n  )\n}\n\nexport function surfaceDepthInteractiveSquircle() {\n  return cn(\n    squircleClip,\n    \"relative\",\n    depthBefore,\n    depthHighlight,\n    radiusClasses.md,\n    depthPressed\n  )\n}\n\nexport function surfaceDepthInput(radius: SurfaceRadius = \"md\") {\n  return cn(depthInput, depthBefore, radiusClasses[radius])\n}\n\nexport const surfaceDepthFrame =\n  \"relative shadow-[inset_0_1px_0_rgb(255_255_255/0.04)] dark:shadow-[inset_0_1px_0_rgb(255_255_255/0.04),inset_0_-1px_0_rgb(0_0_0/0.2)]\"\n",
+      "type": "registry:lib"
+    },
+    {
+      "path": "src/lib/dot-pattern.ts",
+      "content": "export const dottedBorder = \"border border-dotted border-border/70\"\n\nexport const dottedFill =\n  \"bg-[radial-gradient(circle,color-mix(in_oklab,var(--foreground)_16%,transparent)_1.5px,transparent_1.5px)] bg-[length:6px_6px]\"\n\nexport const dottedFillHorizontal =\n  \"bg-[radial-gradient(circle,color-mix(in_oklab,var(--foreground)_16%,transparent)_1.5px,transparent_1.5px)] bg-[length:6px_100%]\"\n\nexport const skeletonDottedFill =\n  \"bg-[radial-gradient(circle,color-mix(in_oklab,var(--foreground)_10%,transparent)_1px,transparent_1px),radial-gradient(circle,color-mix(in_oklab,var(--foreground)_10%,transparent)_1px,transparent_1px)] bg-[length:6px_3px] bg-[position:0_0,3px_1.5px]\"\n",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/AGENTS.md"
+    }
+  },
+  "dependencies": [
+    "clsx@^2.1.1",
+    "react",
+    "tailwind-merge@^3.6.0"
+  ],
+  "cssVars": {
+    "theme": {
+      "radius-squircle-sm": "10px",
+      "radius-squircle-md": "14px",
+      "radius-squircle-lg": "20px",
+      "radius-squircle-xl": "28px",
+      "radius-squircle-card": "32px",
+      "radius-squircle-inner": "24px",
+      "animate-progress-slide": "progress-slide 1.4s ease-in-out infinite",
+      "animate-skeleton-shimmer": "skeleton-shimmer 3s ease-in-out infinite"
+    },
+    "light": {
+      "chart-negative": "#737373"
+    },
+    "dark": {
+      "chart-negative": "#a3a3a3"
+    }
+  },
+  "css": {
+    "@keyframes progress-slide": {
+      "0%": {
+        "transform": "translateX(-100%)"
+      },
+      "100%": {
+        "transform": "translateX(350%)"
+      }
+    },
+    "@keyframes skeleton-shimmer": {
+      "0%": {
+        "background-position": "200% 0"
+      },
+      "100%": {
+        "background-position": "-200% 0"
+      }
+    },
+    "@utility rounded-squircle-sm": {
+      "border-radius": "var(--radius-squircle-sm)",
+      "corner-shape": "squircle"
+    },
+    "@utility rounded-squircle-md": {
+      "border-radius": "var(--radius-squircle-md)",
+      "corner-shape": "squircle"
+    },
+    "@utility rounded-squircle-lg": {
+      "border-radius": "var(--radius-squircle-lg)",
+      "corner-shape": "squircle"
+    },
+    "@utility rounded-squircle-xl": {
+      "border-radius": "var(--radius-squircle-xl)",
+      "corner-shape": "squircle"
+    },
+    "@utility rounded-squircle-card": {
+      "border-radius": "var(--radius-squircle-card)",
+      "corner-shape": "squircle"
+    },
+    "@utility rounded-squircle-inner": {
+      "border-radius": "var(--radius-squircle-inner)",
+      "corner-shape": "squircle"
+    },
+    "@utility border-inset": {
+      "box-shadow": "inset 0 0 0 1px rgb(0 0 0 / 6%), inset 0 1px 0 0 rgb(255 255 255 / 40%)"
+    },
+    "@utility border-inset-dark": {
+      "box-shadow": "inset 0 0 0 1px rgb(255 255 255 / 8%), inset 0 1px 0 0 rgb(255 255 255 / 6%), inset 0 -1px 0 0 rgb(0 0 0 / 30%)"
+    },
+    "@utility text-label": {
+      "font-size": "10px",
+      "font-weight": "600",
+      "text-transform": "uppercase",
+      "letter-spacing": "0.14em",
+      "color": "var(--muted-foreground)"
+    },
+    "@layer utilities": {
+      ".surface-panel": {
+        "@apply rounded-squircle-xl border bg-card": {}
+      },
+      ".dark .surface-panel": {
+        "@apply border-inset-dark": {}
+      },
+      ":not(.dark) .surface-panel": {
+        "@apply border-inset": {}
+      }
+    }
+  }
+}

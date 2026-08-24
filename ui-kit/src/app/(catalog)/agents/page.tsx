@@ -1,8 +1,8 @@
-import { generateLeguanAgentsMarkdown } from "@/features/catalog/lib/agents-md"
 import { CodeSnippet } from "@/components/shared/code-snippet"
+import { readAgentsMarkdown } from "@/features/catalog/lib/read-agents-md"
 
 export default function AgentsPage() {
-  const markdown = generateLeguanAgentsMarkdown()
+  const markdown = readAgentsMarkdown()
 
   return (
     <CodeSnippet

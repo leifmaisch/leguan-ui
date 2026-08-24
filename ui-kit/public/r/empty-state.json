@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "type": "registry:component",
+  "title": "Empty State",
+  "description": "Guide users when there is no content yet.",
+  "files": [
+    {
+      "path": "src/components/ui/empty-state.tsx",
+      "content": "import { squircle } from \"@/lib/squircle\"\nimport { cn } from \"@/lib/utils\"\n\ntype EmptyStateProps = {\n  icon?: React.ReactNode\n  title: string\n  description?: string\n  action?: React.ReactNode\n  className?: string\n}\n\nexport function EmptyState({\n  icon,\n  title,\n  description,\n  action,\n  className,\n}: EmptyStateProps) {\n  return (\n    <div\n      data-slot=\"empty-state\"\n      style={squircle}\n      className={cn(\n        \"flex flex-col items-center justify-center rounded-squircle-lg border border-dashed bg-muted/30 px-6 py-14 text-center\",\n        className\n      )}\n    >\n      {icon ? (\n        <div\n          style={squircle}\n          className=\"mb-4 flex size-12 items-center justify-center rounded-squircle-md border bg-background text-muted-foreground\"\n        >\n          {icon}\n        </div>\n      ) : null}\n      <h3 className=\"font-runde text-base font-semibold tracking-tight\">\n        {title}\n      </h3>\n      {description ? (\n        <p className=\"mt-1.5 max-w-sm text-sm text-muted-foreground\">\n          {description}\n        </p>\n      ) : null}\n      {action ? <div className=\"mt-5\">{action}</div> : null}\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/components/empty-state"
+    }
+  },
+  "registryDependencies": [
+    "foundation"
+  ]
+}

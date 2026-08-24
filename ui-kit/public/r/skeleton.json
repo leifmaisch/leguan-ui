@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "description": "Placeholder loading states for content.",
+  "files": [
+    {
+      "path": "src/components/ui/skeleton.tsx",
+      "content": "import { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { dottedBorder, skeletonDottedFill } from \"@/lib/dot-pattern\"\nimport { cn } from \"@/lib/utils\"\n\nconst skeletonVariants = cva(\"relative overflow-hidden rounded-squircle-sm\", {\n  variants: {\n    variant: {\n      solid: \"animate-pulse bg-muted\",\n      dotted: cn(\"animate-pulse\", dottedBorder, skeletonDottedFill),\n      shimmer:\n        \"bg-muted bg-[linear-gradient(90deg,var(--muted)_0%,color-mix(in_oklab,var(--foreground)_10%,var(--muted))_50%,var(--muted)_100%)] bg-[length:200%_100%] animate-skeleton-shimmer\",\n    },\n  },\n  defaultVariants: {\n    variant: \"solid\",\n  },\n})\n\nfunction Skeleton({\n  className,\n  variant = \"solid\",\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof skeletonVariants>) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      data-variant={variant}\n      className={cn(skeletonVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nexport { Skeleton, skeletonVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/components/skeleton"
+    }
+  },
+  "registryDependencies": [
+    "foundation"
+  ],
+  "dependencies": [
+    "class-variance-authority@^0.7.1"
+  ]
+}

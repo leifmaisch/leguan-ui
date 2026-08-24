@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 
 import {
-  catalogComponentSlugs,
+  catalogDocSlugs,
   getCatalogComponent,
 } from "@/features/catalog/constants/components"
 import { ComponentDocPage } from "@/features/catalog/components/component-doc-page"
@@ -12,7 +12,7 @@ type ComponentPageProps = {
 }
 
 export function generateStaticParams() {
-  return catalogComponentSlugs.map((slug) => ({ slug }))
+  return catalogDocSlugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: ComponentPageProps) {
@@ -33,7 +33,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
   const { slug } = await params
   const component = getCatalogComponent(slug)
 
-  if (!component) {
+  if (!component || component.registryOnly) {
     notFound()
   }
 

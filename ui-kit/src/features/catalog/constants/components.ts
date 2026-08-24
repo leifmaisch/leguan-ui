@@ -33,9 +33,25 @@ export type CatalogComponentMeta = {
   install?: CatalogComponentInstall
   previewFramed?: boolean
   codeExamples?: boolean
+  registryOnly?: boolean
 }
 
 export const catalogComponents: CatalogComponentMeta[] = [
+  {
+    slug: "foundation",
+    label: "Foundation",
+    description:
+      "Shared utilities, squircle helpers, surface depth, dot patterns, and theme tokens.",
+    group: "Display",
+    kind: "custom",
+    registryOnly: true,
+    files: [
+      "src/lib/utils.ts",
+      "src/lib/squircle.ts",
+      "src/lib/surface-depth.ts",
+      "src/lib/dot-pattern.ts",
+    ],
+  },
   {
     slug: "buttons",
     label: "Button",
@@ -254,11 +270,19 @@ export const catalogComponents: CatalogComponentMeta[] = [
   ),
 ]
 
-export const catalogComponentSlugs = catalogComponents.map(
+export const catalogRegistrySlugs = catalogComponents.map(
   (component) => component.slug
 )
 
-export type CatalogComponentSlug = (typeof catalogComponentSlugs)[number]
+export const catalogDocSlugs = catalogComponents
+  .filter((component) => !component.registryOnly)
+  .map((component) => component.slug)
+
+export type CatalogComponentSlug = (typeof catalogDocSlugs)[number]
+
+export function isRegistryOnlyComponent(component: CatalogComponentMeta) {
+  return component.registryOnly === true
+}
 
 export function getCatalogComponent(slug: string) {
   return catalogComponents.find((component) => component.slug === slug)
@@ -268,6 +292,10 @@ export function getCatalogNavGroups() {
   const groups = new Map<CatalogComponentGroup, CatalogComponentMeta[]>()
 
   for (const component of catalogComponents) {
+    if (component.registryOnly) {
+      continue
+    }
+
     const items = groups.get(component.group) ?? []
     items.push(component)
     groups.set(component.group, items)

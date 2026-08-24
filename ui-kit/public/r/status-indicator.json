@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-indicator",
+  "type": "registry:component",
+  "title": "Status Indicator",
+  "description": "Compact presence and availability signals.",
+  "files": [
+    {
+      "path": "src/components/ui/status-indicator.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\ntype StatusIndicatorStatus = \"online\" | \"offline\" | \"away\" | \"busy\"\n\ntype StatusIndicatorProps = {\n  status: StatusIndicatorStatus\n  label?: string\n  pulse?: boolean\n  className?: string\n}\n\nconst statusStyles: Record<\n  StatusIndicatorStatus,\n  { text: string; dot: string; ping?: string }\n> = {\n  online: {\n    text: \"text-emerald-600 dark:text-emerald-400\",\n    dot: \"bg-emerald-600 dark:bg-emerald-400\",\n    ping: \"bg-emerald-600/60 dark:bg-emerald-400/60\",\n  },\n  away: {\n    text: \"text-amber-600 dark:text-amber-400\",\n    dot: \"bg-amber-600 dark:bg-amber-400\",\n  },\n  busy: {\n    text: \"text-destructive\",\n    dot: \"bg-destructive\",\n  },\n  offline: {\n    text: \"text-muted-foreground\",\n    dot: \"bg-muted-foreground/50\",\n  },\n}\n\nconst statusLabels: Record<StatusIndicatorStatus, string> = {\n  online: \"Online\",\n  offline: \"Offline\",\n  away: \"Away\",\n  busy: \"Busy\",\n}\n\nexport function StatusIndicator({\n  status,\n  label,\n  pulse = false,\n  className,\n}: StatusIndicatorProps) {\n  const displayLabel = label ?? statusLabels[status]\n  const styles = statusStyles[status]\n\n  return (\n    <span\n      data-slot=\"status-indicator\"\n      className={cn(\n        \"inline-flex h-5 w-fit shrink-0 items-center gap-1.5 rounded-full bg-muted px-2 py-0.5 text-xs font-medium\",\n        styles.text,\n        className\n      )}\n    >\n      <span className=\"relative flex size-1.5 shrink-0\">\n        {pulse && status === \"online\" && styles.ping ? (\n          <span\n            className={cn(\n              \"absolute inline-flex size-full animate-ping rounded-full opacity-75\",\n              styles.ping\n            )}\n          />\n        ) : null}\n        <span\n          className={cn(\"relative inline-flex size-1.5 rounded-full\", styles.dot)}\n        />\n      </span>\n      {displayLabel}\n    </span>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/components/status-indicator"
+    }
+  },
+  "registryDependencies": [
+    "foundation"
+  ]
+}

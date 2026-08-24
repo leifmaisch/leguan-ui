@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glow-card",
+  "type": "registry:component",
+  "title": "Glow Card",
+  "description": "Featured containers with subtle accent borders.",
+  "files": [
+    {
+      "path": "src/components/ui/glow-card.tsx",
+      "content": "import { squircle } from \"@/lib/squircle\"\nimport { surfaceDepth } from \"@/lib/surface-depth\"\nimport { cn } from \"@/lib/utils\"\n\ntype GlowCardVariant = \"default\" | \"primary\" | \"muted\"\n\ntype GlowCardProps = React.ComponentProps<\"div\"> & {\n  variant?: GlowCardVariant\n}\n\nconst variantStyles: Record<GlowCardVariant, { surface: string; glow: boolean }> =\n  {\n    default: {\n      surface: \"border-border bg-card\",\n      glow: false,\n    },\n    primary: {\n      surface: \"border-primary/35 bg-primary/5\",\n      glow: true,\n    },\n    muted: {\n      surface: \"border-border bg-muted/40\",\n      glow: false,\n    },\n  }\n\nfunction GlowCard({\n  variant = \"default\",\n  className,\n  children,\n  style,\n  ...props\n}: GlowCardProps) {\n  const config = variantStyles[variant]\n\n  return (\n    <div\n      data-slot=\"glow-card\"\n      data-variant={variant}\n      style={{ ...squircle, ...style }}\n      className={cn(\n        \"group/glow-card relative overflow-hidden rounded-squircle-lg border p-5\",\n        surfaceDepth(\"lg\"),\n        config.surface,\n        className\n      )}\n      {...props}\n    >\n      {config.glow ? (\n        <div\n          aria-hidden\n          className=\"pointer-events-none absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_100%,color-mix(in_srgb,var(--primary)_10%,transparent),transparent_65%)]\"\n        />\n      ) : null}\n      <div className=\"relative flex flex-col\">{children}</div>\n    </div>\n  )\n}\n\nfunction GlowCardLabel({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"glow-card-label\"\n      className={cn(\"text-label\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction GlowCardTitle({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"glow-card-title\"\n      className={cn(\n        \"font-runde text-lg font-semibold tracking-tight group-has-[>[data-slot=glow-card-label]]/glow-card:mt-2\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction GlowCardDescription({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"glow-card-description\"\n      className={cn(\"mt-1 text-sm text-muted-foreground\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction GlowCardAction({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"glow-card-action\"\n      className={cn(\"mt-4\", className)}\n      {...props}\n    />\n  )\n}\n\nexport {\n  GlowCard,\n  GlowCardAction,\n  GlowCardDescription,\n  GlowCardLabel,\n  GlowCardTitle,\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/components/glow-card"
+    }
+  },
+  "registryDependencies": [
+    "foundation"
+  ]
+}

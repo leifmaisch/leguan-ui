@@ -1,0 +1,169 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "leguan",
+  "homepage": "https://leguan-ui.pages.dev",
+  "items": [
+    {
+      "name": "foundation",
+      "type": "registry:lib",
+      "title": "Foundation",
+      "description": "Shared utilities, squircle helpers, surface depth, dot patterns, and theme tokens."
+    },
+    {
+      "name": "buttons",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Trigger actions with multiple variants and sizes."
+    },
+    {
+      "name": "badges",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Highlight status, labels, and metadata."
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Contextual menus for actions and navigation."
+    },
+    {
+      "name": "inputs",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Collect user data with text fields and text areas."
+    },
+    {
+      "name": "form-controls",
+      "type": "registry:ui",
+      "title": "Form Controls",
+      "description": "Switches, checkboxes, and select inputs for forms."
+    },
+    {
+      "name": "cards",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Group related content in structured containers."
+    },
+    {
+      "name": "glow-card",
+      "type": "registry:component",
+      "title": "Glow Card",
+      "description": "Featured containers with subtle accent borders."
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:component",
+      "title": "Stat Card",
+      "description": "Display dashboard metrics with nested panels and deltas."
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty State",
+      "description": "Guide users when there is no content yet."
+    },
+    {
+      "name": "alerts",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Display important messages and feedback."
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Organize content into switchable panels."
+    },
+    {
+      "name": "avatars",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Represent users with images, initials, or dotted text."
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Placeholder loading states for content."
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Visual dividers between sections."
+    },
+    {
+      "name": "code",
+      "type": "registry:component",
+      "title": "Code",
+      "description": "Syntax-highlighted blocks with copy, scroll, and file headers."
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal overlays for focused interactions."
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating panels anchored to triggers."
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Brief hints on hover or focus."
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Track completion and loading states."
+    },
+    {
+      "name": "status-indicator",
+      "type": "registry:component",
+      "title": "Status Indicator",
+      "description": "Compact presence and availability signals."
+    },
+    {
+      "name": "area-chart",
+      "type": "registry:component",
+      "title": "Area Chart",
+      "description": "Dithered area charts with gradient, hatched, and stacked fills."
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:component",
+      "title": "Bar Chart",
+      "description": "Grouped, stacked, and percent bar charts with ordered-dither fills."
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:component",
+      "title": "Line Chart",
+      "description": "Line series with glow underlays, solid and dashed stroke variants."
+    },
+    {
+      "name": "pie-chart",
+      "type": "registry:component",
+      "title": "Pie Chart",
+      "description": "Pie and donut charts with interactive legend and tooltip."
+    },
+    {
+      "name": "radar-chart",
+      "type": "registry:component",
+      "title": "Radar Chart",
+      "description": "Multi-series radar charts for comparing dimensions."
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:component",
+      "title": "Sparkline",
+      "description": "Compact decorative trend lines for cards and stat rows."
+    }
+  ]
+}

@@ -7,70 +7,50 @@ import {
   isCustomComponent,
 } from "@/features/catalog/constants/components"
 import {
+  LEGUAN_FOUNDATION_CSS,
+  LEGUAN_FOUNDATION_CSS_VARS,
+} from "@/features/catalog/constants/registry-theme"
+import {
+  getRegistryFileType,
+  resolveItemDevDependencies,
+  resolveItemNpmDependencies,
+  resolveRegistryDependencies,
+} from "@/features/catalog/lib/resolve-registry-deps"
+import {
   getSiteUrl,
 } from "@/features/catalog/constants/registry"
 
 const PROJECT_ROOT = process.cwd()
-
-type RegistryFileType = "registry:ui" | "registry:component"
-
-function getRegistryFileType(
-  filePath: string,
-  component: CatalogComponentMeta
-): RegistryFileType {
-  if (!isCustomComponent(component)) {
-    return "registry:ui"
-  }
-
-  const basename = path.basename(filePath, ".tsx")
-  return basename === component.slug ? "registry:component" : "registry:ui"
-}
-
-function getRegistryDependencies(component: CatalogComponentMeta) {
-  const bundled = new Set(
-    component.files.map((filePath) => path.basename(filePath, ".tsx"))
-  )
-
-  if (!component.dependencies?.length) {
-    return []
-  }
-
-  const dependencies = new Set<string>()
-
-  for (const dependency of component.dependencies) {
-    if (bundled.has(dependency)) {
-      continue
-    }
-
-    const match = catalogComponents.find(
-      (item) => item.shadcnName === dependency
-    )
-
-    if (match) {
-      dependencies.add(match.slug)
-    }
-  }
-
-  return Array.from(dependencies)
-}
 
 function readComponentFile(filePath: string) {
   const absolutePath = path.join(PROJECT_ROOT, filePath)
   return fs.readFileSync(absolutePath, "utf-8")
 }
 
-export function buildRegistryItem(component: CatalogComponentMeta) {
-  const registryDependencies = getRegistryDependencies(component)
+function readComponentFiles(filePaths: string[]) {
+  return filePaths.map((filePath) => readComponentFile(filePath))
+}
 
-  return {
+export function buildRegistryItem(component: CatalogComponentMeta) {
+  const fileContents = readComponentFiles(component.files)
+  const registryDependencies = resolveRegistryDependencies(
+    component,
+    fileContents
+  )
+  const dependencies = resolveItemNpmDependencies(fileContents)
+  const devDependencies = resolveItemDevDependencies(fileContents)
+
+  const item: Record<string, unknown> = {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     name: component.slug,
-    type: isCustomComponent(component) ? "registry:component" : "registry:ui",
+    type:
+      component.slug === "foundation"
+        ? "registry:lib"
+        : isCustomComponent(component)
+          ? "registry:component"
+          : "registry:ui",
     title: component.label,
     description: component.description,
-    ...(registryDependencies.length
-      ? { registryDependencies }
-      : {}),
     files: component.files.map((filePath) => ({
       path: filePath,
       content: readComponentFile(filePath),
@@ -82,6 +62,30 @@ export function buildRegistryItem(component: CatalogComponentMeta) {
       },
     },
   }
+
+  if (registryDependencies.length) {
+    item.registryDependencies = registryDependencies
+  }
+
+  if (dependencies.length) {
+    item.dependencies = dependencies
+  }
+
+  if (devDependencies.length) {
+    item.devDependencies = devDependencies
+  }
+
+  if (component.slug === "foundation") {
+    item.cssVars = LEGUAN_FOUNDATION_CSS_VARS
+    item.css = LEGUAN_FOUNDATION_CSS
+    item.meta = {
+      links: {
+        docs: `${getSiteUrl()}/AGENTS.md`,
+      },
+    }
+  }
+
+  return item
 }
 
 export function buildRegistryIndex() {
@@ -91,7 +95,12 @@ export function buildRegistryIndex() {
     homepage: getSiteUrl(),
     items: catalogComponents.map((component) => ({
       name: component.slug,
-      type: isCustomComponent(component) ? "registry:component" : "registry:ui",
+      type:
+        component.slug === "foundation"
+          ? "registry:lib"
+          : isCustomComponent(component)
+            ? "registry:component"
+            : "registry:ui",
       title: component.label,
       description: component.description,
     })),

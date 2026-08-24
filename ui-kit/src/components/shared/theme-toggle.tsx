@@ -1,8 +1,9 @@
 "use client"
 
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 
+import { iconWeight } from "@/components/shared"
 import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
@@ -26,8 +27,14 @@ export function ThemeToggle() {
 
   return (
     <Button variant="outline" size="icon" onClick={toggle} aria-label="Toggle theme">
-      <Sun className="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-      <Moon className="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      <Sun
+        weight={iconWeight}
+        className="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
+      />
+      <Moon
+        weight={iconWeight}
+        className="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
+      />
     </Button>
   )
 }

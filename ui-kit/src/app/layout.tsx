@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cal_Sans, Inter, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const inter = Inter({
@@ -48,8 +49,8 @@ const openRunde = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "UI Kit | Component Library",
-  description: "A clean component library built with Next.js, Tailwind CSS, and shadcn/ui.",
+  title: "Leguan UI | Component Library",
+  description: "Leguan UI is a clean component library built with Next.js, Tailwind CSS, and shadcn/ui.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -58,7 +59,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${geistMono.variable} ${openRunde.variable} ${calSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TooltipProvider>{children}</TooltipProvider>
+      </body>
     </html>
   );
 }

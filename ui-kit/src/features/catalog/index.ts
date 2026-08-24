@@ -1,2 +1,8 @@
-export { CatalogPage } from "./catalog-page"
-export { catalogSections, type CatalogSectionId } from "./constants/sections"
+export {
+  catalogComponents,
+  catalogComponentSlugs,
+  getCatalogComponent,
+  getCatalogNavGroups,
+  type CatalogComponentMeta,
+  type CatalogComponentSlug,
+} from "./constants/components"

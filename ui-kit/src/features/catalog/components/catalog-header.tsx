@@ -1,18 +1,23 @@
 import { ThemeToggle } from "@/components/shared"
-import { Badge } from "@/components/ui/badge"
+import { SidebarTrigger } from "@/components/ui/sidebar"
+import { catalogLayout } from "@/features/catalog/constants/layout"
+import { cn } from "@/lib/utils"
+import { CatalogBreadcrumbs } from "./catalog-breadcrumbs"
 
 export function CatalogHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-        <div className="flex items-center gap-2">
-          <span className="font-runde font-semibold tracking-tight">UI Kit</span>
-          <Badge variant="secondary" className="text-[10px]">
-            v0.1
-          </Badge>
-        </div>
-        <ThemeToggle />
+    <header
+      className={cn(
+        "flex shrink-0 items-center gap-3 border-b bg-background px-4 md:px-6",
+        catalogLayout.headerHeight,
+        "rounded-t-2xl"
+      )}
+    >
+      <SidebarTrigger className="-ml-1" />
+      <div className="flex min-w-0 flex-1 items-center">
+        <CatalogBreadcrumbs />
       </div>
+      <ThemeToggle />
     </header>
   )
 }

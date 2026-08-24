@@ -1,5 +1,5 @@
-import { CatalogPage } from "@/features/catalog"
+import { redirect } from "next/navigation"
 
 export default function Home() {
-  return <CatalogPage />
+  redirect("/components")
 }

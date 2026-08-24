@@ -218,7 +218,7 @@ export function QuickStartCard() {
           <div className="min-w-0">
             <CardTitle>Quick start</CardTitle>
             <CardDescription>
-              Add Leguan components to your app in three steps.
+              Add Leguan UI to your app in three steps.
             </CardDescription>
           </div>
           <Badge variant="secondary" className="shrink-0">

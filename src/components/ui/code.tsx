@@ -12,8 +12,8 @@ import { cn } from "@/lib/utils"
 const codeContentClassName = cn(
   "p-4 text-sm leading-relaxed",
   "[&_.shiki]:bg-transparent",
-  "[&_pre]:m-0 [&_pre]:w-max [&_pre]:min-w-full [&_pre]:bg-transparent [&_pre]:p-0",
-  "[&_code]:block [&_code]:w-max [&_code]:min-w-full [&_code]:font-mono [&_code]:text-[13px] [&_code]:leading-6"
+  "[&_pre]:m-0 [&_pre]:w-max [&_pre]:bg-transparent [&_pre]:p-0",
+  "[&_code]:block [&_code]:w-max [&_code]:font-mono [&_code]:text-[13px] [&_code]:leading-6"
 )
 
 export type CodeProps = {
@@ -80,6 +80,17 @@ export function Code({
   }
 
   const label = filename ?? filepath
+
+  const codeBody = highlightedHtml ? (
+    <div
+      className={codeContentClassName}
+      dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+    />
+  ) : (
+    <pre className="p-4 font-mono text-[13px] leading-6 text-foreground">
+      <code className="block w-max">{code}</code>
+    </pre>
+  )
 
   return (
     <div
@@ -148,34 +159,15 @@ export function Code({
         </div>
       )}
 
-      {expandable ? (
-        <div className="overflow-x-auto">
-          {highlightedHtml ? (
-            <div
-              className={codeContentClassName}
-              dangerouslySetInnerHTML={{ __html: highlightedHtml }}
-            />
-          ) : (
-            <pre className="p-4 font-mono text-[13px] leading-6 text-foreground">
-              <code className="block w-max min-w-full">{code}</code>
-            </pre>
-          )}
-        </div>
-      ) : (
-        <ScrollArea viewportClassName="max-h-[min(28rem,60vh)]">
-          {highlightedHtml ? (
-            <div
-              className={codeContentClassName}
-              dangerouslySetInnerHTML={{ __html: highlightedHtml }}
-            />
-          ) : (
-            <pre className="p-4 font-mono text-[13px] leading-6 text-foreground">
-              <code className="block w-max min-w-full">{code}</code>
-            </pre>
-          )}
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-      )}
+      <ScrollArea
+        viewportClassName={cn(
+          "overflow-x-auto",
+          !expandable && "max-h-[min(28rem,60vh)]"
+        )}
+      >
+        {codeBody}
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
     </div>
   )
 }

@@ -10,7 +10,7 @@ import { TestimonialsPreview } from "@/features/catalog/previews/testimonials-pr
 
 export function LandingPage() {
   return (
-    <div className="min-w-0 -mx-4 w-[calc(100%+2rem)] max-w-none overflow-x-clip md:-mx-6 md:w-[calc(100%+3rem)]">
+    <div className="min-w-0 -mx-3 w-[calc(100%+1.5rem)] max-w-none overflow-x-clip sm:-mx-4 sm:w-[calc(100%+2rem)] md:-mx-6 md:w-[calc(100%+3rem)]">
       <NavbarPreview sticky />
       <HeroPreview />
       <FeaturesPreview />

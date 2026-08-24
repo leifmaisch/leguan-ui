@@ -12,7 +12,7 @@ import { CatalogSidebar } from "./catalog-sidebar"
 
 export function CatalogShell({ children }: { children: React.ReactNode }) {
   return (
-    <SidebarProvider className="h-svh min-w-0 overflow-hidden bg-sidebar">
+    <SidebarProvider className="h-svh min-w-0 max-w-full overflow-hidden bg-sidebar">
       <CatalogScrollProvider>
         <CatalogSidebar />
         <SidebarInset className="h-svh min-h-0 min-w-0 overflow-hidden bg-transparent shadow-none md:m-0 md:rounded-none">

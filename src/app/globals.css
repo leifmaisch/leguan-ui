@@ -262,12 +262,12 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply overflow-hidden bg-sidebar text-foreground antialiased;
+  html {
+    @apply w-full overflow-x-clip font-sans;
   }
 
-  html {
-    @apply font-sans;
+  body {
+    @apply w-full max-w-full overflow-hidden bg-sidebar text-foreground antialiased;
   }
 }
 

@@ -29,18 +29,11 @@ export function ComponentInstallGuide({
   const registryTemplate = getRegistryUrlTemplate()
   const registryItemUrl = getRegistryItemUrl(component.slug)
   const externalInstall = component.install
-  const tabCount = externalInstall ? 2 : 3
 
   return (
     <CatalogDocSection title="Installation" className="min-w-0">
       <Tabs defaultValue="install" className="min-w-0 w-full">
-        <TabsList
-          className={
-            tabCount === 2
-              ? "grid h-auto w-full grid-cols-2"
-              : "grid h-auto w-full grid-cols-3"
-          }
-        >
+        <TabsList className="w-full">
           <TabsTrigger value="install">Install</TabsTrigger>
           {!externalInstall ? (
             <>

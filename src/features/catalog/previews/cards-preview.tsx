@@ -237,7 +237,7 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
           <div className="min-w-0">
             <CardTitle className={compact ? "text-base" : undefined}>Quick start</CardTitle>
             <CardDescription>
-              Add Leguan components to your app in three steps.
+              Add Leguan UI to your app in three steps.
             </CardDescription>
           </div>
           <Badge variant="secondary" className="shrink-0">

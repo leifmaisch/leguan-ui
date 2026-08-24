@@ -40,12 +40,12 @@ export function CatalogMainScroll({ children }: CatalogMainScrollProps) {
   return (
     <ScrollArea
       viewportRef={setViewport}
-      viewportClassName="min-w-0 overflow-x-clip"
+      viewportClassName="overflow-x-clip"
       className="min-h-0 min-w-0 flex-1"
     >
       <div
         className={cn(
-          "mx-auto flex w-full min-w-0 max-w-full flex-col gap-10 overflow-x-clip px-3 py-6 sm:px-4 sm:py-8 md:px-6 md:py-10",
+          "mx-auto box-border flex w-full min-w-0 max-w-full flex-col gap-10 px-3 py-6 sm:px-4 sm:py-8 md:px-6 md:py-10",
           getContentWidthClass(pathname)
         )}
       >

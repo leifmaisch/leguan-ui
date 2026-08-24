@@ -13,7 +13,7 @@
       "name": "fonts",
       "type": "registry:lib",
       "title": "Fonts",
-      "description": "Inter body text, Open Runde headings, and Geist Mono for code and charts."
+      "description": "Inter body text, Rubik headings, and Geist Mono for code and charts."
     },
     {
       "name": "buttons",

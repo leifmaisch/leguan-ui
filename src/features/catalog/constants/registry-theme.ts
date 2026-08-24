@@ -152,7 +152,7 @@ export const LEGUAN_FONTS_CSS_VARS = {
   theme: {
     "font-sans": "var(--font-inter), Inter, sans-serif",
     "font-mono": "var(--font-geist-mono)",
-    "font-heading": "var(--font-open-runde), sans-serif",
+    "font-heading": "var(--font-rubik), Rubik, sans-serif",
   },
 }
 

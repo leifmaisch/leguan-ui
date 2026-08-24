@@ -12,7 +12,9 @@ import {
   LEGUAN_FONTS_CSS,
   LEGUAN_FONTS_CSS_VARS,
 } from "@/features/catalog/constants/registry-theme"
-import { LEGUAN_FONTS_DOCS } from "@/features/catalog/constants/registry-fonts"
+import {
+  LEGUAN_FONTS_DOCS,
+} from "@/features/catalog/constants/registry-fonts"
 import {
   getRegistryFileType,
   resolveItemDevDependencies,

@@ -3,11 +3,11 @@
   "name": "fonts",
   "type": "registry:lib",
   "title": "Fonts",
-  "description": "Inter body text, Open Runde headings, and Geist Mono for code and charts.",
+  "description": "Inter body text, Rubik headings, and Geist Mono for code and charts.",
   "files": [
     {
       "path": "src/lib/fonts.ts",
-      "content": "import { Geist_Mono, Inter } from \"next/font/google\"\nimport localFont from \"next/font/local\"\n\nexport const inter = Inter({\n  variable: \"--font-inter\",\n  subsets: [\"latin\"],\n})\n\nexport const geistMono = Geist_Mono({\n  variable: \"--font-geist-mono\",\n  subsets: [\"latin\"],\n})\n\nexport const openRunde = localFont({\n  variable: \"--font-open-runde\",\n  src: [\n    {\n      path: \"../../public/fonts/OpenRunde-Regular.woff2\",\n      weight: \"400\",\n      style: \"normal\",\n    },\n    {\n      path: \"../../public/fonts/OpenRunde-Medium.woff2\",\n      weight: \"500\",\n      style: \"normal\",\n    },\n    {\n      path: \"../../public/fonts/OpenRunde-Semibold.woff2\",\n      weight: \"600\",\n      style: \"normal\",\n    },\n    {\n      path: \"../../public/fonts/OpenRunde-Bold.woff2\",\n      weight: \"700\",\n      style: \"normal\",\n    },\n  ],\n})\n\nexport const leguanFontVariables = [\n  inter.variable,\n  geistMono.variable,\n  openRunde.variable,\n].join(\" \")\n",
+      "content": "import { Geist_Mono, Inter, Rubik } from \"next/font/google\"\n\nexport const inter = Inter({\n  variable: \"--font-inter\",\n  subsets: [\"latin\"],\n})\n\nexport const geistMono = Geist_Mono({\n  variable: \"--font-geist-mono\",\n  subsets: [\"latin\"],\n})\n\nexport const rubik = Rubik({\n  variable: \"--font-rubik\",\n  subsets: [\"latin\"],\n  weight: [\"400\", \"500\", \"600\", \"700\"],\n})\n\nexport const leguanFontVariables = [\n  inter.variable,\n  geistMono.variable,\n  rubik.variable,\n].join(\" \")\n",
       "type": "registry:lib"
     }
   ],
@@ -20,7 +20,7 @@
     "theme": {
       "font-sans": "var(--font-inter), Inter, sans-serif",
       "font-mono": "var(--font-geist-mono)",
-      "font-heading": "var(--font-open-runde), sans-serif"
+      "font-heading": "var(--font-rubik), Rubik, sans-serif"
     }
   },
   "css": {
@@ -30,5 +30,5 @@
       }
     }
   },
-  "docs": "Install Open Runde files into public/fonts before using the local font loader.\n\nApply leguanFontVariables to your root html element.\n\nDownload fonts:\nmkdir -p public/fonts\ncurl -fsSL https://leguan-ui.pages.dev/fonts/OpenRunde-Regular.woff2 -o public/fonts/OpenRunde-Regular.woff2\ncurl -fsSL https://leguan-ui.pages.dev/fonts/OpenRunde-Medium.woff2 -o public/fonts/OpenRunde-Medium.woff2\ncurl -fsSL https://leguan-ui.pages.dev/fonts/OpenRunde-Semibold.woff2 -o public/fonts/OpenRunde-Semibold.woff2\ncurl -fsSL https://leguan-ui.pages.dev/fonts/OpenRunde-Bold.woff2 -o public/fonts/OpenRunde-Bold.woff2"
+  "docs": "Inter, Rubik, and Geist Mono load from Google Fonts through next/font in src/lib/fonts.ts.\n\nApply leguanFontVariables to your root html element."
 }

@@ -56,7 +56,7 @@ export const catalogComponents: CatalogComponentMeta[] = [
     slug: "fonts",
     label: "Fonts",
     description:
-      "Inter body text, Open Runde headings, and Geist Mono for code and charts.",
+      "Inter body text, Rubik headings, and Geist Mono for code and charts.",
     group: "Display",
     kind: "custom",
     registryOnly: true,

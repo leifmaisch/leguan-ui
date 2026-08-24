@@ -1,3 +1,5 @@
 export { ThemeToggle } from "./theme-toggle"
+export { PrimaryColorSelect } from "./primary-color-select"
+export { ThemeScript } from "./theme-script"
 export { CodeSnippet } from "./code-snippet"
 export { iconWeight, withIconWeight, type PhosphorIcon, type PhosphorIconProps } from "./icon"

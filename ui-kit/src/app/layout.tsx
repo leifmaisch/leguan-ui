@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cal_Sans, Inter, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { ThemeScript } from "@/components/shared/theme-script";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -58,9 +59,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${inter.variable} ${geistMono.variable} ${openRunde.variable} ${calSans.variable} h-full antialiased`}
+      data-primary="neutral"
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <TooltipProvider>{children}</TooltipProvider>
+      <body className="relative min-h-full">
+        <ThemeScript />
+        <div className="isolate relative flex min-h-svh flex-col">
+          <TooltipProvider>{children}</TooltipProvider>
+        </div>
       </body>
     </html>
   );

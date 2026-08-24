@@ -91,7 +91,7 @@ export function CatalogSidebar() {
           <span className="font-runde truncate text-sm font-semibold tracking-tight group-data-[collapsible=icon]:hidden">
             Leguan UI
           </span>
-          <span className="hidden size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-accent font-runde text-xs font-bold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex">
+          <span className="hidden size-8 shrink-0 items-center justify-center rounded-squircle-sm border bg-sidebar-accent font-runde text-xs font-bold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex">
             LU
           </span>
           <Badge

@@ -1,5 +1,5 @@
 export const catalogLayout = {
-  canvasPadding: "p-3",
-  panelRadius: "rounded-2xl",
+  canvasPadding: "p-2 md:p-3",
+  panelRadius: "rounded-squircle-xl",
   headerHeight: "h-14",
 } as const

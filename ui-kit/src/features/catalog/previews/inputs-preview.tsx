@@ -17,9 +17,10 @@ export function InputsPreview() {
         <div className="relative">
           <MagnifyingGlass
             weight={iconWeight}
-            className="absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
+            aria-hidden
+            className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"
           />
-          <Input id="search" className="pl-8" placeholder="Search components..." />
+          <Input id="search" className="pl-9" placeholder="Search components..." />
         </div>
       </div>
       <div className="space-y-2">

@@ -29,10 +29,8 @@ export function ComponentsOverview() {
 
       {catalogNavGroups.map((group) => (
         <section key={group.title} className="space-y-4">
-          <h2 className="font-runde text-sm font-semibold tracking-wide text-muted-foreground uppercase">
-            {group.title}
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <h2 className="text-label">{group.title}</h2>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {group.items.map((component) => {
               const Icon = getCatalogNavIcon(component.slug)
 
@@ -42,11 +40,11 @@ export function ComponentsOverview() {
                   href={`/components/${component.slug}`}
                   className="group block h-full"
                 >
-                  <Card className="h-full transition-colors group-hover:bg-muted/40">
+                  <Card className="h-full transition-colors duration-150 group-hover:bg-muted/50">
                     <CardHeader className="gap-3">
                       <div className="flex items-start gap-3">
                         {Icon ? (
-                          <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border bg-muted/50 text-foreground">
+                          <div className="flex size-9 shrink-0 items-center justify-center rounded-squircle-sm border bg-background text-foreground">
                             <Icon weight={iconWeight} className="size-4" />
                           </div>
                         ) : null}

@@ -1,5 +1,7 @@
 import { generateLeguanAgentsMarkdown } from "@/features/catalog/lib/agents-md"
 
+export const dynamic = "force-static"
+
 export function GET() {
   const markdown = generateLeguanAgentsMarkdown()
 

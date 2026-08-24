@@ -2,6 +2,8 @@
 
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { catalogLayout } from "@/features/catalog/constants/layout"
+import { squircle } from "@/lib/squircle"
+import { surfaceDepth } from "@/lib/surface-depth"
 import { CatalogScrollProvider } from "@/features/catalog/hooks/use-catalog-scroll"
 import { cn } from "@/lib/utils"
 import { CatalogHeader } from "./catalog-header"
@@ -16,9 +18,11 @@ export function CatalogShell({ children }: { children: React.ReactNode }) {
         <SidebarInset className="h-svh min-h-0 overflow-hidden bg-transparent shadow-none md:m-0 md:rounded-none">
           <div className={cn("box-border h-full", catalogLayout.canvasPadding)}>
             <div
+              style={squircle}
               className={cn(
-                "flex h-full min-h-0 flex-col overflow-hidden border border-border/50 bg-background shadow-xl",
-                catalogLayout.panelRadius
+                "flex h-full min-h-0 flex-col overflow-hidden border bg-background",
+                catalogLayout.panelRadius,
+                surfaceDepth("xl")
               )}
             >
               <CatalogHeader />

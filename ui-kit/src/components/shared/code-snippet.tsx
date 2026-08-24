@@ -7,6 +7,7 @@ import { codeToHtml } from "shiki"
 import { iconWeight } from "@/components/shared/icon"
 import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { surfaceDepth } from "@/lib/surface-depth"
 import { cn } from "@/lib/utils"
 
 const codeContentClassName = cn(
@@ -22,6 +23,7 @@ type CodeSnippetProps = {
   filename?: string
   filepath?: string
   className?: string
+  expandable?: boolean
 }
 
 export function CodeSnippet({
@@ -30,6 +32,7 @@ export function CodeSnippet({
   filename,
   filepath,
   className,
+  expandable = false,
 }: CodeSnippetProps) {
   const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
@@ -82,7 +85,8 @@ export function CodeSnippet({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-xl border bg-muted/40",
+        "overflow-hidden rounded-squircle-lg border bg-muted/40",
+        surfaceDepth("lg"),
         className
       )}
     >
@@ -144,19 +148,34 @@ export function CodeSnippet({
         </div>
       )}
 
-      <ScrollArea className="max-h-[min(28rem,60vh)]">
-        {highlightedHtml ? (
-          <div
-            className={codeContentClassName}
-            dangerouslySetInnerHTML={{ __html: highlightedHtml }}
-          />
-        ) : (
-          <pre className="p-4 font-mono text-[13px] leading-6 text-foreground">
-            <code className="block w-max min-w-full">{code}</code>
-          </pre>
-        )}
-        <ScrollBar orientation="horizontal" />
-      </ScrollArea>
+      {expandable ? (
+        <div className="overflow-x-auto">
+          {highlightedHtml ? (
+            <div
+              className={codeContentClassName}
+              dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+            />
+          ) : (
+            <pre className="p-4 font-mono text-[13px] leading-6 text-foreground">
+              <code className="block w-max min-w-full">{code}</code>
+            </pre>
+          )}
+        </div>
+      ) : (
+        <ScrollArea className="max-h-[min(28rem,60vh)]">
+          {highlightedHtml ? (
+            <div
+              className={codeContentClassName}
+              dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+            />
+          ) : (
+            <pre className="p-4 font-mono text-[13px] leading-6 text-foreground">
+              <code className="block w-max min-w-full">{code}</code>
+            </pre>
+          )}
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      )}
     </div>
   )
 }

@@ -26,5 +26,11 @@ Component catalog for agents and tooling.
 - `alerts`
 - `tabs`
 - `avatars`
+- `area-chart`
+- `bar-chart`
+- `line-chart`
+- `pie-chart`
+- `radar-chart`
+- `sparkline`
 
 Fetch `/agents/raw` for full install commands, file paths, and descriptions.

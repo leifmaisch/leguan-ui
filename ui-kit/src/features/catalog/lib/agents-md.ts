@@ -2,9 +2,18 @@ import {
   catalogComponents,
   getCatalogNavGroups,
 } from "@/features/catalog/constants/components"
+import {
+  getDirectInstallCommand,
+  getRegistryAddCommand,
+  getRegistryInstallCommand,
+  getRegistryItemUrl,
+  getRegistryUrlTemplate,
+  LEGUAN_REGISTRY_NAMESPACE,
+} from "@/features/catalog/constants/registry"
 
 export function generateLeguanAgentsMarkdown() {
   const groups = getCatalogNavGroups()
+  const registryTemplate = getRegistryUrlTemplate()
   const lines = [
     "# Leguan UI",
     "",
@@ -13,8 +22,15 @@ export function generateLeguanAgentsMarkdown() {
     "## Overview",
     "",
     "- Docs base URL: `/components`",
-    "- Install style: shadcn/ui compatible",
+    "- Registry URL template: `" + registryTemplate + "`",
+    "- Registry namespace: `" + LEGUAN_REGISTRY_NAMESPACE + "`",
     "- Package name: `leguan-ui`",
+    "",
+    "## Registry setup",
+    "",
+    "```bash",
+    getRegistryAddCommand(),
+    "```",
     "",
     "## Components",
     "",
@@ -28,23 +44,28 @@ export function generateLeguanAgentsMarkdown() {
       lines.push(`- Slug: \`${component.slug}\``)
       lines.push(`- Docs: \`/components/${component.slug}\``)
       lines.push(`- Description: ${component.description}`)
-      lines.push(`- shadcn name: \`${component.shadcnName}\``)
+      lines.push(`- Registry item: \`${getRegistryItemUrl(component.slug)}\``)
       lines.push(`- Files:`)
       for (const file of component.files) {
         lines.push(`  - \`${file}\``)
       }
       if (component.dependencies?.length) {
-        lines.push(`- Dependencies: ${component.dependencies.map((dep) => `\`${dep}\``).join(", ")}`)
+        lines.push(
+          `- Bundled dependencies: ${component.dependencies.map((dep) => `\`${dep}\``).join(", ")}`
+        )
       }
+      lines.push(`- Install: \`${getRegistryInstallCommand(component.slug)}\``)
       lines.push(
-        `- CLI: \`pnpm dlx shadcn@latest add ${[component.shadcnName, ...(component.dependencies ?? [])].join(" ")}\``,
+        `- Direct URL install: \`${getDirectInstallCommand(component.slug)}\``,
         ""
       )
     }
   }
 
   lines.push("## All slugs", "")
-  lines.push(catalogComponents.map((component) => `- \`${component.slug}\``).join("\n"))
+  lines.push(
+    catalogComponents.map((component) => `- \`${component.slug}\``).join("\n")
+  )
   lines.push("")
 
   return lines.join("\n")

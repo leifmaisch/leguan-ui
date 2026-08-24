@@ -3,7 +3,11 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { FileTextIcon, InfoIcon } from "@phosphor-icons/react"
+import {
+  FileTextIcon,
+  InfoIcon,
+  RocketLaunchIcon,
+} from "@phosphor-icons/react"
 
 import { getCatalogNavGroups } from "@/features/catalog/constants/components"
 import { getCatalogNavIcon } from "@/features/catalog/constants/nav-icons"
@@ -27,6 +31,19 @@ import {
 
 const catalogNavGroups = getCatalogNavGroups()
 
+const topNavItems = [
+  {
+    href: "/get-started",
+    label: "Get Started",
+    icon: RocketLaunchIcon,
+  },
+  {
+    href: "/inspiration",
+    label: "Inspiration",
+    icon: InfoIcon,
+  },
+] as const
+
 function CatalogSidebarNav() {
   const pathname = usePathname()
   const { isMobile, setOpenMobile } = useSidebar()
@@ -39,6 +56,36 @@ function CatalogSidebarNav() {
 
   return (
     <>
+      <SidebarGroup>
+        <SidebarGroupContent>
+          <SidebarMenu>
+            {topNavItems.map((item) => {
+              const Icon = item.icon
+              const isActive = pathname === item.href
+
+              return (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    isActive={isActive}
+                    tooltip={item.label}
+                    render={
+                      <Link href={item.href} onClick={handleNavigate} />
+                    }
+                    className={cn(
+                      "font-medium",
+                      isActive && "font-semibold"
+                    )}
+                  >
+                    <Icon weight={iconWeight} />
+                    <span>{item.label}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )
+            })}
+          </SidebarMenu>
+        </SidebarGroupContent>
+      </SidebarGroup>
+
       {catalogNavGroups.map((group) => (
         <SidebarGroup key={group.title}>
           <SidebarGroupLabel className="text-label">{group.title}</SidebarGroupLabel>
@@ -111,17 +158,6 @@ export function CatalogSidebar() {
 
       <SidebarFooter className="p-2 group-data-[collapsible=icon]:hidden">
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              tooltip="Inspiration"
-              isActive={pathname === "/inspiration"}
-              render={<Link href="/inspiration" />}
-              className="font-medium"
-            >
-              <InfoIcon weight={iconWeight} />
-              <span>Inspiration</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton
               tooltip="AGENTS.md"

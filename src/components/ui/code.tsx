@@ -162,7 +162,7 @@ export function Code({
           )}
         </div>
       ) : (
-        <ScrollArea className="max-h-[min(28rem,60vh)]">
+        <ScrollArea viewportClassName="max-h-[min(28rem,60vh)]">
           {highlightedHtml ? (
             <div
               className={codeContentClassName}

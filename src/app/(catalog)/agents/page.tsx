@@ -1,14 +1,8 @@
-import { CodeSnippet } from "@/components/shared/code-snippet"
+import { AgentsPage } from "@/features/catalog/components/agents-page"
 import { readAgentsMarkdown } from "@/features/catalog/lib/read-agents-md"
 
-export default function AgentsPage() {
+export default function Page() {
   const markdown = readAgentsMarkdown()
 
-  return (
-    <CodeSnippet
-      code={markdown}
-      language="markdown"
-      filename="AGENTS.md"
-    />
-  )
+  return <AgentsPage markdown={markdown} />
 }

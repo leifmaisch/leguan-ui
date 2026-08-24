@@ -8,8 +8,19 @@ import {
   getRegistryInstallCommand,
   getRegistryItemUrl,
   getRegistryUrlTemplate,
+  getSiteUrl,
   LEGUAN_REGISTRY_NAMESPACE,
 } from "@/features/catalog/constants/registry"
+
+export function getAgentsMarkdownUrl(origin = getSiteUrl()) {
+  return `${origin}/AGENTS.md`
+}
+
+export function getAgentsIntroPrompt(origin = getSiteUrl()) {
+  const url = getAgentsMarkdownUrl(origin)
+
+  return `Read ${url} and use it as the source of truth for Leguan UI components, registry setup, and install commands in this project.`
+}
 
 export function generateLeguanAgentsMarkdown() {
   const groups = getCatalogNavGroups()

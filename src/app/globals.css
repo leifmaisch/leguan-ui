@@ -80,6 +80,20 @@
 }
 
 :root {
+  --type-title: 1.125rem;
+  --type-heading: 1rem;
+  --type-heading-lg: 1.25rem;
+  --type-heading-xl: 1.5rem;
+  --type-display: 1.5rem;
+  --type-display-lg: 1.875rem;
+  --type-body: 0.875rem;
+  --type-lede: 1rem;
+  --type-label: 0.75rem;
+  --type-caption: 0.75rem;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-body: 1.5;
+  --leading-relaxed: 1.625;
   --radius: 0.625rem;
   --background: #ffffff;
   --foreground: #262626;
@@ -301,12 +315,78 @@
     inset 0 -1px 0 0 rgb(0 0 0 / 30%);
 }
 
-@utility text-label {
-  font-size: 10px;
+@utility text-title {
+  font-family: var(--font-heading);
+  font-size: var(--type-title);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+}
+
+@utility text-heading {
+  font-family: var(--font-heading);
+  font-size: var(--type-heading);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+}
+
+@utility text-heading-lg {
+  font-family: var(--font-heading);
+  font-size: var(--type-heading-lg);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.015em;
+}
+
+@utility text-heading-xl {
+  font-family: var(--font-heading);
+  font-size: var(--type-heading-xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+@utility text-stat-value {
+  font-family: var(--font-heading);
+  font-size: var(--type-display);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility text-body {
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+@utility text-lede {
+  font-size: var(--type-lede);
+  line-height: var(--leading-relaxed);
+}
+
+@utility text-label {
+  font-size: var(--type-label);
+  font-weight: 500;
+  line-height: var(--leading-tight);
   color: var(--muted-foreground);
+}
+
+@utility text-caption {
+  font-size: var(--type-caption);
+  line-height: var(--leading-snug);
+  color: var(--muted-foreground);
+}
+
+@utility text-description {
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+  color: var(--muted-foreground);
+}
+
+@utility text-numeric {
+  font-variant-numeric: tabular-nums;
 }
 
 @layer utilities {
@@ -320,5 +400,11 @@
 
   :not(.dark) .surface-panel {
     @apply border-inset;
+  }
+
+  @media (min-width: 40rem) {
+    .text-stat-value {
+      font-size: var(--type-display-lg);
+    }
   }
 }

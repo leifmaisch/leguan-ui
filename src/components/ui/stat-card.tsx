@@ -34,14 +34,12 @@ export function StatCard({
           className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(color-mix(in_srgb,var(--primary)_6%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--primary)_6%,transparent)_1px,transparent_1px)] [background-size:24px_24px]"
         />
         <div className="relative flex flex-col">
-          <p className="text-xs font-medium text-neutral-400">{label}</p>
-          <p className="mt-2 font-runde text-2xl font-bold tracking-tight text-white tabular-nums sm:text-3xl">
-            {value}
-          </p>
+          <p className="text-label text-neutral-400">{label}</p>
+          <p className="text-stat-value mt-2 text-white">{value}</p>
           {change ? (
             <p
               className={cn(
-                "mt-1 font-mono text-xs tabular-nums",
+                "text-caption text-numeric mt-1 font-mono",
                 positive ? "text-primary" : "text-white/45"
               )}
             >

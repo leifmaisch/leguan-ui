@@ -22,7 +22,7 @@ export function SummaryCard() {
         <CardDescription>Overview of your workspace activity.</CardDescription>
       </CardHeader>
       <CardPanel>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-description">
           12 active projects, 3 due this week.
         </p>
       </CardPanel>
@@ -54,23 +54,23 @@ export function FeaturedBlogCard() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_100%,color-mix(in_srgb,var(--primary)_10%,transparent),transparent_65%)]"
         />
-        <span className="absolute right-5 top-5 rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-primary-foreground shadow-[0_0_12px_color-mix(in_srgb,var(--primary)_35%,transparent)]">
+        <span className="absolute right-5 top-5 rounded-full bg-primary px-2.5 py-0.5 text-label font-medium text-primary-foreground shadow-[0_0_12px_color-mix(in_srgb,var(--primary)_35%,transparent)]">
           Featured
         </span>
-        <Badge className="relative border-primary/25 bg-primary/10 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
+        <Badge className="relative border-primary/25 bg-primary/10 text-label font-medium text-primary">
           Product
         </Badge>
-        <h3 className="relative mt-4 font-runde text-xl font-bold tracking-tight sm:text-2xl">
+        <h3 className="relative mt-4 text-heading-lg sm:text-heading-xl">
           Privacy-first analytics without cookies
         </h3>
-        <p className="relative mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="relative mt-2 line-clamp-3 text-description leading-relaxed">
           Ship event tracking in minutes with hashed IDs, DNT support, and exports that stay compliant.
         </p>
       </div>
       <div className="flex items-center justify-between gap-3 px-3 pb-1 pt-3">
         <div className="min-w-0">
-          <p className="truncate text-sm font-medium">Maya Chen</p>
-          <p className="truncate text-xs text-muted-foreground">
+          <p className="text-body truncate font-medium">Maya Chen</p>
+          <p className="text-caption truncate">
             Aug 12, 2026 · 6 min read
           </p>
         </div>
@@ -99,13 +99,13 @@ export function BlogCard() {
         className="relative flex flex-col overflow-hidden rounded-squircle-lg border border-border/60 bg-card p-6"
         style={squircle}
       >
-        <Badge className="relative border-primary/25 bg-primary/10 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
+        <Badge className="relative border-primary/25 bg-primary/10 text-label font-medium text-primary">
           Guide
         </Badge>
-        <h3 className="relative mt-4 font-runde text-xl font-bold tracking-tight sm:text-2xl">
+        <h3 className="relative mt-4 text-heading-lg sm:text-heading-xl">
           Consent-aware funnels that stay accurate
         </h3>
-        <p className="relative mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="relative mt-2 line-clamp-3 text-description leading-relaxed">
           Measure conversion paths while honoring opt-outs, regional rules, and user preferences by default.
         </p>
       </div>
@@ -242,8 +242,8 @@ export function QuickStartCard() {
               <CircleIcon weight={iconWeight} className="mt-0.5 size-4 shrink-0 text-muted-foreground/60" />
             )}
             <div className="min-w-0">
-              <p className="text-sm font-medium">{step.title}</p>
-              <p className="mt-0.5 text-sm text-muted-foreground">{step.description}</p>
+              <p className="text-body font-medium">{step.title}</p>
+              <p className="text-description mt-0.5">{step.description}</p>
             </div>
           </div>
         ))}
@@ -260,10 +260,10 @@ export function QuickStartCard() {
           />
           <div className="relative">
             <p className="text-label">Catalog</p>
-            <p className="mt-2 font-runde text-lg font-semibold tracking-tight">
+            <p className="mt-2 text-title">
               48 components documented
             </p>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="text-description mt-1">
               Install commands and source paths live in the catalog.
             </p>
           </div>

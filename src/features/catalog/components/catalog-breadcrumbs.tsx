@@ -28,7 +28,7 @@ export function CatalogBreadcrumbs() {
       <BreadcrumbList>
         <BreadcrumbItem>
           {isComponentsIndex ? (
-            <BreadcrumbPage className="font-runde font-medium">
+            <BreadcrumbPage className="text-body font-medium">
               Components
             </BreadcrumbPage>
           ) : (
@@ -41,7 +41,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="font-runde font-medium">
+              <BreadcrumbPage className="text-body font-medium">
                 {component.label}
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -51,7 +51,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="font-runde font-medium">
+              <BreadcrumbPage className="text-body font-medium">
                 AGENTS.md
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -61,7 +61,7 @@ export function CatalogBreadcrumbs() {
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="font-runde font-medium">
+              <BreadcrumbPage className="text-body font-medium">
                 Inspiration
               </BreadcrumbPage>
             </BreadcrumbItem>

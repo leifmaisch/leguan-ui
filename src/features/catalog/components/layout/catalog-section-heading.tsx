@@ -14,9 +14,7 @@ export function CatalogSectionHeading({
   return (
     <h2
       className={cn(
-        variant === "label"
-          ? "text-label"
-          : "font-runde text-lg font-semibold tracking-tight",
+        variant === "label" ? "text-label" : "text-title",
         className
       )}
     >

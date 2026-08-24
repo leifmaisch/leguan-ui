@@ -41,9 +41,7 @@ function CatalogSidebarNav() {
     <>
       {catalogNavGroups.map((group) => (
         <SidebarGroup key={group.title}>
-          <SidebarGroupLabel className="font-runde text-xs tracking-wide">
-            {group.title}
-          </SidebarGroupLabel>
+          <SidebarGroupLabel className="text-label">{group.title}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {group.items.map((item) => {
@@ -90,15 +88,15 @@ export function CatalogSidebar() {
           href="/components"
           className="flex items-center gap-2 group-data-[collapsible=icon]:justify-center"
         >
-          <span className="font-runde truncate text-sm font-semibold tracking-tight group-data-[collapsible=icon]:hidden">
+          <span className="text-body truncate font-semibold group-data-[collapsible=icon]:hidden">
             Leguan UI
           </span>
-          <span className="hidden size-8 shrink-0 items-center justify-center rounded-squircle-sm border bg-sidebar-accent font-runde text-xs font-bold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex">
+          <span className="text-caption hidden size-8 shrink-0 items-center justify-center rounded-squircle-sm border bg-sidebar-accent font-semibold text-sidebar-accent-foreground group-data-[collapsible=icon]:flex">
             LU
           </span>
           <Badge
             variant="secondary"
-            className="text-[10px] group-data-[collapsible=icon]:hidden"
+            className="text-caption group-data-[collapsible=icon]:hidden"
           >
             v0.1
           </Badge>

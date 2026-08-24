@@ -42,7 +42,7 @@ function NormalCard() {
         <CardDescription>Overview of your workspace activity.</CardDescription>
       </CardHeader>
       <CardPanel>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-description">
           12 active projects, 3 due this week.
         </p>
       </CardPanel>
@@ -88,28 +88,24 @@ function BlogStyleCard({
           />
         ) : null}
         {featured && !compact ? (
-          <span
-            className="absolute right-5 top-5 rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-primary-foreground shadow-[0_0_12px_color-mix(in_srgb,var(--primary)_35%,transparent)]"
-          >
+          <span className="absolute right-5 top-5 rounded-full bg-primary px-2.5 py-0.5 text-label font-medium text-primary-foreground shadow-[0_0_12px_color-mix(in_srgb,var(--primary)_35%,transparent)]">
             Featured
           </span>
         ) : null}
-        <Badge
-          className="relative border-primary/25 bg-primary/10 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary"
-        >
+        <Badge className="relative border-primary/25 bg-primary/10 text-label font-medium text-primary">
           {badge}
         </Badge>
         <h3
           className={cn(
-            "relative mt-4 font-runde font-bold tracking-tight",
-            compact ? "text-base" : "text-xl sm:text-2xl"
+            "relative mt-4",
+            compact ? "text-heading" : "text-heading-lg sm:text-heading-xl"
           )}
         >
           {title}
         </h3>
         <p
           className={cn(
-            "relative mt-2 text-sm leading-relaxed text-muted-foreground",
+            "relative mt-2 text-description leading-relaxed",
             compact ? "line-clamp-2" : stretch ? "" : "line-clamp-3"
           )}
         >
@@ -126,15 +122,12 @@ function BlogStyleCard({
       >
         <div className="min-w-0">
           <p
-            className={cn(
-              "text-sm font-medium",
-              !stretch && "truncate"
-            )}
+            className={cn("text-body font-medium", !stretch && "truncate")}
           >
             {author}
           </p>
           {featured ? (
-            <p className="truncate text-xs text-muted-foreground">
+            <p className="text-caption truncate">
               Aug 12, 2026 · 6 min read
             </p>
           ) : null}
@@ -274,8 +267,8 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
               />
             )}
             <div className="min-w-0">
-              <p className="text-sm font-medium">{step.title}</p>
-              <p className="mt-0.5 text-sm text-muted-foreground">
+              <p className="text-body font-medium">{step.title}</p>
+              <p className="text-description mt-0.5">
                 {step.description}
               </p>
             </div>
@@ -295,10 +288,8 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
           />
           <div className="relative">
             <p className="text-label">Catalog</p>
-            <p className="mt-2 font-runde text-lg font-semibold tracking-tight">
-              48 components documented
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="mt-2 text-title">48 components documented</p>
+            <p className="text-description mt-1">
               Install commands and source paths live in the catalog.
             </p>
           </div>
@@ -307,7 +298,7 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
       </CardPanel>
       {compact ? null : (
       <CardFooter className="justify-between px-4 sm:px-6">
-        <p className="text-xs text-muted-foreground">About 10 minutes</p>
+        <p className="text-caption">About 10 minutes</p>
         <Button variant="outline" size="sm">
           Browse catalog
           <ArrowUpRightIcon weight={iconWeight} />

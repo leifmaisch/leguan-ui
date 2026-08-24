@@ -10,7 +10,7 @@ export function CatalogSubheading({
   className,
 }: CatalogSubheadingProps) {
   return (
-    <p className={cn("text-sm font-medium text-foreground", className)}>
+    <p className={cn("text-body font-medium", className)}>
       {children}
     </p>
   )

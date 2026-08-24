@@ -52,7 +52,7 @@ export function InspirationPage() {
   return (
     <CatalogPageContent>
       <section className="space-y-4">
-        <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+        <div className="space-y-3 text-description leading-relaxed">
           <p>
             Leguan UI is a curated catalog built on open tools and libraries we
             admire. We borrow structure from the shadcn registry model, lean on
@@ -184,11 +184,11 @@ export function InspirationPage() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-runde text-sm font-medium text-foreground underline-offset-2 hover:underline"
+                className="text-body font-medium underline-offset-2 hover:underline"
               >
                 {item.name}
               </a>
-              <p className="text-sm text-muted-foreground">{item.note}</p>
+              <p className="text-description">{item.note}</p>
             </div>
           ))}
         </PreviewSurface>
@@ -196,7 +196,7 @@ export function InspirationPage() {
 
       <section className="space-y-4">
         <CatalogSectionHeading variant="label">Disclaimer</CatalogSectionHeading>
-        <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+        <div className="space-y-3 text-description leading-relaxed">
           <p>
             Leguan UI is provided as a reference catalog and component registry.
             It is not affiliated with, endorsed by, or sponsored by the projects

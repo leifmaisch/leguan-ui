@@ -71,10 +71,7 @@ function GlowCardTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="glow-card-title"
-      className={cn(
-        "font-runde text-lg font-semibold tracking-tight group-has-[>[data-slot=glow-card-label]]/glow-card:mt-2",
-        className
-      )}
+      className={cn("text-title group-has-[>[data-slot=glow-card-label]]/glow-card:mt-2", className)}
       {...props}
     />
   )
@@ -84,7 +81,7 @@ function GlowCardDescription({ className, ...props }: React.ComponentProps<"p">)
   return (
     <p
       data-slot="glow-card-description"
-      className={cn("mt-1 text-sm text-muted-foreground", className)}
+      className={cn("mt-1 text-description", className)}
       {...props}
     />
   )

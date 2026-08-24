@@ -1,31 +1,33 @@
 "use client"
 
 import { CodeSnippet } from "@/components/shared/code-snippet"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cardExamples } from "@/features/catalog/constants/card-examples"
 
 export function ComponentCardExamples() {
   return (
-    <section className="space-y-8">
-      <div className="space-y-1">
-        <h2 className="font-runde text-lg font-semibold tracking-tight">Examples</h2>
-        <p className="text-sm text-muted-foreground">
-          Copy-ready patterns from the preview above.
-        </p>
-      </div>
+    <section className="space-y-4">
+      <h2 className="font-runde text-lg font-semibold tracking-tight">Code</h2>
 
-      {cardExamples.map((example) => (
-        <div key={example.id} className="space-y-3">
-          <div className="space-y-1">
-            <h3 className="text-sm font-medium text-foreground">{example.label}</h3>
-            <p className="text-sm text-muted-foreground">{example.description}</p>
-          </div>
-          <CodeSnippet
-            code={example.code}
-            language="tsx"
-            filename={example.filename}
-          />
-        </div>
-      ))}
+      <Tabs defaultValue={cardExamples[0].id}>
+        <TabsList>
+          {cardExamples.map((example) => (
+            <TabsTrigger key={example.id} value={example.id} className="flex-none">
+              {example.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {cardExamples.map((example) => (
+          <TabsContent key={example.id} value={example.id} className="mt-4">
+            <CodeSnippet
+              code={example.code}
+              language="tsx"
+              filename={example.filename}
+            />
+          </TabsContent>
+        ))}
+      </Tabs>
     </section>
   )
 }

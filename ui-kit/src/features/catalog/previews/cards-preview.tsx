@@ -23,13 +23,20 @@ import { Form } from "@/components/ui/form"
 import { Frame, FrameFooter } from "@/components/ui/frame"
 import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { squircle } from "@/lib/squircle"
 import { surfaceDepth } from "@/lib/surface-depth"
 import { cn } from "@/lib/utils"
 
 function NormalCard() {
   return (
-    <Card className="self-start">
+    <Card className="flex h-full w-full flex-col">
       <CardHeader>
         <CardTitle>Weekly summary</CardTitle>
         <CardDescription>Overview of your workspace activity.</CardDescription>
@@ -60,17 +67,18 @@ function BlogStyleCard({
   const author = featured ? "Maya Chen" : "Jordan Lee"
 
   return (
-    <Card className="gap-0 bg-muted/50 p-2">
-      <div
-        className={cn(
-          "relative flex flex-col overflow-hidden rounded-squircle-lg border",
-          compact ? "p-4" : "p-6",
-          featured
-            ? "border-primary/35 bg-primary/5"
-            : "border-border/60 bg-card"
-        )}
-        style={squircle}
-      >
+    <Card className="flex h-full w-full flex-col gap-0 bg-muted/50 p-2">
+      <div className="flex flex-1 flex-col">
+        <div
+          className={cn(
+            "relative flex flex-1 flex-col overflow-hidden rounded-squircle-lg border",
+            compact ? "p-4" : "p-6",
+            featured
+              ? "border-primary/35 bg-primary/5"
+              : "border-border/60 bg-card"
+          )}
+          style={squircle}
+        >
         {featured ? (
           <div
             aria-hidden
@@ -105,6 +113,7 @@ function BlogStyleCard({
         >
           {description}
         </p>
+        </div>
       </div>
       {compact ? null : (
       <div className="flex items-center justify-between gap-3 px-3 pb-1 pt-3">
@@ -128,8 +137,8 @@ function BlogStyleCard({
 
 function CreateWorkspaceCard({ compact = false }: { compact?: boolean }) {
   return (
-    <Frame className="w-full self-start">
-      <Card>
+    <Frame className="flex h-full w-full flex-col">
+      <Card className="flex min-h-0 flex-1 flex-col">
         <CardHeader className={compact ? "px-4 py-4" : undefined}>
           <CardTitle className={compact ? "text-base" : undefined}>
             Create your workspace
@@ -153,6 +162,24 @@ function CreateWorkspaceCard({ compact = false }: { compact?: boolean }) {
                 <Field>
                   <FieldLabel>Email</FieldLabel>
                   <Input placeholder="you@company.com" type="email" />
+                </Field>
+                <Field>
+                  <FieldLabel>Password</FieldLabel>
+                  <Input placeholder="At least 8 characters" type="password" />
+                </Field>
+                <Field>
+                  <FieldLabel>Team size</FieldLabel>
+                  <Select defaultValue="2-10">
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select team size" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Just me</SelectItem>
+                      <SelectItem value="2-10">2 to 10 people</SelectItem>
+                      <SelectItem value="11-50">11 to 50 people</SelectItem>
+                      <SelectItem value="51+">51 or more</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </Field>
               </>
             )}
@@ -197,7 +224,7 @@ function SetupChecklistCard({ compact = false }: { compact?: boolean }) {
   const visibleSteps = compact ? setupSteps.slice(0, 2) : setupSteps
 
   return (
-    <Card className={cn("flex flex-col gap-0 overflow-hidden py-0", !compact && "h-full")}>
+    <Card className="flex h-full w-full flex-col gap-0 overflow-hidden py-0">
       <CardHeader className="border-b px-4 py-4 sm:px-6">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -281,21 +308,28 @@ export { BlogStyleCard, CreateWorkspaceCard, NormalCard, SetupChecklistCard }
 
 export function CardsPreview() {
   return (
-    <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <div className="self-start sm:col-span-2">
-        <BlogStyleCard featured />
+    <div className="space-y-3">
+      <div className="grid auto-rows-min items-stretch gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        <div
+          className="min-w-0 h-full sm:col-span-2 xl:col-span-2 xl:row-span-2 [&>*]:h-full"
+        >
+          <BlogStyleCard featured />
+        </div>
+        <div className="min-w-0 h-full [&>*]:h-full">
+          <BlogStyleCard />
+        </div>
+        <div className="min-w-0 h-full [&>*]:h-full">
+          <NormalCard />
+        </div>
       </div>
-      <div className="self-start">
-        <BlogStyleCard />
-      </div>
-      <div className="self-start">
-        <NormalCard />
-      </div>
-      <div className="self-start">
-        <CreateWorkspaceCard />
-      </div>
-      <div className="sm:col-span-2">
-        <SetupChecklistCard />
+
+      <div className="grid items-stretch gap-3 sm:grid-cols-2">
+        <div className="min-w-0 h-full [&>*]:h-full">
+          <CreateWorkspaceCard />
+        </div>
+        <div className="min-w-0 h-full [&>*]:h-full">
+          <SetupChecklistCard />
+        </div>
       </div>
     </div>
   )

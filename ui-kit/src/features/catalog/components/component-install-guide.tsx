@@ -31,16 +31,9 @@ export function ComponentInstallGuide({
 
   return (
     <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-runde text-lg font-semibold tracking-tight">
-          Installation
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          {externalInstall
-            ? externalInstall.description
-            : "Install with the shadcn CLI using the component URL, configure the Leguan registry, or copy the source manually."}
-        </p>
-      </div>
+      <h2 className="font-runde text-lg font-semibold tracking-tight">
+        Installation
+      </h2>
 
       <Tabs defaultValue="install">
         <TabsList>
@@ -58,15 +51,9 @@ export function ComponentInstallGuide({
         <TabsContent value="install" className="mt-4 space-y-6">
           {externalInstall ? (
             <div className="space-y-3">
-              <div className="space-y-1">
-                <p className="text-sm font-medium text-foreground">
-                  Install with {component.attribution?.name ?? "the provider CLI"}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Pulls chart components into{" "}
-                  <span className="font-mono text-xs">components/dither-kit/</span>.
-                </p>
-              </div>
+              <p className="text-sm font-medium text-foreground">
+                Install with {component.attribution?.name ?? "the provider CLI"}
+              </p>
               <CodeSnippet
                 code={externalInstall.command}
                 language="bash"
@@ -88,15 +75,9 @@ export function ComponentInstallGuide({
             </div>
           ) : (
             <div className="space-y-3">
-              <div className="space-y-1">
-                <p className="text-sm font-medium text-foreground">
-                  Install by URL
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Pulls this component directly from{" "}
-                  <span className="font-mono text-xs">{registryItemUrl}</span>.
-                </p>
-              </div>
+              <p className="text-sm font-medium text-foreground">
+                Install by URL
+              </p>
               <CodeSnippet
                 code={directInstallCommand}
                 language="bash"
@@ -109,18 +90,9 @@ export function ComponentInstallGuide({
         {!externalInstall ? (
           <TabsContent value="registry" className="mt-4 space-y-6">
           <div className="space-y-3">
-            <div className="space-y-1">
-              <p className="text-sm font-medium text-foreground">
-                1. Add the Leguan registry
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Run once in your project to configure the{" "}
-                <span className="font-mono text-xs">
-                  {LEGUAN_REGISTRY_NAMESPACE}
-                </span>{" "}
-                namespace.
-              </p>
-            </div>
+            <p className="text-sm font-medium text-foreground">
+              1. Add the Leguan registry
+            </p>
             <CodeSnippet
               code={registryAddCommand}
               language="bash"
@@ -133,18 +105,9 @@ export function ComponentInstallGuide({
           </div>
 
           <div className="space-y-3">
-            <div className="space-y-1">
-              <p className="text-sm font-medium text-foreground">
-                2. Install from the registry
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Use the{" "}
-                <span className="font-mono text-xs">
-                  {LEGUAN_REGISTRY_NAMESPACE}
-                </span>{" "}
-                namespace after setup.
-              </p>
-            </div>
+            <p className="text-sm font-medium text-foreground">
+              2. Install from the registry
+            </p>
             <CodeSnippet
               code={registryInstallCommand}
               language="bash"
@@ -153,15 +116,9 @@ export function ComponentInstallGuide({
           </div>
 
           <div className="space-y-3">
-            <div className="space-y-1">
-              <p className="text-sm font-medium text-foreground">
-                Component registry item
-              </p>
-              <p className="text-sm text-muted-foreground">
-                JSON served at this URL for{" "}
-                <span className="font-mono text-xs">{component.slug}</span>.
-              </p>
-            </div>
+            <p className="text-sm font-medium text-foreground">
+              Component registry item
+            </p>
             <CodeSnippet
               code={registryItemUrl}
               language="bash"

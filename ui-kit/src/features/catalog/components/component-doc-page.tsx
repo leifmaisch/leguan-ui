@@ -5,7 +5,6 @@ import type { ComponentSource } from "@/features/catalog/lib/get-component-sourc
 import { ComponentAttribution } from "@/features/catalog/components/component-attribution"
 import { ComponentCardExamples } from "@/features/catalog/components/component-card-examples"
 import { ComponentInstallGuide } from "@/features/catalog/components/component-install-guide"
-import { ComponentPageHeader } from "@/features/catalog/components/component-page-header"
 import { ComponentPreview } from "@/features/catalog/components/component-preview"
 import { ComponentVersions } from "@/features/catalog/components/component-versions"
 import { getComponentPreview } from "@/features/catalog/previews/registry"
@@ -24,10 +23,6 @@ export function ComponentDocPage({ component, sources }: ComponentDocPageProps) 
 
   return (
     <div className="space-y-10">
-      <ComponentPageHeader
-        title={component.label}
-        description={component.description}
-      />
       {component.attribution ? (
         <ComponentAttribution
           name={component.attribution.name}

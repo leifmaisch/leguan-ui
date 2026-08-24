@@ -57,12 +57,7 @@ export function ComponentVersions({ component }: ComponentVersionsProps) {
 
   return (
     <section className="space-y-3">
-      <div className="space-y-1">
-        <h2 className="font-runde text-lg font-semibold tracking-tight">Versions</h2>
-        <p className="text-sm text-muted-foreground">
-          Style variants with live preview and copyable usage.
-        </p>
-      </div>
+      <h2 className="font-runde text-lg font-semibold tracking-tight">Versions</h2>
 
       <div
         className={cn(

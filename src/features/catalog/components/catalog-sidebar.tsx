@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import {
   FileTextIcon,
   InfoIcon,
+  LayoutIcon,
   RocketLaunchIcon,
 } from "@phosphor-icons/react"
 
@@ -36,6 +37,11 @@ const topNavItems = [
     href: "/get-started",
     label: "Get Started",
     icon: RocketLaunchIcon,
+  },
+  {
+    href: "/landing",
+    label: "Landing",
+    icon: LayoutIcon,
   },
   {
     href: "/inspiration",

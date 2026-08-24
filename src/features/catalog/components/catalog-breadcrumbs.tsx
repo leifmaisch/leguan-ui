@@ -18,6 +18,7 @@ export function CatalogBreadcrumbs() {
   const isComponentsIndex = pathname === "/components"
   const isAgentsPage = pathname === "/agents"
   const isInspirationPage = pathname === "/inspiration"
+  const isLandingPage = pathname === "/landing"
   const isGetStartedPage = pathname === "/get-started"
   const slug = pathname.startsWith("/components/")
     ? pathname.replace("/components/", "")
@@ -64,6 +65,16 @@ export function CatalogBreadcrumbs() {
             <BreadcrumbItem>
               <BreadcrumbPage className="text-body font-medium">
                 Get Started
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </>
+        ) : null}
+        {isLandingPage ? (
+          <>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-body font-medium">
+                Landing
               </BreadcrumbPage>
             </BreadcrumbItem>
           </>

@@ -470,6 +470,95 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - Install: `pnpm dlx shadcn@latest add @leguan/sparkline`
 - Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/sparkline.json`
 
+### Website sections
+
+#### Navbar
+
+- Slug: `navbar`
+- Docs: `/components/navbar`
+- Description: Responsive site header with links, actions, and mobile menu.
+- Registry item: `https://leguan-ui.pages.dev/r/navbar.json`
+- Files:
+  - `src/components/ui/navbar.tsx`
+- Bundled dependencies: `button`
+- Install: `pnpm dlx shadcn@latest add @leguan/navbar`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/navbar.json`
+
+#### Hero
+
+- Slug: `hero`
+- Docs: `/components/hero`
+- Description: Framed hero with centered intro, chips, actions, and a showcase panel.
+- Registry item: `https://leguan-ui.pages.dev/r/hero.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/hero.tsx`
+- Bundled dependencies: `button`
+- Install: `pnpm dlx shadcn@latest add @leguan/hero`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/hero.json`
+
+#### Features
+
+- Slug: `features`
+- Docs: `/components/features`
+- Description: Bento grid sections for product highlights and landing pages.
+- Registry item: `https://leguan-ui.pages.dev/r/features.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/features.tsx`
+- Install: `pnpm dlx shadcn@latest add @leguan/features`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/features.json`
+
+#### Testimonials
+
+- Slug: `testimonials`
+- Docs: `/components/testimonials`
+- Description: Customer quote cards in a grid section for social proof.
+- Registry item: `https://leguan-ui.pages.dev/r/testimonials.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/testimonials.tsx`
+- Bundled dependencies: `avatar`
+- Install: `pnpm dlx shadcn@latest add @leguan/testimonials`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/testimonials.json`
+
+#### Pricing
+
+- Slug: `pricing`
+- Docs: `/components/pricing`
+- Description: Three-column pricing cards with features and plan actions.
+- Registry item: `https://leguan-ui.pages.dev/r/pricing.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/pricing.tsx`
+- Bundled dependencies: `button`
+- Install: `pnpm dlx shadcn@latest add @leguan/pricing`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/pricing.json`
+
+#### CTA
+
+- Slug: `cta`
+- Docs: `/components/cta`
+- Description: Centered call-to-action blocks with eyebrow, copy, and actions.
+- Registry item: `https://leguan-ui.pages.dev/r/cta.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/cta.tsx`
+- Bundled dependencies: `button`
+- Install: `pnpm dlx shadcn@latest add @leguan/cta`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/cta.json`
+
+#### Footer
+
+- Slug: `footer`
+- Docs: `/components/footer`
+- Description: Contained footer panel with brand, link columns, and a legal bar.
+- Registry item: `https://leguan-ui.pages.dev/r/footer.json`
+- Files:
+  - `src/components/ui/footer.tsx`
+- Install: `pnpm dlx shadcn@latest add @leguan/footer`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/footer.json`
+
 ## All slugs
 
 - `foundation`
@@ -500,4 +589,11 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - `pie-chart`
 - `radar-chart`
 - `sparkline`
+- `navbar`
+- `hero`
+- `features`
+- `testimonials`
+- `pricing`
+- `cta`
+- `footer`
 

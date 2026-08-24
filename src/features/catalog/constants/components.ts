@@ -7,6 +7,7 @@ export type CatalogComponentGroup =
   | "Charts"
   | "Overlay"
   | "Feedback"
+  | "Website sections"
 
 export type CatalogComponentKind = "shadcn" | "custom"
 
@@ -278,6 +279,85 @@ export const catalogComponents: CatalogComponentMeta[] = [
     "Sparkline",
     "Compact decorative trend lines for cards and stat rows."
   ),
+  {
+    slug: "navbar",
+    label: "Navbar",
+    description: "Responsive site header with links, actions, and mobile menu.",
+    group: "Website sections",
+    kind: "custom",
+    files: ["src/components/ui/navbar.tsx"],
+    dependencies: ["button"],
+    previewFramed: false,
+  },
+  {
+    slug: "hero",
+    label: "Hero",
+    description:
+      "Framed hero with centered intro, chips, actions, and a showcase panel.",
+    group: "Website sections",
+    kind: "custom",
+    files: ["src/components/ui/section.tsx", "src/components/ui/hero.tsx"],
+    dependencies: ["button"],
+    previewFramed: false,
+  },
+  {
+    slug: "features",
+    label: "Features",
+    description: "Bento grid sections for product highlights and landing pages.",
+    group: "Website sections",
+    kind: "custom",
+    files: [
+      "src/components/ui/section.tsx",
+      "src/components/ui/features.tsx",
+    ],
+    previewFramed: false,
+  },
+  {
+    slug: "testimonials",
+    label: "Testimonials",
+    description: "Customer quote cards in a grid section for social proof.",
+    group: "Website sections",
+    kind: "custom",
+    files: [
+      "src/components/ui/section.tsx",
+      "src/components/ui/testimonials.tsx",
+    ],
+    dependencies: ["avatar"],
+    previewFramed: false,
+  },
+  {
+    slug: "pricing",
+    label: "Pricing",
+    description: "Three-column pricing cards with features and plan actions.",
+    group: "Website sections",
+    kind: "custom",
+    files: [
+      "src/components/ui/section.tsx",
+      "src/components/ui/pricing.tsx",
+    ],
+    dependencies: ["button"],
+    previewFramed: false,
+  },
+  {
+    slug: "cta",
+    label: "CTA",
+    description: "Centered call-to-action blocks with eyebrow, copy, and actions.",
+    group: "Website sections",
+    kind: "custom",
+    files: ["src/components/ui/section.tsx", "src/components/ui/cta.tsx"],
+    dependencies: ["button"],
+    previewFramed: false,
+  },
+  {
+    slug: "footer",
+    label: "Footer",
+    description:
+      "Contained footer panel with brand, link columns, and a legal bar.",
+    group: "Website sections",
+    kind: "custom",
+    files: ["src/components/ui/footer.tsx"],
+    previewFramed: false,
+  },
 ]
 
 export const catalogRegistrySlugs = catalogComponents.map(

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta",
+  "type": "registry:component",
+  "title": "CTA",
+  "description": "Centered call-to-action blocks with eyebrow, copy, and actions.",
+  "files": [
+    {
+      "path": "src/components/ui/section.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nfunction Section({\n  className,\n  ...props\n}: React.ComponentProps<\"section\">) {\n  return (\n    <section\n      data-slot=\"section\"\n      className={cn(\n        \"mx-auto w-full max-w-6xl scroll-mt-24 px-5 py-20 sm:px-6 md:py-28 lg:py-32\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionHeader({\n  className,\n  ...props\n}: React.ComponentProps<\"header\">) {\n  return (\n    <header\n      data-slot=\"section-header\"\n      className={cn(\n        \"mb-12 flex flex-col items-center gap-4 text-center md:mb-14\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionTitle({\n  className,\n  ...props\n}: React.ComponentProps<\"h2\">) {\n  return (\n    <h2\n      data-slot=\"section-title\"\n      className={cn(\n        \"max-w-2xl text-balance text-heading text-2xl sm:text-3xl md:text-4xl\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"section-description\"\n      className={cn(\"max-w-lg text-balance text-description\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Section, SectionDescription, SectionHeader, SectionTitle }\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "src/components/ui/cta.tsx",
+      "content": "import { squircle } from \"@/lib/squircle\"\nimport { surfaceDepth } from \"@/lib/surface-depth\"\nimport { cn } from \"@/lib/utils\"\nimport { Section } from \"@/components/ui/section\"\n\ntype CtaProps = React.ComponentProps<\"div\"> & {\n  asSection?: boolean\n}\n\nfunction Cta({\n  asSection = true,\n  className,\n  children,\n  ...props\n}: CtaProps) {\n  const content = (\n    <div\n      data-slot=\"cta\"\n      style={squircle}\n      className={cn(\n        \"relative flex flex-col items-center gap-6 overflow-hidden rounded-squircle-xl border border-border bg-muted/40 px-6 py-16 text-center sm:gap-8 sm:px-12 sm:py-20\",\n        surfaceDepth(\"lg\"),\n        className\n      )}\n      {...props}\n    >\n      <div\n        aria-hidden\n        className=\"pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_srgb,var(--primary)_12%,transparent),transparent_70%)]\"\n      />\n      <div className=\"relative flex w-full flex-col items-center gap-6 sm:gap-8\">\n        {children}\n      </div>\n    </div>\n  )\n\n  if (asSection) {\n    return <Section className=\"py-0 pb-24 md:pb-32\">{content}</Section>\n  }\n\n  return content\n}\n\nfunction CtaEyebrow({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"cta-eyebrow\"\n      style={squircle}\n      className={cn(\n        \"inline-flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CtaTitle({\n  className,\n  ...props\n}: React.ComponentProps<\"h2\">) {\n  return (\n    <h2\n      data-slot=\"cta-title\"\n      className={cn(\n        \"max-w-2xl text-balance text-heading text-3xl sm:text-4xl md:text-5xl\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CtaDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"cta-description\"\n      className={cn(\"max-w-2xl text-balance text-description\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CtaActions({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"cta-actions\"\n      className={cn(\n        \"flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Cta, CtaActions, CtaDescription, CtaEyebrow, CtaTitle }\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/components/cta"
+    }
+  },
+  "registryDependencies": [
+    "https://leguan-ui.pages.dev/r/buttons.json",
+    "https://leguan-ui.pages.dev/r/foundation.json"
+  ]
+}

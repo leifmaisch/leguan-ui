@@ -170,6 +170,48 @@
       "type": "registry:component",
       "title": "Sparkline",
       "description": "Compact decorative trend lines for cards and stat rows."
+    },
+    {
+      "name": "navbar",
+      "type": "registry:component",
+      "title": "Navbar",
+      "description": "Responsive site header with links, actions, and mobile menu."
+    },
+    {
+      "name": "hero",
+      "type": "registry:component",
+      "title": "Hero",
+      "description": "Framed hero with centered intro, chips, actions, and a showcase panel."
+    },
+    {
+      "name": "features",
+      "type": "registry:component",
+      "title": "Features",
+      "description": "Bento grid sections for product highlights and landing pages."
+    },
+    {
+      "name": "testimonials",
+      "type": "registry:component",
+      "title": "Testimonials",
+      "description": "Customer quote cards in a grid section for social proof."
+    },
+    {
+      "name": "pricing",
+      "type": "registry:component",
+      "title": "Pricing",
+      "description": "Three-column pricing cards with features and plan actions."
+    },
+    {
+      "name": "cta",
+      "type": "registry:component",
+      "title": "CTA",
+      "description": "Centered call-to-action blocks with eyebrow, copy, and actions."
+    },
+    {
+      "name": "footer",
+      "type": "registry:component",
+      "title": "Footer",
+      "description": "Contained footer panel with brand, link columns, and a legal bar."
     }
   ]
 }

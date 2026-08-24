@@ -7,19 +7,26 @@ import { BadgesPreview } from "./badges-preview"
 import { ButtonsPreview } from "./buttons-preview"
 import { CardsPreview } from "./cards-preview"
 import { CodePreview } from "./code-preview"
+import { CtaPreview } from "./cta-preview"
 import { DialogPreview } from "./dialog-preview"
 import { DropdownMenuPreview } from "./dropdown-menu-preview"
 import { EmptyStatePreview } from "./empty-state-preview"
+import { FeaturesPreview } from "./features-preview"
+import { FooterPreview } from "./footer-preview"
 import { FormControlsPreview } from "./form-controls-preview"
 import { GlowCardPreview } from "./glow-card-preview"
+import { HeroPreview } from "./hero-preview"
 import { InputsPreview } from "./inputs-preview"
+import { NavbarPreview } from "./navbar-preview"
 import { PopoverPreview } from "./popover-preview"
+import { PricingPreview } from "./pricing-preview"
 import { ProgressPreview } from "./progress-preview"
 import { SeparatorPreview } from "./separator-preview"
 import { SkeletonPreview } from "./skeleton-preview"
 import { StatCardPreview } from "./stat-card-preview"
 import { StatusIndicatorPreview } from "./status-indicator-preview"
 import { TabsPreview } from "./tabs-preview"
+import { TestimonialsPreview } from "./testimonials-preview"
 import { TooltipPreview } from "./tooltip-preview"
 import { AreaChartPreview } from "@/features/catalog/charts/previews/area-chart"
 import { BarChartPreview } from "@/features/catalog/charts/previews/bar-chart"
@@ -58,6 +65,13 @@ export const componentPreviewRegistry: Record<
   "pie-chart": PieChartPreview,
   "radar-chart": RadarChartPreview,
   sparkline: SparklinePreview,
+  navbar: NavbarPreview,
+  hero: HeroPreview,
+  features: FeaturesPreview,
+  testimonials: TestimonialsPreview,
+  pricing: PricingPreview,
+  cta: CtaPreview,
+  footer: FooterPreview,
 }
 
 export function getComponentPreview(slug: string) {

@@ -267,6 +267,10 @@ export function getRegistryFileType(
     return "registry:lib" as const
   }
 
+  if (component.slug === "fonts") {
+    return "registry:lib" as const
+  }
+
   if (component.kind === "custom") {
     const basename = path.basename(filePath, path.extname(filePath))
     return basename === component.slug

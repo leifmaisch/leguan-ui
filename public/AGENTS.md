@@ -473,6 +473,7 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 ## All slugs
 
 - `foundation`
+- `fonts`
 - `buttons`
 - `badges`
 - `dropdown-menu`

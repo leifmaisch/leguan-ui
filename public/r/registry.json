@@ -10,6 +10,12 @@
       "description": "Shared utilities, squircle helpers, surface depth, dot patterns, and theme tokens."
     },
     {
+      "name": "fonts",
+      "type": "registry:lib",
+      "title": "Fonts",
+      "description": "Inter body text, Open Runde headings, and Geist Mono for code and charts."
+    },
+    {
       "name": "buttons",
       "type": "registry:ui",
       "title": "Button",

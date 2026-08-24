@@ -53,6 +53,16 @@ export const catalogComponents: CatalogComponentMeta[] = [
     ],
   },
   {
+    slug: "fonts",
+    label: "Fonts",
+    description:
+      "Inter body text, Open Runde headings, and Geist Mono for code and charts.",
+    group: "Display",
+    kind: "custom",
+    registryOnly: true,
+    files: ["src/lib/fonts.ts"],
+  },
+  {
     slug: "buttons",
     label: "Button",
     description: "Trigger actions with multiple variants and sizes.",

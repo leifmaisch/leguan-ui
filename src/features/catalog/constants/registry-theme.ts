@@ -147,3 +147,19 @@ export const LEGUAN_FOUNDATION_CSS = {
     },
   },
 }
+
+export const LEGUAN_FONTS_CSS_VARS = {
+  theme: {
+    "font-sans": "var(--font-inter), Inter, sans-serif",
+    "font-mono": "var(--font-geist-mono)",
+    "font-heading": "var(--font-open-runde), sans-serif",
+  },
+}
+
+export const LEGUAN_FONTS_CSS = {
+  "@layer base": {
+    html: {
+      "font-family": "var(--font-sans)",
+    },
+  },
+}

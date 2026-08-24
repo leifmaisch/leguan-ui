@@ -10,12 +10,18 @@ import {
   getRegistryUrlTemplate,
   LEGUAN_REGISTRY_NAMESPACE,
 } from "@/features/catalog/constants/registry"
+import {
+  getOpenRundeFontDownloadCommands,
+  LEGUAN_FONTS_LAYOUT_EXAMPLE,
+} from "@/features/catalog/constants/registry-fonts"
 import { CatalogDocSection } from "@/features/catalog/components/layout/catalog-doc-section"
 import { CatalogPageContent } from "@/features/catalog/components/layout/catalog-page-content"
 import { CatalogSubheading } from "@/features/catalog/components/layout/catalog-subheading"
 
 const registryAddCommand = getRegistryAddCommand()
 const foundationInstallCommand = getDirectInstallCommand("foundation")
+const fontsInstallCommand = getDirectInstallCommand("fonts")
+const openRundeFontDownloadCommands = getOpenRundeFontDownloadCommands()
 const buttonInstallCommand = getDirectInstallCommand("buttons")
 const buttonRegistryInstallCommand = getRegistryInstallCommand("buttons")
 const registryTemplate = getRegistryUrlTemplate()
@@ -75,6 +81,31 @@ export function GetStartedPage() {
               code={foundationInstallCommand}
               language="bash"
               filename="Terminal"
+            />
+          </div>
+
+          <div className="space-y-3">
+            <CatalogSubheading>3. Install fonts</CatalogSubheading>
+            <p className="text-description">
+              Leguan UI uses Inter for body text, Open Runde for headings, and
+              Geist Mono for code and charts. Install the fonts registry item,
+              download Open Runde, then apply the font variables on your root
+              layout.
+            </p>
+            <CodeSnippet
+              code={fontsInstallCommand}
+              language="bash"
+              filename="Terminal"
+            />
+            <CodeSnippet
+              code={openRundeFontDownloadCommands}
+              language="bash"
+              filename="Download Open Runde"
+            />
+            <CodeSnippet
+              code={LEGUAN_FONTS_LAYOUT_EXAMPLE}
+              language="tsx"
+              filename="app/layout.tsx"
             />
           </div>
         </div>

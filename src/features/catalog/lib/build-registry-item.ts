@@ -9,7 +9,10 @@ import {
 import {
   LEGUAN_FOUNDATION_CSS,
   LEGUAN_FOUNDATION_CSS_VARS,
+  LEGUAN_FONTS_CSS,
+  LEGUAN_FONTS_CSS_VARS,
 } from "@/features/catalog/constants/registry-theme"
+import { LEGUAN_FONTS_DOCS } from "@/features/catalog/constants/registry-fonts"
 import {
   getRegistryFileType,
   resolveItemDevDependencies,
@@ -45,7 +48,7 @@ export function buildRegistryItem(component: CatalogComponentMeta) {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     name: component.slug,
     type:
-      component.slug === "foundation"
+      component.slug === "foundation" || component.slug === "fonts"
         ? "registry:lib"
         : isCustomComponent(component)
           ? "registry:component"
@@ -88,6 +91,17 @@ export function buildRegistryItem(component: CatalogComponentMeta) {
     }
   }
 
+  if (component.slug === "fonts") {
+    item.cssVars = LEGUAN_FONTS_CSS_VARS
+    item.css = LEGUAN_FONTS_CSS
+    item.docs = LEGUAN_FONTS_DOCS
+    item.meta = {
+      links: {
+        docs: `${getRegistryPublishUrl()}/get-started`,
+      },
+    }
+  }
+
   return item
 }
 
@@ -99,7 +113,7 @@ export function buildRegistryIndex() {
     items: catalogComponents.map((component) => ({
       name: component.slug,
       type:
-        component.slug === "foundation"
+        component.slug === "foundation" || component.slug === "fonts"
           ? "registry:lib"
           : isCustomComponent(component)
             ? "registry:component"

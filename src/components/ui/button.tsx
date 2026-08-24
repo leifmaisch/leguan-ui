@@ -77,6 +77,8 @@ function Button({
   shape = "pill",
   size = "default",
   style,
+  render,
+  nativeButton,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
@@ -84,6 +86,8 @@ function Button({
       data-slot="button"
       style={shape === "squircle" ? { ...squircle, ...style } : style}
       className={cn(buttonVariants({ variant, shape, size, className }))}
+      render={render}
+      nativeButton={nativeButton ?? !render}
       {...props}
     />
   )

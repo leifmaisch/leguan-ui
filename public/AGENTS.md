@@ -548,6 +548,30 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - Install: `pnpm dlx shadcn@latest add @leguan/cta`
 - Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/cta.json`
 
+#### Branding
+
+- Slug: `branding`
+- Docs: `/components/branding`
+- Description: Trusted-by logo grids with official brand marks from Simple Icons.
+- Registry item: `https://leguan-ui.pages.dev/r/branding.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/branding.tsx`
+- Install: `pnpm dlx shadcn@latest add @leguan/branding`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/branding.json`
+
+#### Bento Grid
+
+- Slug: `bento-grid`
+- Docs: `/components/bento-grid`
+- Description: Clean bento layouts with span variants for landing page highlights.
+- Registry item: `https://leguan-ui.pages.dev/r/bento-grid.json`
+- Files:
+  - `src/components/ui/section.tsx`
+  - `src/components/ui/bento-grid.tsx`
+- Install: `pnpm dlx shadcn@latest add @leguan/bento-grid`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/bento-grid.json`
+
 #### Footer
 
 - Slug: `footer`
@@ -595,5 +619,7 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - `testimonials`
 - `pricing`
 - `cta`
+- `branding`
+- `bento-grid`
 - `footer`
 

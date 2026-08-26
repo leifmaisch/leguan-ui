@@ -13,6 +13,8 @@ const WEBSITE_SECTION_SLUGS = new Set([
   "testimonials",
   "pricing",
   "cta",
+  "branding",
+  "bento-grid",
   "footer",
 ])
 
@@ -21,7 +23,7 @@ type CatalogMainScrollProps = {
 }
 
 function getContentWidthClass(pathname: string) {
-  if (pathname === "/landing") {
+  if (pathname === "/landing" || pathname.startsWith("/landing/")) {
     return "max-w-none"
   }
 

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "branding",
+  "type": "registry:component",
+  "title": "Branding",
+  "description": "Trusted-by logo grids with official brand marks from Simple Icons.",
+  "files": [
+    {
+      "path": "src/components/ui/section.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nfunction Section({\n  className,\n  ...props\n}: React.ComponentProps<\"section\">) {\n  return (\n    <section\n      data-slot=\"section\"\n      className={cn(\n        \"mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-12 sm:px-6 md:py-20 lg:py-28\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionHeader({\n  className,\n  ...props\n}: React.ComponentProps<\"header\">) {\n  return (\n    <header\n      data-slot=\"section-header\"\n      className={cn(\n        \"mb-8 flex flex-col items-center gap-4 text-center md:mb-14\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionTitle({\n  className,\n  ...props\n}: React.ComponentProps<\"h2\">) {\n  return (\n    <h2\n      data-slot=\"section-title\"\n      className={cn(\n        \"max-w-2xl text-balance text-heading text-2xl sm:text-3xl md:text-4xl\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"section-description\"\n      className={cn(\"max-w-lg text-balance text-description\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Section, SectionDescription, SectionHeader, SectionTitle }\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "src/components/ui/branding.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { squircle } from \"@/lib/squircle\"\nimport { cn } from \"@/lib/utils\"\nimport {\n  Section,\n  SectionDescription,\n  SectionHeader,\n  SectionTitle,\n} from \"@/components/ui/section\"\n\ntype BrandingProps = Omit<React.ComponentProps<typeof Section>, \"children\"> & {\n  title?: string\n  description?: string\n  children: React.ReactNode\n}\n\nfunction Branding({\n  title,\n  description,\n  className,\n  children,\n  ...props\n}: BrandingProps) {\n  return (\n    <Section data-slot=\"branding\" className={cn(\"py-10 md:py-14\", className)} {...props}>\n      {title ? (\n        <SectionHeader className=\"mb-6 md:mb-8\">\n          <SectionTitle className=\"text-xl sm:text-2xl md:text-3xl\">\n            {title}\n          </SectionTitle>\n          {description ? (\n            <SectionDescription>{description}</SectionDescription>\n          ) : null}\n        </SectionHeader>\n      ) : null}\n      {children}\n    </Section>\n  )\n}\n\nfunction BrandingGrid({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"branding-grid\"\n      className={cn(\n        \"grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\ntype BrandingLogoProps = React.ComponentProps<\"div\"> & {\n  name: string\n  href?: string\n}\n\nfunction BrandingLogo({\n  name,\n  href,\n  className,\n  children,\n  ...props\n}: BrandingLogoProps) {\n  const content = (\n  <div\n    data-slot=\"branding-logo\"\n    style={squircle}\n    className={cn(\n      \"flex h-14 items-center justify-center rounded-squircle-md border border-border/60 bg-muted/30 px-4 text-muted-foreground transition-colors\",\n      href && \"hover:bg-muted/50 hover:text-foreground\",\n      className\n    )}\n    {...props}\n  >\n    <span className=\"sr-only\">{name}</span>\n    {children}\n  </div>\n  )\n\n  if (href) {\n    return (\n      <Link href={href} className=\"block\">\n        {content}\n      </Link>\n    )\n  }\n\n  return content\n}\n\nfunction BrandingRow({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"branding-row\"\n      className={cn(\n        \"flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:gap-x-10\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction BrandingRowItem({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"branding-row-item\"\n      className={cn(\"text-muted-foreground transition-colors hover:text-foreground\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Branding, BrandingGrid, BrandingLogo, BrandingRow, BrandingRowItem }\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://leguan-ui.pages.dev/components/branding"
+    }
+  },
+  "registryDependencies": [
+    "https://leguan-ui.pages.dev/r/bento-grid.json",
+    "https://leguan-ui.pages.dev/r/foundation.json"
+  ]
+}

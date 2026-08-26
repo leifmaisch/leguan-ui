@@ -349,6 +349,32 @@ export const catalogComponents: CatalogComponentMeta[] = [
     previewFramed: false,
   },
   {
+    slug: "branding",
+    label: "Branding",
+    description:
+      "Trusted-by logo grids with official brand marks from Simple Icons.",
+    group: "Website sections",
+    kind: "custom",
+    files: [
+      "src/components/ui/section.tsx",
+      "src/components/ui/branding.tsx",
+    ],
+    previewFramed: false,
+  },
+  {
+    slug: "bento-grid",
+    label: "Bento Grid",
+    description:
+      "Clean bento layouts with span variants for landing page highlights.",
+    group: "Website sections",
+    kind: "custom",
+    files: [
+      "src/components/ui/section.tsx",
+      "src/components/ui/bento-grid.tsx",
+    ],
+    previewFramed: false,
+  },
+  {
     slug: "footer",
     label: "Footer",
     description:

@@ -4,6 +4,8 @@ import type { CatalogComponentSlug } from "@/features/catalog/constants/componen
 import { AlertsPreview } from "./alerts-preview"
 import { AvatarsPreview } from "./avatars-preview"
 import { BadgesPreview } from "./badges-preview"
+import { BentoGridPreview } from "./bento-grid-preview"
+import { BrandingPreview } from "./branding-preview"
 import { ButtonsPreview } from "./buttons-preview"
 import { CardsPreview } from "./cards-preview"
 import { CodePreview } from "./code-preview"
@@ -71,6 +73,8 @@ export const componentPreviewRegistry: Record<
   testimonials: TestimonialsPreview,
   pricing: PricingPreview,
   cta: CtaPreview,
+  branding: BrandingPreview,
+  "bento-grid": BentoGridPreview,
   footer: FooterPreview,
 }
 

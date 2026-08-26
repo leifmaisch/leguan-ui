@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { getCatalogComponent } from "@/features/catalog/constants/components"
+import { getLandingPage } from "@/features/catalog/constants/landings"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -18,7 +19,7 @@ export function CatalogBreadcrumbs() {
   const isComponentsIndex = pathname === "/components"
   const isAgentsPage = pathname === "/agents"
   const isInspirationPage = pathname === "/inspiration"
-  const isLandingPage = pathname === "/landing"
+  const landingPage = getLandingPage(pathname)
   const isGetStartedPage = pathname === "/get-started"
   const slug = pathname.startsWith("/components/")
     ? pathname.replace("/components/", "")
@@ -69,12 +70,12 @@ export function CatalogBreadcrumbs() {
             </BreadcrumbItem>
           </>
         ) : null}
-        {isLandingPage ? (
+        {landingPage ? (
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbPage className="text-body truncate font-medium">
-                Landing
+                {landingPage.label}
               </BreadcrumbPage>
             </BreadcrumbItem>
           </>

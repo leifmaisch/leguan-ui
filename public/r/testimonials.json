@@ -23,7 +23,7 @@
   },
   "registryDependencies": [
     "https://leguan-ui.pages.dev/r/avatars.json",
-    "https://leguan-ui.pages.dev/r/cta.json",
+    "https://leguan-ui.pages.dev/r/bento-grid.json",
     "https://leguan-ui.pages.dev/r/foundation.json"
   ]
 }

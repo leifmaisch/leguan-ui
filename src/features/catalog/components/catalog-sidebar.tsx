@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation"
 import {
   FileTextIcon,
   InfoIcon,
-  LayoutIcon,
   RocketLaunchIcon,
 } from "@phosphor-icons/react"
 
 import { getCatalogNavGroups } from "@/features/catalog/constants/components"
+import { landingPages } from "@/features/catalog/constants/landings"
 import { getCatalogNavIcon } from "@/features/catalog/constants/nav-icons"
 import { iconWeight } from "@/components/shared"
 import { cn } from "@/lib/utils"
@@ -37,11 +37,6 @@ const topNavItems = [
     href: "/get-started",
     label: "Get Started",
     icon: RocketLaunchIcon,
-  },
-  {
-    href: "/landing",
-    label: "Landing",
-    icon: LayoutIcon,
   },
   {
     href: "/inspiration",
@@ -84,6 +79,35 @@ function CatalogSidebarNav() {
                   >
                     <Icon weight={iconWeight} />
                     <span>{item.label}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )
+            })}
+          </SidebarMenu>
+        </SidebarGroupContent>
+      </SidebarGroup>
+
+      <SidebarGroup>
+        <SidebarGroupLabel className="text-label">Landings</SidebarGroupLabel>
+        <SidebarGroupContent>
+          <SidebarMenu>
+            {landingPages.map((page) => {
+              const isActive = pathname === page.href
+
+              return (
+                <SidebarMenuItem key={page.href}>
+                  <SidebarMenuButton
+                    isActive={isActive}
+                    tooltip={`${page.label} · ${page.inspiration}`}
+                    render={
+                      <Link href={page.href} onClick={handleNavigate} />
+                    }
+                    className={cn(
+                      "font-medium",
+                      isActive && "font-semibold"
+                    )}
+                  >
+                    <span>{page.label}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               )

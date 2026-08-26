@@ -1,11 +1,11 @@
-import { LandingPage } from "@/features/catalog/components/landing-page"
+import { LandingClassicPage } from "@/features/catalog/components/landing/landing-classic-page"
 
 export const metadata = {
-  title: "Landing | Leguan UI",
+  title: "Shelter | Leguan UI",
   description:
-    "A full landing page composed from Leguan website sections.",
+    "Component registry landing page for the Leguan UI catalog.",
 }
 
 export default function LandingRoute() {
-  return <LandingPage />
+  return <LandingClassicPage />
 }

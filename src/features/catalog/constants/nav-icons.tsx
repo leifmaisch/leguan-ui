@@ -8,6 +8,7 @@ import {
   ChartLineUpIcon,
   ChartPieIcon,
   ChartPolarIcon,
+  CertificateIcon,
   ChatsCircleIcon,
   CircleIcon,
   CloudIcon,
@@ -23,10 +24,10 @@ import {
   MinusIcon,
   RocketLaunchIcon,
   RowsIcon,
-  SquaresFourIcon,
   SealIcon,
   SparkleIcon,
   SpinnerGapIcon,
+  SquaresFourIcon,
   TagIcon,
   TabsIcon,
   TextboxIcon,
@@ -70,6 +71,8 @@ export const catalogNavIcons: Record<CatalogComponentSlug, Icon> = {
   testimonials: ChatsCircleIcon,
   pricing: TagIcon,
   cta: MegaphoneIcon,
+  branding: CertificateIcon,
+  "bento-grid": SquaresFourIcon,
   footer: RowsIcon,
 }
 

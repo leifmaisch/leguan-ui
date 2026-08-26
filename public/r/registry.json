@@ -208,6 +208,18 @@
       "description": "Centered call-to-action blocks with eyebrow, copy, and actions."
     },
     {
+      "name": "branding",
+      "type": "registry:component",
+      "title": "Branding",
+      "description": "Trusted-by logo grids with official brand marks from Simple Icons."
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:component",
+      "title": "Bento Grid",
+      "description": "Clean bento layouts with span variants for landing page highlights."
+    },
+    {
       "name": "footer",
       "type": "registry:component",
       "title": "Footer",

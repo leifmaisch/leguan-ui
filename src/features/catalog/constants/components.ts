@@ -197,16 +197,21 @@ export const catalogComponents: CatalogComponentMeta[] = [
     files: ["src/components/ui/separator.tsx"],
   },
   {
+    slug: "scroll-area",
+    label: "Scroll Area",
+    description: "Augments native scroll with custom-styled scrollbars.",
+    group: "Display",
+    shadcnName: "scroll-area",
+    files: ["src/components/ui/scroll-area.tsx"],
+  },
+  {
     slug: "code",
     label: "Code",
     description: "Syntax-highlighted blocks with copy, scroll, and file headers.",
     group: "Display",
     kind: "custom",
-    files: [
-      "src/components/ui/code.tsx",
-      "src/components/ui/scroll-area.tsx",
-    ],
-    dependencies: ["button"],
+    files: ["src/components/ui/code.tsx"],
+    dependencies: ["button", "scroll-area"],
   },
   {
     slug: "dialog",

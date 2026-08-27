@@ -23,6 +23,7 @@ import { NavbarPreview } from "./navbar-preview"
 import { PopoverPreview } from "./popover-preview"
 import { PricingPreview } from "./pricing-preview"
 import { ProgressPreview } from "./progress-preview"
+import { ScrollAreaPreview } from "./scroll-area-preview"
 import { SeparatorPreview } from "./separator-preview"
 import { SkeletonPreview } from "./skeleton-preview"
 import { StatCardPreview } from "./stat-card-preview"
@@ -52,6 +53,7 @@ export const componentPreviewRegistry: Record<
   tabs: TabsPreview,
   avatars: AvatarsPreview,
   skeleton: SkeletonPreview,
+  "scroll-area": ScrollAreaPreview,
   separator: SeparatorPreview,
   dialog: DialogPreview,
   popover: PopoverPreview,

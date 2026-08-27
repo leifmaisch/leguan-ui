@@ -197,6 +197,17 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - Install: `pnpm dlx shadcn@latest add @leguan/separator`
 - Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/separator.json`
 
+#### Scroll Area
+
+- Slug: `scroll-area`
+- Docs: `/components/scroll-area`
+- Description: Augments native scroll with custom-styled scrollbars.
+- Registry item: `https://leguan-ui.pages.dev/r/scroll-area.json`
+- Files:
+  - `src/components/ui/scroll-area.tsx`
+- Install: `pnpm dlx shadcn@latest add @leguan/scroll-area`
+- Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/scroll-area.json`
+
 #### Code
 
 - Slug: `code`
@@ -205,8 +216,7 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - Registry item: `https://leguan-ui.pages.dev/r/code.json`
 - Files:
   - `src/components/ui/code.tsx`
-  - `src/components/ui/scroll-area.tsx`
-- Bundled dependencies: `button`
+- Bundled dependencies: `button`, `scroll-area`
 - Install: `pnpm dlx shadcn@latest add @leguan/code`
 - Direct URL install: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/code.json`
 
@@ -601,6 +611,7 @@ For other components, prefer direct URL installs. The `@leguan/*` shorthand can 
 - `avatars`
 - `skeleton`
 - `separator`
+- `scroll-area`
 - `code`
 - `dialog`
 - `popover`

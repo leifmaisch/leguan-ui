@@ -100,6 +100,12 @@
       "description": "Visual dividers between sections."
     },
     {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Augments native scroll with custom-styled scrollbars."
+    },
+    {
       "name": "code",
       "type": "registry:component",
       "title": "Code",

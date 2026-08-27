@@ -3,6 +3,7 @@
 import type { Icon } from "@phosphor-icons/react"
 import {
   AppWindowIcon,
+  ArrowsDownUpIcon,
   ChartBarIcon,
   ChartLineIcon,
   ChartLineUpIcon,
@@ -50,6 +51,7 @@ export const catalogNavIcons: Record<CatalogComponentSlug, Icon> = {
   avatars: UserIcon,
   skeleton: SpinnerGapIcon,
   separator: MinusIcon,
+  "scroll-area": ArrowsDownUpIcon,
   code: CodeIcon,
   dialog: AppWindowIcon,
   popover: CloudIcon,

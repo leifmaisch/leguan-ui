@@ -24,6 +24,71 @@ pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/foundation.json
 
 For other components, prefer direct URL installs. The `@leguan/*` shorthand can fail when resolving foundation dependencies unless the registry is configured:
 
+## Design guidelines
+
+Follow these rules when composing pages with Leguan UI. They keep layouts clean and consistent with the catalog.
+
+### Typography and copy
+
+- Keep text balanced. Do not put a description under every title, card heading, or list item.
+- Use one section lede or intro paragraph when the page needs context; let individual tiles and rows stay title-only when the UI is self-explanatory.
+- Prefer Leguan typography utilities: `text-display`, `text-heading`, `text-title`, `text-body`, `text-label`, `text-caption`.
+
+### Badges and chips
+
+- Use badges sparingly. One status or category label per row, card, or hero is usually enough.
+- Do not stack multiple pills on every feature tile, pricing card, or nav item.
+- Prefer plain text, `text-label`, or `text-caption` for secondary metadata.
+
+### Icons
+
+- Use Phosphor Icons from `@phosphor-icons/react` (Leguan's shadcn config uses `iconLibrary: "phosphor"`).
+- Always set `weight="bold"`. Prefer the shared constant: `import { iconWeight } from "@/components/shared"` then `weight={iconWeight}`.
+- Use current icon names from [phosphoricons.com](https://phosphoricons.com) (e.g. `MagnifyingGlassIcon`, `XIcon`, `CheckIcon`). Do not use deprecated or legacy Phosphor names or import paths.
+
+### Scrolling and overflow
+
+- Prefer `ScrollArea` for sidebars, constrained panels, long lists, tables, and nested content instead of raw `overflow-hidden` or page-level `overflow-x-auto`.
+- Set an explicit height or max-height on the scroll container; avoid clipping focus rings or interactive children.
+- Install: `pnpm dlx shadcn@latest add @leguan/scroll-area`
+- Direct URL: `pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/scroll-area.json`
+
+### Fonts
+
+- Install the fonts registry item after foundation:
+
+```bash
+pnpm dlx shadcn@latest add https://leguan-ui.pages.dev/r/fonts.json
+```
+
+- Inter is the default body font (`font-sans`). Rubik is the heading font via `--font-heading` and `text-display` / `text-heading` / `text-title`. Geist Mono is for code and charts.
+- Apply `leguanFontVariables` on the root `<html>` element (include `lang`, `h-full`, and `antialiased`):
+
+```tsx
+import { leguanFontVariables } from "@/lib/fonts"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${leguanFontVariables} h-full antialiased`}>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+- Do not load Rubik or Inter from a CDN when using Leguan; use the registry `fonts` item and `next/font` as above.
+
+### Accessibility
+
+- Leguan overlay and form primitives (Radix / Base UI) already handle focus management, keyboard navigation, and many ARIA roles for dialogs, menus, tabs, selects, and tooltips.
+- Page-level accessibility is still your responsibility in the consuming project:
+  - Set `lang` on `<html>`.
+  - Use semantic landmarks (`header`, `nav`, `main`, `footer`) and a logical heading order (`h1` then `h2`, not skipped levels).
+  - Pair every input with a `<Label>` or accessible name; use `aria-label` on icon-only buttons.
+  - Provide meaningful `alt` text on images; use `aria-hidden` only for decorative icons.
+  - Preserve visible focus styles; do not remove `focus-visible` rings.
+- Mirror patterns from Leguan component docs and previews when building custom layouts.
+
 ## Components
 
 ### Actions

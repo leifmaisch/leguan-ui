@@ -1,3 +1,4 @@
+import { getAgentsDesignGuidelinesLines } from "@/features/catalog/constants/agents-guidelines"
 import {
   catalogComponents,
   getCatalogNavGroups,
@@ -19,7 +20,7 @@ export function getAgentsMarkdownUrl(origin = getSiteUrl()) {
 export function getAgentsIntroPrompt(origin = getSiteUrl()) {
   const url = getAgentsMarkdownUrl(origin)
 
-  return `Read ${url} and use it as the source of truth for Leguan UI components, registry setup, and install commands in this project.`
+  return `Read ${url} and use it as the source of truth for Leguan UI components, registry setup, design guidelines, and install commands in this project.`
 }
 
 export function generateLeguanAgentsMarkdown() {
@@ -52,6 +53,7 @@ export function generateLeguanAgentsMarkdown() {
     "",
     "For other components, prefer direct URL installs. The `@leguan/*` shorthand can fail when resolving foundation dependencies unless the registry is configured:",
     "",
+    ...getAgentsDesignGuidelinesLines(),
     "## Components",
     "",
   ]

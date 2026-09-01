@@ -106,6 +106,10 @@ function shapeDensity(
   }
 }
 
+function round6(value: number) {
+  return Math.round(value * 1_000_000) / 1_000_000
+}
+
 function densityToChar(density: number) {
   const index = Math.min(
     densityChars.length - 1,
@@ -124,10 +128,10 @@ export function buildAsciiCells(
     const y = row / Math.max(rows - 1, 1)
     return Array.from({ length: cols }, (_, col) => {
       const x = col / Math.max(cols - 1, 1)
-      const density = shapeDensity(shape, x, y, seed)
+      const density = round6(shapeDensity(shape, x, y, seed))
       return {
         char: densityToChar(density),
-        density,
+        opacity: round6(0.12 + density * 0.55),
       }
     })
   })

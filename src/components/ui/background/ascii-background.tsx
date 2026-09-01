@@ -1,3 +1,5 @@
+"use client"
+
 import { buildAsciiCells, type AsciiShape } from "@/components/ui/background/patterns"
 import { cn } from "@/lib/utils"
 
@@ -73,9 +75,9 @@ function AsciiBackground({
             <span
               key={`${rowIndex}-${colIndex}`}
               className="flex items-center justify-center text-foreground"
-              style={{ opacity: 0.12 + cell.density * 0.55 }}
+              style={{ opacity: cell.opacity }}
             >
-              {cell.char}
+              {cell.char === " " ? "\u00a0" : cell.char}
             </span>
           ))
         )}

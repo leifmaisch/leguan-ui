@@ -6,6 +6,8 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-canvas: var(--canvas);
+  --color-inset: var(--inset);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), Inter, sans-serif;
   --font-mono: var(--font-geist-mono);
@@ -94,7 +96,9 @@
   --leading-body: 1.5;
   --leading-relaxed: 1.625;
   --radius: 0.625rem;
+  --canvas: #f7f7f8;
   --background: #ffffff;
+  --inset: #ececee;
   --foreground: #262626;
   --card: #ffffff;
   --card-foreground: #262626;
@@ -131,7 +135,9 @@
 }
 
 .dark {
+  --canvas: #101011;
   --background: #0a0a0a;
+  --inset: #171719;
   --foreground: #f5f5f5;
   --card: #121212;
   --card-foreground: #f5f5f5;

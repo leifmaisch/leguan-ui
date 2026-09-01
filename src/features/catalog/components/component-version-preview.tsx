@@ -9,6 +9,12 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
+import {
+  AsciiBackground,
+  getAsciiBackground,
+  getAsciiBackgroundForPattern,
+} from "@/components/ui/background"
+import { asciiPatterns } from "@/components/ui/background/patterns"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -107,6 +113,33 @@ export function VersionPreview({ slug, versionId }: VersionPreviewProps) {
     )
   }
 
+  if (slug === "ascii-background") {
+    if (versionId === "custom-seed") {
+      return (
+        <AsciiBackground
+          config={getAsciiBackground("custom-cover", {
+            pattern: "field",
+            seed: 48291,
+          })}
+          variant="compact"
+          className="aspect-[2.2/1] w-full rounded-lg"
+        />
+      )
+    }
+
+    const pattern = asciiPatterns.find((value) => value === versionId)
+
+    if (pattern) {
+      return (
+        <AsciiBackground
+          config={getAsciiBackgroundForPattern(pattern)}
+          variant="compact"
+          className="aspect-[2.2/1] w-full rounded-lg"
+        />
+      )
+    }
+  }
+
   if (slug === "tabs" && versionId === "default") {
     return (
       <Tabs defaultValue="overview" className="w-full max-w-xs">
@@ -129,7 +162,8 @@ export function VersionPreview({ slug, versionId }: VersionPreviewProps) {
 
 export function versionPreviewClassName(slug: string) {
   return cn(
-    slug === "tabs" ||
+    slug === "ascii-background" ||
+      slug === "tabs" ||
       slug === "separator" ||
       slug === "skeleton" ||
       isChartSlug(slug)
@@ -140,6 +174,7 @@ export function versionPreviewClassName(slug: string) {
 
 export function hasVersionPreview(slug: string) {
   return (
+    slug === "ascii-background" ||
     slug === "buttons" ||
     slug === "avatars" ||
     slug === "tabs" ||

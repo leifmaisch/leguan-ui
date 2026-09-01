@@ -3,6 +3,7 @@ import type { ComponentType } from "react"
 import type { CatalogComponentSlug } from "@/features/catalog/constants/components"
 import { AlertsPreview } from "./alerts-preview"
 import { AvatarsPreview } from "./avatars-preview"
+import { BackgroundPreview } from "./background-preview"
 import { BadgesPreview } from "./badges-preview"
 import { BentoGridPreview } from "./bento-grid-preview"
 import { BrandingPreview } from "./branding-preview"
@@ -43,6 +44,7 @@ export const componentPreviewRegistry: Record<
   ComponentType
 > = {
   buttons: ButtonsPreview,
+  "ascii-background": BackgroundPreview,
   badges: BadgesPreview,
   "dropdown-menu": DropdownMenuPreview,
   inputs: InputsPreview,

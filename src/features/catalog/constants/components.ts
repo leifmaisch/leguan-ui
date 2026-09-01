@@ -140,6 +140,20 @@ export const catalogComponents: CatalogComponentMeta[] = [
     previewFramed: false,
   },
   {
+    slug: "ascii-background",
+    label: "Ascii Background",
+    description:
+      "Procedural ASCII art backgrounds with eight math-driven patterns.",
+    group: "Display",
+    kind: "custom",
+    files: [
+      "src/components/ui/background/index.ts",
+      "src/components/ui/background/ascii-background.tsx",
+      "src/components/ui/background/patterns.ts",
+    ],
+    previewFramed: false,
+  },
+  {
     slug: "stat-card",
     label: "Stat Card",
     description: "Display dashboard metrics with nested panels and deltas.",

@@ -1,4 +1,5 @@
 import type { CatalogComponentMeta } from "@/features/catalog/constants/components"
+import { backgroundVersions } from "@/features/catalog/constants/background-versions"
 import { chartVersionsBySlug } from "@/features/catalog/charts/versions"
 
 export type ComponentVersionStatus = "available" | "coming-soon"
@@ -161,6 +162,10 @@ const versionDetailsBySlug: Record<
 }
 
 export function getComponentVersions(component: CatalogComponentMeta): ComponentVersion[] {
+  if (component.slug === "ascii-background") {
+    return backgroundVersions
+  }
+
   const chartVersions = chartVersionsBySlug[component.slug]
   if (chartVersions) {
     return chartVersions

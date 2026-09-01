@@ -8,5 +8,6 @@ export {
   buildAsciiCells,
   demoSeedByShape,
   hashAsciiSeed,
+  type AsciiCell,
   type AsciiShape,
 } from "@/components/ui/background/patterns"

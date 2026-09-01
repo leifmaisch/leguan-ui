@@ -1,5 +1,8 @@
 "use client"
 
+import { useLayoutEffect, useMemo, useRef } from "react"
+
+import { paintAsciiPattern } from "@/components/ui/background/draw-ascii-pattern"
 import { buildAsciiCells, type AsciiShape } from "@/components/ui/background/patterns"
 import { cn } from "@/lib/utils"
 
@@ -17,13 +20,11 @@ const variantConfig = {
   hero: {
     cols: 56,
     rows: 16,
-    fontSize: "clamp(6px, 1.1vw, 9px)",
     padding: "p-3 md:p-4",
   },
   compact: {
     cols: 40,
     rows: 12,
-    fontSize: "clamp(5px, 0.9vw, 8px)",
     padding: "p-2 md:p-3",
   },
 } as const
@@ -36,7 +37,46 @@ function AsciiBackground({
   overlay,
 }: AsciiBackgroundProps) {
   const settings = variantConfig[variant]
-  const cells = buildAsciiCells(shape, seed, settings.cols, settings.rows)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const gridRef = useRef<HTMLDivElement>(null)
+
+  const cells = useMemo(
+    () => buildAsciiCells(shape, seed, settings.cols, settings.rows),
+    [shape, seed, settings.cols, settings.rows]
+  )
+
+  useLayoutEffect(() => {
+    const container = gridRef.current
+    const canvas = canvasRef.current
+    if (!container || !canvas) return
+
+    let frame = 0
+
+    const paint = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const style = getComputedStyle(container)
+        paintAsciiPattern(canvas, cells, style.color, style.fontFamily)
+      })
+    }
+
+    paint()
+
+    const resizeObserver = new ResizeObserver(paint)
+    resizeObserver.observe(container)
+
+    const themeObserver = new MutationObserver(paint)
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "data-primary"],
+    })
+
+    return () => {
+      cancelAnimationFrame(frame)
+      resizeObserver.disconnect()
+      themeObserver.disconnect()
+    }
+  }, [cells])
 
   return (
     <div
@@ -59,28 +99,14 @@ function AsciiBackground({
       />
 
       <div
+        ref={gridRef}
         className={cn(
-          "absolute inset-0 grid select-none place-content-center font-mono leading-none",
+          "absolute inset-0 select-none font-mono leading-none",
           settings.padding
         )}
-        style={{
-          gridTemplateColumns: `repeat(${settings.cols}, minmax(0, 1fr))`,
-          gridTemplateRows: `repeat(${settings.rows}, minmax(0, 1fr))`,
-          fontSize: settings.fontSize,
-        }}
         aria-hidden
       >
-        {cells.flatMap((row, rowIndex) =>
-          row.map((cell, colIndex) => (
-            <span
-              key={`${rowIndex}-${colIndex}`}
-              className="flex items-center justify-center text-foreground"
-              style={{ opacity: cell.opacity }}
-            >
-              {cell.char === " " ? "\u00a0" : cell.char}
-            </span>
-          ))
-        )}
+        <canvas ref={canvasRef} className="block size-full" />
       </div>
 
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--canvas)_20%,transparent),transparent_35%,color-mix(in_oklch,var(--canvas)_30%,transparent))]" />

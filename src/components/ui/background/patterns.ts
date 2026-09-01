@@ -11,6 +11,11 @@ export const asciiShapes = [
 
 export type AsciiShape = (typeof asciiShapes)[number]
 
+export type AsciiCell = {
+  char: string
+  opacity: number
+}
+
 const demoSlugByShape: Record<AsciiShape, string> = {
   radial: "introducing-apiform",
   wave: "the-contact-form-backend-problem",
@@ -123,7 +128,7 @@ export function buildAsciiCells(
   seed: number,
   cols: number,
   rows: number
-) {
+): AsciiCell[][] {
   return Array.from({ length: rows }, (_, row) => {
     const y = row / Math.max(rows - 1, 1)
     return Array.from({ length: cols }, (_, col) => {

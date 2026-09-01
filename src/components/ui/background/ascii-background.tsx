@@ -1,17 +1,13 @@
-import {
-  buildAsciiCells,
-  type AsciiBackgroundConfig,
-} from "@/components/ui/background/patterns"
+import { buildAsciiCells, type AsciiShape } from "@/components/ui/background/patterns"
 import { cn } from "@/lib/utils"
 
 type AsciiBackgroundVariant = "hero" | "compact"
 
 type AsciiBackgroundProps = {
-  config: AsciiBackgroundConfig
+  shape: AsciiShape
+  seed: number
   className?: string
   variant?: AsciiBackgroundVariant
-  /** Overrides `config.seed` when set. */
-  seed?: number
   overlay?: React.ReactNode
 }
 
@@ -31,31 +27,26 @@ const variantConfig = {
 } as const
 
 function AsciiBackground({
-  config,
+  shape,
+  seed,
   className,
   variant = "hero",
-  seed,
   overlay,
 }: AsciiBackgroundProps) {
   const settings = variantConfig[variant]
-  const resolvedSeed = seed ?? config.seed
-  const cells = buildAsciiCells(
-    config.pattern,
-    resolvedSeed,
-    settings.cols,
-    settings.rows
-  )
+  const cells = buildAsciiCells(shape, seed, settings.cols, settings.rows)
 
   return (
     <div
       data-slot="ascii-background"
+      data-shape={shape}
       data-variant={variant}
       className={cn(
         "relative overflow-hidden border border-border bg-inset",
         className
       )}
       role={overlay ? undefined : "img"}
-      aria-label={overlay ? undefined : config.alt}
+      aria-label={`Abstract ${shape} ASCII pattern`}
     >
       <div
         className="absolute inset-0 opacity-[0.35]"

@@ -9,6 +9,8 @@ export type ComponentVersion = {
   label: string
   usage: string
   code: string
+  filename?: string
+  snippet?: boolean
   status: ComponentVersionStatus
 }
 

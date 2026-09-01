@@ -4,14 +4,9 @@ export {
   type AsciiBackgroundVariant,
 } from "@/components/ui/background/ascii-background"
 export {
-  asciiPatterns,
+  asciiShapes,
   buildAsciiCells,
-  createAsciiBackground,
-  demoSlugByPattern,
-  getAsciiBackground,
-  getAsciiBackgroundForPattern,
+  demoSeedByShape,
   hashAsciiSeed,
-  type AsciiBackgroundConfig,
-  type AsciiPattern,
-  type GetAsciiBackgroundOptions,
+  type AsciiShape,
 } from "@/components/ui/background/patterns"

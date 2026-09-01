@@ -11,10 +11,9 @@ import {
 } from "@/components/ui/avatar"
 import {
   AsciiBackground,
-  getAsciiBackground,
-  getAsciiBackgroundForPattern,
+  demoSeedByShape,
 } from "@/components/ui/background"
-import { asciiPatterns } from "@/components/ui/background/patterns"
+import { asciiShapes } from "@/components/ui/background/patterns"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -114,25 +113,13 @@ export function VersionPreview({ slug, versionId }: VersionPreviewProps) {
   }
 
   if (slug === "ascii-background") {
-    if (versionId === "custom-seed") {
+    const shape = asciiShapes.find((value) => value === versionId)
+
+    if (shape) {
       return (
         <AsciiBackground
-          config={getAsciiBackground("custom-cover", {
-            pattern: "field",
-            seed: 48291,
-          })}
-          variant="compact"
-          className="aspect-[2.2/1] w-full rounded-lg"
-        />
-      )
-    }
-
-    const pattern = asciiPatterns.find((value) => value === versionId)
-
-    if (pattern) {
-      return (
-        <AsciiBackground
-          config={getAsciiBackgroundForPattern(pattern)}
+          shape={shape}
+          seed={demoSeedByShape[shape]}
           variant="compact"
           className="aspect-[2.2/1] w-full rounded-lg"
         />

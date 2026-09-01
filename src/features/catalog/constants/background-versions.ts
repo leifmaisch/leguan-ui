@@ -1,8 +1,8 @@
 import type { ComponentVersionStatus } from "@/features/catalog/constants/component-versions"
 import {
-  asciiPatterns,
-  demoSlugByPattern,
-  type AsciiPattern,
+  asciiShapes,
+  demoSeedByShape,
+  type AsciiShape,
 } from "@/components/ui/background/patterns"
 
 type VersionDefinition = {
@@ -11,30 +11,33 @@ type VersionDefinition = {
   status: ComponentVersionStatus
   usage: string
   code: string
+  snippet: true
 }
 
-function createPatternVersion(pattern: AsciiPattern): VersionDefinition {
-  const label = pattern.charAt(0).toUpperCase() + pattern.slice(1)
-  const slug = demoSlugByPattern[pattern]
+function createShapeSnippet(shape: AsciiShape): string {
+  const seed = demoSeedByShape[shape]
+
+  return `<AsciiBackground
+  shape="${shape}"
+  seed={${seed}}
+  variant="compact"
+  className="aspect-[2.2/1] w-full rounded-squircle-md"
+/>`
+}
+
+function createShapeVersion(shape: AsciiShape): VersionDefinition {
+  const label = shape.charAt(0).toUpperCase() + shape.slice(1)
+  const code = createShapeSnippet(shape)
 
   return {
-    id: pattern,
+    id: shape,
     label,
     status: "available",
-    usage: `getAsciiBackground("${slug}")`,
-    code: `import { AsciiBackground, getAsciiBackground } from "@/components/ui/background"\n\nconst config = getAsciiBackground("${slug}")\n\n<AsciiBackground\n  config={config}\n  variant="compact"\n  className="aspect-[2.2/1] w-full"\n/>`,
+    usage: code,
+    code,
+    snippet: true,
   }
 }
 
-const customSeedVersion: VersionDefinition = {
-  id: "custom-seed",
-  label: "Custom seed",
-  status: "available",
-  usage: 'getAsciiBackground("slug", { pattern: "field", seed: 48291 })',
-  code: `import { AsciiBackground, createAsciiBackground, getAsciiBackground } from "@/components/ui/background"\n\n// Override seed while keeping slug-based pattern resolution\nconst fromSlug = getAsciiBackground("my-post", { pattern: "field", seed: 48291 })\n\n// Or build directly from pattern + seed\nconst direct = createAsciiBackground("flow", 12847)\n\n<AsciiBackground config={fromSlug} />\n<AsciiBackground config={direct} seed={999} />`,
-}
-
-export const backgroundVersions: VersionDefinition[] = [
-  ...asciiPatterns.map(createPatternVersion),
-  customSeedVersion,
-]
+export const backgroundVersions: VersionDefinition[] =
+  asciiShapes.map(createShapeVersion)

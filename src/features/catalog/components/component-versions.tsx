@@ -3,6 +3,7 @@
 import { CheckIcon, CopyIcon } from "@phosphor-icons/react"
 
 import { iconWeight } from "@/components/shared"
+import { CodeSnippet } from "@/components/shared/code-snippet"
 import { Button } from "@/components/ui/button"
 import type { CatalogComponentMeta } from "@/features/catalog/constants/components"
 import { getComponentVersions } from "@/features/catalog/constants/component-versions"
@@ -50,13 +51,20 @@ function CompactCode({ usage, code }: { usage: string; code: string }) {
 export function ComponentVersions({ component }: ComponentVersionsProps) {
   const versions = getComponentVersions(component)
   const hasPreview = hasVersionPreview(component.slug)
+  const hasTsxExamples = versions.some(
+    (version) => version.snippet || version.filename
+  )
 
   return (
     <CatalogDocSection title="Versions">
       <div
         className={cn(
           "grid min-w-0 gap-3",
-          versions.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : "w-full"
+          hasTsxExamples
+            ? "grid-cols-1 lg:grid-cols-2"
+            : versions.length > 1
+              ? "sm:grid-cols-2 lg:grid-cols-3"
+              : "w-full"
         )}
       >
         {versions.map((version) => (
@@ -80,7 +88,15 @@ export function ComponentVersions({ component }: ComponentVersionsProps) {
               <p className="text-sm font-medium text-foreground">
                 {version.label}
               </p>
-              <CompactCode usage={version.usage} code={version.code} />
+              {version.snippet || version.filename ? (
+                <CodeSnippet
+                  code={version.code}
+                  language="tsx"
+                  filename={version.filename}
+                />
+              ) : (
+                <CompactCode usage={version.usage} code={version.code} />
+              )}
             </div>
           </article>
         ))}
